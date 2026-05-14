@@ -5,10 +5,22 @@ import { MdArchitecture, MdArrowForward, MdForum, MdVerifiedUser } from "react-i
 import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import { SITE_URL, breadcrumbSchema } from "../lib/seo";
 
 export const metadata: Metadata = {
-  title: "About | AV REMODELING",
-  description: "Learn about the team, values, and process behind Av Remodeling.",
+  title: "AV Remodeling | About Atlanta Remodeling Experts",
+  description:
+    "Learn about AV Remodeling, our craftsmanship standards, and our remodeling process for Atlanta homeowners.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "AV Remodeling | About Atlanta Remodeling Experts",
+    description:
+      "Meet the AV Remodeling team and discover how we deliver premium remodeling results across Atlanta.",
+    url: `${SITE_URL}/about`,
+    type: "article",
+  },
 };
 
 const youtubeVideos = [
@@ -22,8 +34,20 @@ export default function AboutPage() {
     <div className="flex min-h-screen flex-col bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
       <SiteHeader active="about" />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "About", path: "/about" },
+            ]),
+          ),
+        }}
+      />
+
       <main className="pt-20">
-        <section className="relative flex h-[716px] items-center overflow-hidden bg-surface">
+        <section className="relative flex h-[716px] items-center overflow-hidden bg-surface" data-gsap-reveal>
           <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-8 px-8 lg:grid-cols-2">
             <div className="z-10">
               <span className="mb-6 block text-xs font-semibold uppercase inline-block mt-14  tracking-[0.2em] text-secondary font-label ">
@@ -36,7 +60,7 @@ export default function AboutPage() {
                 Redefining architectural potential through meticulous detail and an uncompromising commitment to the art of home transformation.
               </p>
             </div>
-            <div className="relative min-h-[400px] h-full">
+            <div className="relative min-h-[400px] h-full" data-gsap-parallax="10">
               <div className="absolute inset-0 translate-x-8 translate-y-8 rounded-xl bg-surface-container-high" />
               <Image
                 className="absolute inset-0 z-10 rounded-xl object-cover shadow-2xl"
@@ -49,7 +73,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-surface-container-low py-32">
+        <section className="bg-surface-container-low py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
             <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
               <div className="max-w-2xl">
@@ -63,8 +87,8 @@ export default function AboutPage() {
               <div className="select-none font-headline text-8xl font-black text-primary/5">VALUES</div>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="group rounded-xl bg-surface-container-lowest p-10 transition-all duration-500 hover:shadow-xl">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3" data-gsap-stagger>
+              <div className="group rounded-xl bg-surface-container-lowest p-10 transition-all duration-500 hover:shadow-xl" data-gsap-item>
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-primary-container/10">
                   <MdVerifiedUser className="text-primary" />
                 </div>
@@ -75,7 +99,7 @@ export default function AboutPage() {
                 <div className="h-1 w-0 bg-secondary transition-all duration-500 group-hover:w-full" />
               </div>
 
-              <div className="group rounded-xl bg-primary p-10 text-surface-container-lowest transition-all duration-500 hover:shadow-2xl">
+              <div className="group rounded-xl bg-primary p-10 text-surface-container-lowest transition-all duration-500 hover:shadow-2xl" data-gsap-item>
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-surface-container-lowest/10">
                   <MdArchitecture className="text-secondary-fixed-dim" />
                 </div>
@@ -86,7 +110,7 @@ export default function AboutPage() {
                 <div className="h-1 w-0 bg-secondary-fixed-dim transition-all duration-500 group-hover:w-full" />
               </div>
 
-              <div className="group rounded-xl bg-surface-container-lowest p-10 transition-all duration-500 hover:shadow-xl">
+              <div className="group rounded-xl bg-surface-container-lowest p-10 transition-all duration-500 hover:shadow-xl" data-gsap-item>
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-primary-container/10">
                   <MdForum className="text-primary" />
                 </div>
@@ -100,7 +124,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="overflow-hidden bg-surface py-32">
+        <section className="overflow-hidden bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto grid max-w-screen-2xl grid-cols-1 items-center gap-16 px-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <div className="relative">
@@ -149,11 +173,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-surface-container-high/30 py-32">
+        <section className="bg-surface-container-high/30 py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
             <h2 className="mb-24 text-center font-headline text-3xl font-bold text-tertiary">The Atelier Method</h2>
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
-              <div className="relative">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
+              <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">01</span>
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Discovery</h4>
@@ -162,7 +186,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">02</span>
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Curation</h4>
@@ -171,7 +195,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">03</span>
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Execution</h4>
@@ -180,7 +204,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">04</span>
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Handover</h4>
@@ -193,7 +217,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-surface py-32">
+        <section id="social-media" className="bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
             <div className="mb-14">
               <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
@@ -232,9 +256,9 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3" data-gsap-stagger>
               {youtubeVideos.map((video) => (
-                <div key={video.id} className="overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-low">
+                <div key={video.id} className="overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-low" data-gsap-item>
                   <div className="aspect-video w-full overflow-hidden rounded-t-xl bg-black">
                     <iframe
                       src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
@@ -269,6 +293,16 @@ export default function AboutPage() {
                 className="inline-block rounded-lg bg-red-600 px-8 py-4 font-headline text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:shadow-2xl"
               >
                 Visit YouTube Channel
+              </a>
+            </div>
+
+            <div className="mt-12 text-center">
+              <a
+                href="/gallery"
+                className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low"
+              >
+                Continue browsing
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

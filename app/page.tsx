@@ -1,9 +1,49 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MdBathtub, MdHomeWork, MdKitchen } from "react-icons/md";
 import { featuredImages } from "./data/portfolio-images";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
+import {
+  SITE_URL,
+  breadcrumbSchema,
+  faqSchema,
+  localBusinessSchema,
+  reviewsSchema,
+  servicesSchema,
+} from "./lib/seo";
+
+export const metadata: Metadata = {
+  title: "AV Remodeling | Atlanta Kitchen & Bathroom Remodeling",
+  description:
+    "AV Remodeling delivers kitchen remodeling, bathroom renovations, flooring, painting, drywall, concrete, drainage, and exterior home maintenance across Atlanta, GA.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "AV Remodeling | Atlanta Kitchen & Bathroom Remodeling",
+    description:
+      "Local Atlanta remodeling contractor for kitchens, bathrooms, flooring, painting, and exterior upgrades.",
+    url: SITE_URL,
+    type: "website",
+    images: [
+      {
+        url: "/images/portfolio/kitchens/01.jpg",
+        width: 1200,
+        height: 1600,
+        alt: "Kitchen remodeling project in Atlanta by AV Remodeling",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AV Remodeling | Atlanta Kitchen & Bathroom Remodeling",
+    description:
+      "Kitchen remodeling, bathroom remodeling, and full-home renovation services in Atlanta, Georgia.",
+    images: ["/images/portfolio/kitchens/01.jpg"],
+  },
+};
 
 const serviceCards = [
   {
@@ -62,21 +102,21 @@ const steps = [
 const testimonials = [
   {
     quote:
-      "Av Remodeling didn't just remodel our kitchen; they changed how our family interacts every single morning. The precision is unmatched.",
+      "The team transformed our kitchen into a brighter, more functional space and kept us updated every step of the way.",
     name: "Sarah & James L.",
-    location: "Greenwich Residence",
+    location: "Atlanta, GA",
   },
   {
     quote:
-      "Av Remodeling didn't just remodel our kitchen; they changed how our family interacts every single morning. The precision is unmatched.",
+      "Professional, punctual, and detail-oriented. Our bathroom remodel finished exactly how we imagined it.",
     name: "Marcus Thornton",
-    location: "Tribeca Loft",
+    location: "Sandy Springs, GA",
   },
   {
     quote:
-      "Av Remodeling didn't just remodel our kitchen; they changed how our family interacts every single morning. The precision is unmatched.",
+      "From the first estimate to the final walkthrough, the communication and workmanship were outstanding.",
     name: "Elena Rodriguez",
-    location: "Beverly Hills Estate",
+    location: "Marietta, GA",
   },
 ];
 
@@ -112,15 +152,45 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-surface text-on-surface">
       <SiteHeader active="home" />
 
-      <section className="relative flex h-screen w-full items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+            ]),
+          ),
+        }}
+      />
+
+      <main>
+
+      <section className="relative flex h-screen w-full items-center overflow-hidden" data-gsap-reveal>
+        <div className="absolute inset-0 z-0" data-gsap-parallax="12">
           <Image
-            alt="Luxury Kitchen"
-            src={featuredImages.homeHero}
+            alt="Luxury kitchen remodeling in Atlanta with custom cabinets and modern finishes"
+            src="/images/home/hero.jpg"
             fill
             priority
             className="object-cover"
             sizes="100vw"
+            quality={85}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
         </div>
@@ -152,7 +222,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-surface py-32">
+      <section className="bg-surface py-32" data-gsap-reveal>
         <div className="mx-auto max-w-screen-2xl px-8">
           <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
             <div className="max-w-2xl">
@@ -167,9 +237,9 @@ export default function Home() {
               We specialize in high-end residential remodeling that balances architectural integrity with contemporary functionality.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3" data-gsap-stagger>
             {serviceCards.map((card) => (
-              <div key={card.title} className="group">
+              <div key={card.title} className="group" data-gsap-item>
                 <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-xl bg-surface-container transition-colors duration-500 group-hover:bg-primary">
                   {card.icon === "kitchen" ? (
                     <MdKitchen className="text-3xl text-tertiary transition-colors duration-500 group-hover:text-white" />
@@ -191,50 +261,59 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-surface-container-low py-32">
+      <section className="bg-surface-container-low py-32" data-gsap-reveal>
         <div className="mx-auto max-w-screen-2xl px-8">
           <h2 className="mb-16 font-headline text-4xl font-bold text-tertiary">Selected Works</h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
-            <ProjectImage
-              src={featuredImages.homeFeatureA}
-              alt="Modern Living Room"
-              className="group luxury-shadow relative h-[600px] overflow-hidden rounded-xl md:col-span-8"
-              overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            >
-              <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Palo Alto Residence</span>
-              <h3 className="font-headline text-3xl font-bold text-white">The Glass Pavilion</h3>
-            </ProjectImage>
-            <div className="flex flex-col gap-8 md:col-span-4">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
+            <div className="md:col-span-8" data-gsap-item>
               <ProjectImage
-                src={featuredImages.homeFeatureB}
-                alt="Luxury Bathroom"
+                src="/images/portfolio/exteriors/03.jpg"
+                alt="Exterior remodeling project with refined siding and clean architectural lines"
+                className="group luxury-shadow relative h-[600px] overflow-hidden rounded-xl"
+                overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              >
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Exterior Refresh</span>
+                <h3 className="font-headline text-3xl font-bold text-white">Facade Renewal</h3>
+              </ProjectImage>
+            </div>
+            <div className="flex flex-col gap-8 md:col-span-4" data-gsap-item>
+              <ProjectImage
+                src="/images/portfolio/bedrooms/01.jpg"
+                alt="Primary bedroom renovation with calm materials and natural light"
                 className="group luxury-shadow relative min-h-[280px] overflow-hidden rounded-xl h-full"
                 overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <h3 className="font-headline text-xl font-bold text-white">Zen Master Suite</h3>
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Primary Suite</span>
+                <h3 className="font-headline text-xl font-bold text-white">Quiet Retreat</h3>
               </ProjectImage>
             </div>
-            <ProjectImage
-              src={featuredImages.homeFeatureC}
-              alt="Kitchen Detail"
-              className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl md:col-span-4"
-              overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            >
-              <h3 className="font-headline text-xl font-bold text-white">The Atelier Kitchen</h3>
-            </ProjectImage>
-            <ProjectImage
-              src={featuredImages.homeFooter}
-              alt="Full Renovation"
-              className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl md:col-span-8"
-              overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-            >
-              <h3 className="font-headline text-xl font-bold text-white">Bel Air Estate</h3>
-            </ProjectImage>
+            <div className="md:col-span-4" data-gsap-item>
+              <ProjectImage
+                src="/images/portfolio/kitchens/08.jpg"
+                alt="Kitchen remodeling detail with custom cabinetry and bright finishes"
+                className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
+                overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              >
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Kitchen Upgrade</span>
+                <h3 className="font-headline text-xl font-bold text-white">Chef&apos;s Kitchen</h3>
+              </ProjectImage>
+            </div>
+            <div className="md:col-span-8" data-gsap-item>
+              <ProjectImage
+                src="/images/portfolio/living-rooms/03.jpg"
+                alt="Living room remodel with open flow and warm finishes"
+                className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
+                overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              >
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Living Space</span>
+                <h3 className="font-headline text-xl font-bold text-white">Open Living Flow</h3>
+              </ProjectImage>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-surface py-32">
+      <section className="bg-surface py-32" data-gsap-reveal>
         <div className="mx-auto max-w-screen-2xl px-8">
           <div className="mb-24 text-center">
             <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
@@ -243,9 +322,9 @@ export default function Home() {
             <h2 className="font-headline text-4xl font-bold text-tertiary md:text-5xl">Our Refined Process</h2>
           </div>
           <div className="relative">
-            <div className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-4">
+            <div className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
               {steps.map((step) => (
-                <div key={step.number} className="flex flex-col">
+                <div key={step.number} className="flex flex-col" data-gsap-item>
                   <span className="mb-[-2rem] font-headline text-8xl font-extrabold leading-none text-primary/5">{step.number}</span>
                   <div className="pt-8">
                     <h4 className="mb-4 font-headline text-2xl font-bold">{step.title}</h4>
@@ -258,11 +337,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-surface-container py-32">
+      <section className="bg-surface-container py-32" data-gsap-reveal>
         <div className="mx-auto max-w-screen-2xl px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3" data-gsap-stagger>
             {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="flex h-full flex-col justify-between rounded-xl bg-surface-container-lowest p-12 luxury-shadow">
+              <div key={testimonial.name} className="flex h-full flex-col justify-between rounded-xl bg-surface-container-lowest p-12 luxury-shadow" data-gsap-item>
                 <p className="mb-8 text-xl italic leading-relaxed text-on-surface-variant font-body">&quot;{testimonial.quote}&quot;</p>
                 <div>
                   <p className="font-headline font-bold text-primary">{testimonial.name}</p>
@@ -274,10 +353,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-primary py-40">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative overflow-hidden bg-primary py-40" data-gsap-reveal>
+        <div className="absolute inset-0 opacity-20" data-gsap-parallax="10">
           <Image
-            alt="Luxury Home Detail"
+            alt="Architectural remodeling detail showing premium exterior finishes"
             src={featuredImages.homeFooter}
             fill
             className="object-cover grayscale"
@@ -301,6 +380,19 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+        <section className="bg-surface py-12">
+          <div className="mx-auto max-w-screen-2xl px-8 text-center">
+            <a
+              href="/gallery"
+              className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low"
+            >
+              Continue browsing
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+      </main>
 
       <SiteFooter />
     </div>

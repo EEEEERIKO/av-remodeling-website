@@ -1,19 +1,49 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MdLocationOn, MdSchedule, MdAlternateEmail, MdArrowForward } from "react-icons/md";
+import { MdLocationOn, MdSchedule, MdAlternateEmail } from "react-icons/md";
 import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import {
+    SITE_URL,
+    breadcrumbSchema,
+    localBusinessSchema,
+} from "../lib/seo";
 
 export const metadata: Metadata = {
-    title: "Contact | AV REMODELING",
-    description: "Get in touch with the AV Remodeling team to discuss your architectural vision.",
+    title: "AV Remodeling | Contact Atlanta Remodeling Experts",
+    description: "Contact AV Remodeling for kitchen, bathroom, flooring, painting, and exterior remodeling services in Atlanta, GA.",
+    alternates: {
+        canonical: "/contact",
+    },
+    openGraph: {
+        title: "AV Remodeling | Contact Atlanta Remodeling Experts",
+        description: "Get a remodeling quote in Atlanta. Speak directly with AV Remodeling experts.",
+        url: `${SITE_URL}/contact`,
+        type: "website",
+    },
 };
 
 export default function ContactPage() {
     return (
         <div className="flex min-h-screen flex-col bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
             <SiteHeader active="contact" />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        breadcrumbSchema([
+                            { name: "Home", path: "/" },
+                            { name: "Contact", path: "/contact" },
+                        ]),
+                    ),
+                }}
+            />
 
             <main className="pt-32 pb-24">
                 <div className="mx-auto max-w-screen-2xl px-8 lg:px-12">
@@ -67,7 +97,7 @@ export default function ContactPage() {
                                         <address className="not-italic leading-relaxed text-on-surface-variant">
                                             482 Architectural Way, Suite 100
                                             <br />
-                                            Metro Heights, NY 10012
+                                            Atlanta, GA 30301
                                         </address>
                                     </div>
                                 </div>
@@ -95,9 +125,9 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="mb-2 font-headline text-xl font-bold text-tertiary">Direct Contact</h3>
                                         <p className="leading-relaxed text-on-surface-variant">
-                                            hello@avremodeling.com
+                                            avremodeling37@gmail.com
                                             <br />
-                                            +1 (555) 012-3456
+                                            +1 (678) 886-4393
                                         </p>
                                     </div>
                                 </div>
@@ -122,6 +152,13 @@ export default function ContactPage() {
                                         Open in Maps
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="mt-10 text-center md:text-left">
+                                <a href="/gallery" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low">
+                                    Continue browsing
+                                    <span aria-hidden="true">→</span>
+                                </a>
                             </div>
                         </aside>
                     </div>

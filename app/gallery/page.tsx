@@ -1,60 +1,141 @@
-import type { Metadata } from "next";
+'use client';
+
 import Image from "next/image";
-import { MdArrowForward, MdUnfoldMore } from "react-icons/md";
+import { useState } from "react";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import { portfolioImages } from "../data/portfolio-images";
 
-export const metadata: Metadata = {
-  title: "Gallery | Av Remodeling",
-  description: "A curated gallery of Av Remodeling portfolio projects.",
+type FilterType = "all" | "bathrooms" | "bedrooms" | "exteriors" | "kitchens" | "living-rooms";
+
+interface ImageItem {
+  src: string;
+  category: FilterType;
+  isPortrait: boolean;
+}
+
+// Image dimensions metadata for aspect ratio detection
+const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/images/portfolio/bathrooms/01.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/02.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/03.jpg": { width: 960, height: 684 },
+  "/images/portfolio/bathrooms/04.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/05.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/06.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/07.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/08.jpg": { width: 720, height: 1600 },
+  "/images/portfolio/bathrooms/09.jpg": { width: 1080, height: 1440 },
+  "/images/portfolio/bathrooms/10.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/11.jpg": { width: 1203, height: 1600 },
+  "/images/portfolio/bathrooms/12.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/13.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/14.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/15.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/16.jpg": { width: 900, height: 1599 },
+  "/images/portfolio/bedrooms/01.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bedrooms/02.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/exteriors/01.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/02.jpg": { width: 1320, height: 1590 },
+  "/images/portfolio/exteriors/03.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/exteriors/04.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/05.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/06.jpg": { width: 720, height: 960 },
+  "/images/portfolio/exteriors/07.jpg": { width: 344, height: 256 },
+  "/images/portfolio/exteriors/08.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/09.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/10.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/11.jpg": { width: 1080, height: 1440 },
+  "/images/portfolio/exteriors/12.jpg": { width: 1080, height: 1440 },
+  "/images/portfolio/exteriors/13.jpg": { width: 1080, height: 1440 },
+  "/images/portfolio/exteriors/14.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/kitchens/01.jpg": { width: 1280, height: 1600 },
+  "/images/portfolio/kitchens/02.jpg": { width: 1280, height: 1600 },
+  "/images/portfolio/kitchens/03.jpg": { width: 1280, height: 1600 },
+  "/images/portfolio/kitchens/04.jpg": { width: 1600, height: 837 },
+  "/images/portfolio/kitchens/05.jpg": { width: 1600, height: 840 },
+  "/images/portfolio/kitchens/06.jpg": { width: 1280, height: 1600 },
+  "/images/portfolio/kitchens/07.jpg": { width: 1280, height: 1600 },
+  "/images/portfolio/kitchens/08.jpg": { width: 1280, height: 1600 },
+  "/images/portfolio/living-rooms/01.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/living-rooms/02.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/living-rooms/03.jpg": { width: 1080, height: 1350 },
 };
 
-const galleryItems = [
-  {
-    title: "Noir Sanctuary",
-    subtitle: "Master Suite Bath Renovation",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDhfX1sEdVJqlR5qXWHhM3l3-FPLq06P8ZWgzxWw9A9AaVcRu2HJgsRKe9_znusl7AXksutpdN2WUdjbluc05jvPcHDhtOnjahLhXpAAkuTqo-2di0h8DRUuVTzfP9XRNe5pIYdoTmePvT-285T4-qiQ4fT0WFVCWQbtmHgYkC7wwcctRWLDnPkKoiH3RUGnoJBp20jQz3TYLk1b7K1QWMzadfFuV_0a2i8qhgEieXA5ynnsqIn480srRkm6piHrctBVw5cmTXJtKk",
-    className: "md:col-span-4 md:row-span-2",
-    imageClassName: "grayscale brightness-50",
-  },
-  {
-    title: "Glass Pavillion",
-    subtitle: "Open Plan Living Concept",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuARAX08zpAPFIt7dHOT1mzm5gjjJXlT6k2sJ5_Jgr2KCx6OybEZTIaBwskIlPIooPgALZShRHzzvhkCu4nFwM5R1YJJSmsGSWSTEw-_MhVjF5_uyG29G6CYxQnni4g1gCNwEvhrJcBoWS2ukllAk20vNCJ1B2nzn6nfdSJVs_eElCE2iTkoUdifKQux8-7W7-aiDdfTrA_-oTxQRKuBSMczzGHoQrj_-TzRZW5qdXgQT1zrJ4ilm4JfyxNVS4a9jw6vAqd5LkH2BZU",
-    className: "md:col-span-8 md:row-span-1",
-    imageClassName: "",
-  },
-  {
-    title: "The Atelier Office",
-    subtitle: "Bespoke Millwork Portfolio",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAjmU-sK1MhuuyWjsYDhLqW51Pvl50ivnQb3pLUQld3j5glmxrseS-I5DGcIHXK4PAgg8Z6Ne0FRBjaPkf8gZS7ZB62vmIYA2aiSvlxRDe0cueLYwfnLwTJFW_Izp0tE2-Ci9mcOPL7lohKSGbUS-VqvV8C5KACoVHCk8gImv5WerMrpj3--_Sq9nccOZ3UEDCQJ3RxsjzRDMYkRBcBHsQFSEk0g90DPJVnLIVtedOtkuo_3lr3bwA-g7JdgpCajmD6_gZbw7p_e10",
-    className: "md:col-span-4 md:row-span-1",
-    imageClassName: "",
-  },
-  {
-    title: "Mist Suite",
-    subtitle: "Interior Styling & Renovation",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBMvcAzmhrAsKkVC7HxhhmEP0at4jzNBEs0LPbs5SuCy9QEX2Fg-N2uD0hxfnverdbwUYA1T3JFRmWmZpJfHRwPn4FApvuWf_xsGJdubXCybWM5qgBKHHIxoS7MMwU4_GkMforVFAYrwEHRiGMKKdppcNItho9zc37-wwE6bd1s4sJieB8X5qtJ0Qo1zj8-wwIZ8rOVB9sdh6VnB4Z_F8gCLifnXSKI4fzVhoHf4Dux6QMbgE0uaVo7wqt1qkaJH4hQ-KlzaXbIaKY",
-    className: "md:col-span-4 md:row-span-1",
-    imageClassName: "",
-  },
-  {
-    title: "Ascension Hall",
-    subtitle: "Structural Architecture",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBZSbwUOf7-fL4U9up9JeC4VkXvMQ7hQfSw-vn3rIBm_Y_39_0i2BE6ew-OOXBKUHA59ADGeHdQlH5ycIfz4MeJuwx4nI4vcUQ-nlq-djdpQvwH4kCtqrwx-REUC3cP6TV887ogNIwDprPdZpFzUrlpYsjEjQQAFzdh2GqyaqI6eLeRGFm9RZTcVGchKuEJ343jXx1YfY5E7eRMOMhiTlSLmCQ5hQaNsKFt7pGozOMKMOK-T2QFGfdE4H4tt7K5Y3MAsgsoSJxacw",
-    className: "md:col-span-4 md:row-span-2",
-    imageClassName: "",
-  },
-  {
-    title: "The Horizon Deck",
-    subtitle: "Outdoor Lifestyle Integration",
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAQPz0dUXnvdvRvdHxCGXKP2hmVU7tt2F4sHMlTd_k77EgdjiB5SRWLcEt7LXA6U7t0hVCFVTigp27FT5K7xJh-MgMeqmyUim-DP9kxfeys1hKJgS-ACEghYrrn2LYh0mAIdk6Aw1hcywHFn5E2FSebkCcydzJsJ0yG0LD43qAaNSroYyLGhMqu5ypbNh0hq2pQ3QBHIsEqW7TvSfgn0AxTMbSw-8sDjAB2AbKBXo3ie1gChrv1yy3k1D-4-UWUa6ns9C2hGEnEUw",
-    className: "md:col-span-8 md:row-span-1",
-    imageClassName: "",
-  },
+const isPortraitImage = (src: string): boolean => {
+  const dims = imageDimensions[src];
+  return dims ? dims.height > dims.width : true; // Default to portrait if unknown
+};
+
+// Deterministic shuffle function for reproducible randomization
+const seededRandom = (seed: number): number => {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+};
+
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(seededRandom(i + 42) * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const allImagesUnshuffled: ImageItem[] = [
+  ...portfolioImages.bathrooms.map((src) => ({ src, category: "bathrooms" as FilterType, isPortrait: isPortraitImage(src) })),
+  ...portfolioImages.bedrooms.map((src) => ({ src, category: "bedrooms" as FilterType, isPortrait: isPortraitImage(src) })),
+  ...portfolioImages.exteriors.map((src) => ({ src, category: "exteriors" as FilterType, isPortrait: isPortraitImage(src) })),
+  ...portfolioImages.kitchens.map((src) => ({ src, category: "kitchens" as FilterType, isPortrait: isPortraitImage(src) })),
+  ...portfolioImages.livingRooms.map((src) => ({ src, category: "living-rooms" as FilterType, isPortrait: isPortraitImage(src) })),
 ];
 
+const allImages = shuffleArray(allImagesUnshuffled);
+
+const filters = [
+  { id: "all", label: "All Projects" },
+  { id: "bathrooms", label: "Bathrooms" },
+  { id: "bedrooms", label: "Bedrooms" },
+  { id: "exteriors", label: "Exteriors" },
+  { id: "kitchens", label: "Kitchens" },
+  { id: "living-rooms", label: "Living Rooms" },
+];
+
+const buildBentoGrid = (images: ImageItem[]) => {
+  const gridLayout: Array<{ src: string; category: FilterType; colSpan: string; rowSpan: string; isPortrait: boolean }> = [];
+
+  images.forEach((item) => {
+    // Portrait images: 4col-2row, Landscape images: 8col-1row or 6col-1row
+    if (item.isPortrait) {
+      gridLayout.push({
+        src: item.src,
+        category: item.category,
+        colSpan: "md:col-span-4",
+        rowSpan: "md:row-span-2",
+        isPortrait: true,
+      });
+    } else {
+      gridLayout.push({
+        src: item.src,
+        category: item.category,
+        colSpan: "md:col-span-6",
+        rowSpan: "md:row-span-1",
+        isPortrait: false,
+      });
+    }
+  });
+
+  return gridLayout;
+};
+
 export default function GalleryPage() {
+  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+
+  const filteredImages = activeFilter === "all" 
+    ? allImages 
+    : allImages.filter((img) => img.category === activeFilter);
+
+  const gridItems = buildBentoGrid(filteredImages);
+
   return (
     <div className="flex min-h-screen flex-col bg-surface text-on-surface antialiased">
       <SiteHeader active="gallery" />
@@ -68,72 +149,51 @@ export default function GalleryPage() {
             Curated Spaces,<br />Mastered Craft.
           </h1>
           <p className="max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">
-            Explore our digital atelier of architectural transformations where minimalist design meets uncompromising structural precision.
+            Explore our original portfolio of architectural transformations where minimalist design meets uncompromising structural precision.
           </p>
         </header>
 
-        <section className="mx-auto mb-32 max-w-screen-2xl px-8">
-          <div className="group relative overflow-hidden rounded-xl bg-surface-container">
-            <div className="grid grid-cols-1 gap-1 bg-surface-container-high md:grid-cols-2">
-              <div className="relative h-[600px] overflow-hidden">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg6wU5W741vyS6JXv1ghBKB6GIAFIout80vfcI9tSVLUSwKrmBrSq1C5OoA9zuHzoe9h-E1X3947H3zghqhKKzwlOo-JOgk6pLLq5nrU-BYgIx3jFw98A-gzCaHb_1_osuZ2HCscWPZZ4yLp0UaZMlbhzGmM-Z5b_x7SYN-C-PiSysmv0MaDVxXtdoIhfAJSK1vK4XJAXZub-yHlsyfg5DckskMNBlozwQCnsjSF8TiQcnhCeAU-frHs0phTiJ3_8tl_BNsO7Rhn0"
-                  alt="Before kitchen"
-                  fill
-                  className="object-cover grayscale brightness-50"
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                />
-                <div className="absolute left-8 top-8 rounded-full bg-black/40 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md">
-                  Before
-                </div>
-              </div>
-              <div className="relative h-[600px] overflow-hidden">
-                <Image
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRAn2bpyQDB6OiQYRyr7lWFExlPWV2gWlIYkAAi7evdhvIEiemjxWfDFYN-rVbkwor2ergzvu1Ifjn-Jni4cn7V2pzjmq7sNnGc_Wd-0r7ZtgeOc0SR_zBopxwLCOaZV-zjPvMoxON0CWJDSXZICG-04l-m5GyHZKLXNaSERN1r3P_rFwcVRBPUh7qPtlDqePaB3wuB2y6c96FvQGAsmbA-K4moGJj-uScISTwbb4JiSA5bxO8SPq6TLhfl7EdNUDtmAN09vXqEQY"
-                  alt="After kitchen"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                />
-                <div className="absolute right-8 top-8 rounded-full bg-secondary/80 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md">
-                  After
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute inset-y-0 left-1/2 z-10 hidden w-0.5 -translate-x-1/2 bg-white shadow-xl md:block">
-              <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-2xl">
-                <MdUnfoldMore className="text-xl text-primary" />
-              </div>
-            </div>
-
-            <div className="absolute bottom-12 left-1/2 mx-4 w-full max-w-md -translate-x-1/2 rounded-xl bg-white/90 px-8 py-6 text-center shadow-2xl backdrop-blur md:mx-0">
-              <h3 className="mb-2 font-headline text-xl font-bold text-tertiary">The Penthouse Kitchen</h3>
-              <p className="font-body text-sm text-on-surface-variant">
-                A complete structural overhaul converting a segmented 1970s layout into a seamless architectural experience.
-              </p>
-            </div>
+        {/* Filter Buttons */}
+        <section className="mx-auto mb-16 max-w-screen-2xl px-8">
+          <div className="flex flex-wrap gap-3">
+            {filters.map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setActiveFilter(filter.id as FilterType)}
+                className={`rounded-full px-6 py-2 font-headline text-sm font-semibold uppercase tracking-wide transition-all ${
+                  activeFilter === filter.id
+                    ? "bg-primary text-surface-container-lowest shadow-lg"
+                    : "border border-outline-variant bg-transparent text-primary hover:bg-surface-container-low"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
           </div>
+          <p className="mt-6 font-body text-sm text-on-surface-variant">
+            Showing {filteredImages.length} project{filteredImages.length !== 1 ? "s" : ""}
+          </p>
         </section>
 
+        {/* Gallery Grid */}
         <section className="mx-auto mb-32 max-w-screen-2xl px-8">
-          <div className="grid auto-rows-[300px] grid-cols-1 gap-8 md:grid-cols-12">
-            {galleryItems.map((item) => (
-              <div key={item.title} className={`${item.className} group cursor-pointer`}>
-                <div className="relative h-full w-full overflow-hidden rounded-xl">
+          <div className="grid auto-rows-[400px] grid-cols-1 gap-8 md:grid-cols-12">
+            {gridItems.map((item, index) => (
+              <div
+                key={index}
+                className={`${item.colSpan} ${item.rowSpan} group cursor-pointer`}
+              >
+                <div className="relative h-full w-full overflow-hidden rounded-xl bg-surface-container-low">
                   <Image
                     src={item.src}
-                    alt={item.title}
+                    alt={`Portfolio project ${index + 1}`}
                     fill
-                    className={`object-cover transition-transform duration-700 group-hover:scale-110 ${item.imageClassName}`}
+                    className="object-contain transition-transform duration-700 group-hover:scale-105"
                     sizes="(min-width: 768px) 33vw, 100vw"
                   />
                   <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary/80 to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <h4 className={`${item.title === "The Atelier Office" || item.title === "Mist Suite" ? "text-xl" : "text-2xl"} font-headline font-bold text-white`}>
-                      {item.title}
-                    </h4>
-                    <p className="mt-2 font-body text-sm text-white/70">
-                      {item.subtitle}
+                    <p className="font-body text-sm text-white/70 capitalize">
+                      {item.category.replace("-", " ")} Project
                     </p>
                   </div>
                 </div>

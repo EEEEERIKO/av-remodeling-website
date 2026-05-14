@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MdLocationOn, MdSchedule, MdAlternateEmail, MdArrowForward, MdSend } from "react-icons/md";
+import { MdLocationOn, MdSchedule, MdAlternateEmail, MdArrowForward } from "react-icons/md";
+import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 
@@ -33,64 +34,23 @@ export default function ContactPage() {
                             </header>
 
                             {/* Contact Form */}
-                            <section>
-                                <div className="rounded-2xl border border-outline-variant/10 bg-surface-container-lowest p-8 shadow-[0_20px_40px_rgba(0,12,30,0.04)] md:p-12">
-                                    <form className="space-y-10">
-                                        <div className="space-y-6">
-                                            {/* Full Name */}
-                                            <div className="group">
-                                                <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant font-label" htmlFor="name">
-                                                    Full Name
-                                                </label>
-                                                <input
-                                                    className="apple-input w-full rounded-xl border-none bg-surface-container-low px-6 py-4 text-on-surface placeholder:text-outline/50 focus:ring-1 focus:ring-primary"
-                                                    id="name"
-                                                    name="name"
-                                                    placeholder="Johnathan Doe"
-                                                    type="text"
-                                                />
-                                            </div>
 
-                                            {/* Email Address */}
-                                            <div className="group">
-                                                <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant font-label" htmlFor="email">
-                                                    Email Address
-                                                </label>
-                                                <input
-                                                    className="apple-input w-full rounded-xl border-none bg-surface-container-low px-6 py-4 text-on-surface placeholder:text-outline/50 focus:ring-1 focus:ring-primary"
-                                                    id="email"
-                                                    name="email"
-                                                    placeholder="email@domain.com"
-                                                    type="email"
-                                                />
-                                            </div>
-
-                                            {/* Project Vision */}
-                                            <div className="group">
-                                                <label className="mb-2 block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant font-label" htmlFor="message">
-                                                    Project Vision
-                                                </label>
-                                                <textarea
-                                                    className="apple-input w-full resize-none rounded-xl border-none bg-surface-container-low px-6 py-4 text-on-surface placeholder:text-outline/50 focus:ring-1 focus:ring-primary"
-                                                    id="message"
-                                                    name="message"
-                                                    placeholder="Tell us about your space..."
-                                                    rows={5}
-                                                />
-                                            </div>
-                                        </div>
-
-                                        {/* Submit Button */}
-                                        <button
-                                            className="group flex w-full items-center justify-center gap-3 rounded-xl bg-primary py-5 font-headline font-bold text-surface-container-lowest transition-all duration-300 hover:bg-primary-container"
-                                            type="submit"
-                                        >
-                                            Send Inquiry
-                                            <MdArrowForward className="text-lg transition-transform group-hover:translate-x-1" />
-                                        </button>
-                                    </form>
+                            <section className="lg:col-span-7"><div className="bg-surface-container-lowest p-8 md:p-16 rounded-xl border border-outline-variant/10 shadow-[0_20px_40px_rgba(0,12,30,0.04)] flex flex-col items-center text-center">
+                                <div className="w-24 h-24 bg-[#25D366]/10 rounded-full flex items-center justify-center mb-8">
+                                    <svg className="w-12 h-12 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                                    </svg>
                                 </div>
-                            </section>
+                                <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-tertiary tracking-tight mb-4">Chat with us</h2>
+                                <p className="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-md mx-auto">
+                                    Start a direct conversation with our expert architects for a faster response.    </p>
+                                <a href="#" className="w-full max-w-sm bg-primary text-surface-container-lowest font-headline font-bold py-5 rounded-xl transition-all duration-300 hover:scale-[0.98] flex justify-center items-center gap-3 shadow-lg">
+                                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                                    </svg>
+                                    Chat on WhatsApp
+                                </a>
+                            </div></section>
                         </div>
 
                         {/* Information & Map Section */}
@@ -148,7 +108,7 @@ export default function ContactPage() {
                                 <div className="aspect-square">
                                     <Image
                                         alt="minimalist map"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1sMNBGgRWZ8He0JZYYuKV4pG_OHNUMZT-AOtqlcqJPsNUPaqVeMi0x-_8XAhzq3vmyxFJerR3sSkcYuL-ZFB7Rh3osYvhRzkQOnhP9pamwpDf1e0k0-W-0JwNWzA992gwETLH8271kE6nQtzQhRTQU9QHn8rS163igBJ7ZLKWb2yZhZ9iuPvQqf-KGMfGeuFaiA2jOistVLGXJCpfRvPjbvoldOw_Cn2nancZnKmHijkXhCWVRYF9fCCxLQyl8wep2r10OPQAy9w"
+                                        src={featuredImages.contactMap}
                                         fill
                                         className="object-cover filter saturate-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                                     />

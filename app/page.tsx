@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MdBathtub, MdHomeWork, MdKitchen } from "react-icons/md";
+import { featuredImages } from "./data/portfolio-images";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
 
@@ -111,7 +112,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             alt="Luxury Kitchen"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR67KvuvXo3BxMPFiyoc5_H7pMjGuTaIS8CPx8D1Bg8U2MKPa65MWlQ5BVPoVu68CuQjhnkO2VXdBjDocbLGT3YbMKmT2n_qrPHcjCPWgFeFjEe-A3X465g_5cVD1LWM-dlb0r53BaPRmBrYXiKb00gExC3XohC4nJH6XDZVpgweH3zl4eaaJiIgEyIOvs5prjrh6BsgJhaHByuo6X3YPMgKNlLpRj5d_TInz2SYnM3STsdDexx01ZCvt2Xa-0UfDRYVh-RVBXdP8"
+            src={featuredImages.homeHero}
             fill
             priority
             className="object-cover"
@@ -183,7 +184,7 @@ export default function Home() {
           <h2 className="mb-16 font-headline text-4xl font-bold text-tertiary">Selected Works</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
             <ProjectImage
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWbB1kd_dNBrHYedBMIL7qRSsHvvvVGvdzgtCme6ROUv13Z4a-jU2p6TEc2iNIFFcs-EsBbvlGEfp6eepoHs-dx5I02zml3skw-g7lkUL-q7BVWl9mvaVhyQ8qJElZqpdMrlhFkplr1SRRUBaONTjs5cF3xvdgEM1Awe-tEOaW7FdOjbHMS5ZcmIFByL9DOGxiZ9E46Ze-2-cZWmNRcrwCYHCxFPo2WQZymZzK3-aPVJqD_MC3am89izE2AXR7GaBSW-ePBC47bKw"
+              src={featuredImages.homeFeatureA}
               alt="Modern Living Room"
               className="group luxury-shadow relative h-[600px] overflow-hidden rounded-xl md:col-span-8"
               overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -193,7 +194,7 @@ export default function Home() {
             </ProjectImage>
             <div className="flex flex-col gap-8 md:col-span-4">
               <ProjectImage
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY-3x4x9DaHjTZ4AcZPSbdrqBqJynXv-fKw3oWFzAphgohYmQ4gU3hrVmayxn3olJBAku8mbdXFCBPbpxjEM23zDAYFwb9CRhYS3gTGcz0NkE1ylsjq3V2jTplMvzUtDrUXQEnnHpQu8dZGXUygo5D27FMVU82xkxX-xKIRncGR5DNkBpkaRCMa0FCbA1cTv8WRpAQLNmlJI7WOSKS5UF174sn0NyyZ56gvoIsTNp0On94X4TM5pIV2Gt826wMqJEWm1AlHE95Y5A"
+                src={featuredImages.homeFeatureB}
                 alt="Luxury Bathroom"
                 className="group luxury-shadow relative min-h-[280px] overflow-hidden rounded-xl h-full"
                 overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -202,7 +203,7 @@ export default function Home() {
               </ProjectImage>
             </div>
             <ProjectImage
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9BmSEY4f9NYKTInSet_RAxzzIKzwOySJ5DAq3ZtNWHFBBf5d19uaWcYNhBj0DUe7j_4WotFdbImtY2dZPBwJKpehMqF8zZg5m0Ea8JaRGUk1UlXxsi7ROr1MA5dRORYDz-aunM6NurPCtLoxTTmYsyPuJM8e7K7VqgTR-YEtWY6o2Rzl68P7xBwXfohDlW9bfbrNj_Y14WQ5h8NhF7BDrNna59m6dg7hNCZEuBK45MwxI22LoNTNfluITKr-sueT81MJD1o6h84k"
+              src={featuredImages.homeFeatureC}
               alt="Kitchen Detail"
               className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl md:col-span-4"
               overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -210,7 +211,7 @@ export default function Home() {
               <h3 className="font-headline text-xl font-bold text-white">The Atelier Kitchen</h3>
             </ProjectImage>
             <ProjectImage
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrsNdA9lg8Y6MuEiCteuWOgw1vabHH5y4_Wg3xQyggXnAoQUc5o50Ih-0Ca20eLc6AQmqv-oTLo_H-k6FmbUIqAyZSYQY02XQupBCfqOUlrOvNuUOHqXLRwvOeKZlS3sQzcAXnfkZ6LnNJROhFEcIVJu2NwMqqotO7OATdtQGQ8ksaRDLW7eZUxG170D6nhryvoqWRQ8J23ZDHSu8vZGq67XAq0jdsiX6uh1EWo9vrAtHO7XNozQ1jGptDqWF6pbnKvq0kF1rGhPg"
+              src={featuredImages.homeFooter}
               alt="Full Renovation"
               className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl md:col-span-8"
               overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -265,7 +266,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-20">
           <Image
             alt="Luxury Home Detail"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeBERcKkRYBQPgbfnu9sZd70mzPAMKpSAWiXXj7O5x2qyRNrUs6OFFOg60dAfSuu4enrhjtfTnXGP-PAq8RHLGI0poWQpVcd8JWK8R6cBpYbYaM8U4KpMMgd1t7gvumFc_63J3fHJiFU9vuC7pXolsO_vqcDa0zawjIDGZdrqHVwR7FBPU_6eBjFI0y1f1-u-2ciaebLbaExPzzhhsFqT3TN-X-odNMnt8BXawycFeIdCOSOfGuRYxtb92HSq186dNlJ8qOAbPg3I"
+            src={featuredImages.homeFooter}
             fill
             className="object-cover grayscale"
             sizes="100vw"

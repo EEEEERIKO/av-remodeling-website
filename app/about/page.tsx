@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { MdArchitecture, MdArrowForward, MdForum, MdVerifiedUser } from "react-icons/md";
+import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 
@@ -32,7 +33,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 translate-x-8 translate-y-8 rounded-xl bg-surface-container-high" />
               <Image
                 className="absolute inset-0 z-10 rounded-xl object-cover shadow-2xl"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDngvjOHN-5Yu1K1-1X8vxZqRI3tRY5tfFuipwyJEB9BmUaTxiV-N2kvSym_6bVn8JA1v_u2Em72QdawNzf3PJtYbFI9-XdEDiwawElO_1zCFPGSyPqUHICWU94Z5p9pUGeZ8yOV86oTRSOSFfSq1I8sYRIwziTwV6nFG2iolVI6RYq9dvuOyFg6xe-sHe5h3fHxMEu55iju-qfoyE2ibmiBivzpMwkNeHHSj2t5AqVgF5ngbcjzWnTuFhfV4UecVP0hVDI0MYPFbw"
+                src={featuredImages.aboutHero}
                 alt="Modern architectural detail of a renovated luxury home interior with minimalist white walls, natural wood accents, and expansive windows"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -98,7 +99,7 @@ export default function AboutPage() {
               <div className="relative">
                 <Image
                   className="h-[600px] w-full rounded-xl object-cover shadow-2xl"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXKiyLYDicr4oRFnr-47lvdoYnf3F7ZG8IxmqInSIn5-D47wC6SZhDe0cRcX60DwSMo00xxS15w4PEAZxPy0x3FeeXGKE6Gk3NVg-rnIso2bgQdfG-d1r4WbC8KwhL3W7XNLijJxeDBYTdWLtnmboX759NJuFO09zpIsYMyEF9BGAL-5Bz06Mbe4YuwcnRy4C4ohfnkcguCo_AMnPOSPDkECB9kCwjW9BcH-HGW4cx-wjOFqiLNTOCtaOJEqAmheNY3gHznNJO-GM"
+                  src={featuredImages.aboutTeam}
                   alt="Professional diverse team of architects and project managers in a sunlit modern studio, looking confident and collaborative"
                   width={1200}
                   height={1200}

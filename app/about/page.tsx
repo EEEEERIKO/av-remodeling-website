@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { MdArchitecture, MdArrowForward, MdForum, MdVerifiedUser } from "react-icons/md";
 import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
@@ -9,6 +10,12 @@ export const metadata: Metadata = {
   title: "About | AV REMODELING",
   description: "Learn about the team, values, and process behind Av Remodeling.",
 };
+
+const youtubeVideos = [
+  { id: "RnqaTVko-qA", title: "AV Remodeling Project Showcase" },
+  { id: "QHfpcplcY9k", title: "Kitchen Transformation" },
+  { id: "Xjdad_1nD0s", title: "Bathroom Remodeling" },
+];
 
 export default function AboutPage() {
   return (
@@ -23,7 +30,7 @@ export default function AboutPage() {
                 Legacy of Excellence
               </span>
               <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[0.9] tracking-tighter text-tertiary md:text-7xl">
-                20+ Years of<br />Craftsmanship.
+                10+ Years of<br />Craftsmanship.
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
                 Redefining architectural potential through meticulous detail and an uncompromising commitment to the art of home transformation.
@@ -134,10 +141,10 @@ export default function AboutPage() {
                   <span className="font-medium text-tertiary">Sustainable Material Sourcing</span>
                 </div>
               </div>
-              <button className="mt-12 flex items-center gap-3 font-headline font-bold text-primary transition-colors duration-300 hover:text-secondary">
+              <Link href="/gallery" className="mt-12 inline-flex items-center gap-3 font-headline font-bold text-primary transition-colors duration-300 hover:text-secondary">
                 View our Portfolio
                 <MdArrowForward className="text-sm" />
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -182,6 +189,87 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface py-32">
+          <div className="mx-auto max-w-screen-2xl px-8">
+            <div className="mb-14">
+              <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
+                Follow Our Work
+              </span>
+              <h2 className="mb-4 font-headline text-4xl font-bold tracking-tight text-tertiary md:text-5xl">
+                Social Media Highlights
+              </h2>
+              <p className="max-w-3xl leading-relaxed text-on-surface-variant font-body">
+                Explore our latest projects, behind-the-scenes progress, and transformation stories on Instagram and YouTube.
+              </p>
+            </div>
+
+            <div className="mb-16 overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-low">
+              <div className="bg-gradient-to-r from-rose-500/10 via-orange-500/10 to-pink-500/10 px-8 py-12 text-center">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-secondary">Instagram</p>
+                <h3 className="mb-4 font-headline text-3xl font-bold text-tertiary">@avremodelingatl</h3>
+                <p className="mx-auto mb-8 max-w-2xl font-body leading-relaxed text-on-surface-variant">
+                  Follow our latest before-and-after transformations, on-site updates, and remodeling inspiration.
+                </p>
+                <a
+                  href="https://www.instagram.com/avremodelingatl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-lg bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 px-8 py-3 font-headline text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:shadow-2xl"
+                >
+                  View Instagram
+                </a>
+              </div>
+            </div>
+
+            <div className="mb-12">
+              <h3 className="mb-3 font-headline text-2xl font-bold text-tertiary">YouTube Videos</h3>
+              <p className="font-body text-on-surface-variant">
+                Watch project transformations directly from our channel.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+              {youtubeVideos.map((video) => (
+                <div key={video.id} className="overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-low">
+                  <div className="aspect-video w-full overflow-hidden rounded-t-xl bg-black">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
+                      title={video.title}
+                      className="h-full w-full"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">{video.title}</h4>
+                    <a
+                      href={`https://youtu.be/${video.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center font-body font-semibold text-red-600 transition-colors hover:text-red-700"
+                    >
+                      Watch on YouTube →
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-14 rounded-2xl border border-outline-variant bg-surface-container-low p-8 text-center">
+              <a
+                href="https://www.youtube.com/@avremodelingatl8105/featured"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-lg bg-red-600 px-8 py-4 font-headline text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:shadow-2xl"
+              >
+                Visit YouTube Channel
+              </a>
             </div>
           </div>
         </section>

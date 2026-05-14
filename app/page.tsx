@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MdBathtub, MdHomeWork, MdKitchen } from "react-icons/md";
 import { featuredImages } from "./data/portfolio-images";
 import { SiteFooter } from "./components/site-footer";
@@ -11,6 +12,7 @@ const serviceCards = [
     description:
       "Redefining the heart of your home with custom cabinetry and professional-grade appliances.",
     link: "Explore Kitchens",
+    href: "/gallery#kitchens",
   },
   {
     icon: "bathtub",
@@ -18,6 +20,7 @@ const serviceCards = [
     description:
       "Transforming daily routines into restorative experiences with premium stone and intelligent design.",
     link: "Explore Bathrooms",
+    href: "/gallery#bathrooms",
   },
   {
     icon: "home_work",
@@ -25,6 +28,7 @@ const serviceCards = [
     description:
       "Cohesive whole-home renovations that flow seamlessly from room to room, reflecting your personal style.",
     link: "Explore Renovations",
+    href: "/gallery#all",
   },
 ];
 
@@ -129,12 +133,20 @@ export default function Home() {
               Excellence in Every Detail, Trusted for Over 20 Years.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button className="rounded-md bg-surface-container-lowest px-10 py-4 font-headline text-lg font-bold text-primary transition-colors hover:bg-surface-container-high">
+              <a
+                href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md bg-surface-container-lowest px-10 py-4 font-headline text-lg font-bold text-primary transition-colors hover:bg-surface-container-high inline-block"
+              >
                 Get a Free Estimate
-              </button>
-              <button className="rounded-md border border-surface-container-lowest/30 px-10 py-4 font-headline text-lg font-bold text-surface-container-lowest backdrop-blur-md transition-colors hover:bg-white/10">
+              </a>
+              <a
+                href="/gallery"
+                className="rounded-md border border-surface-container-lowest/30 px-10 py-4 font-headline text-lg font-bold text-surface-container-lowest backdrop-blur-md transition-colors hover:bg-white/10 inline-block"
+              >
                 View Portfolio
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -169,10 +181,10 @@ export default function Home() {
                 </div>
                 <h3 className="mb-4 font-headline text-2xl font-bold">{card.title}</h3>
                 <p className="mb-6 leading-relaxed text-on-surface-variant font-body">{card.description}</p>
-                <a className="inline-flex items-center font-semibold text-primary transition-all hover:gap-2" href="#">
+                <Link className="inline-flex items-center font-semibold text-primary transition-all hover:gap-2" href={card.href}>
                   {card.link}
                   <span className="ml-2 text-sm">→</span>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -279,9 +291,14 @@ export default function Home() {
           <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-surface-container-low font-body">
             Let&apos;s collaborate to create a space that doesn&apos;t just house your life, but elevates it. Experience the Av Remodeling difference.
           </p>
-          <button className="rounded-md bg-secondary px-12 py-5 font-headline text-lg font-bold text-white transition-all duration-300 hover:bg-secondary-container hover:text-on-secondary-container">
+          <a
+            href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-md bg-secondary px-12 py-5 font-headline text-lg font-bold text-white transition-all duration-300 hover:bg-secondary-container hover:text-on-secondary-container"
+          >
             Begin Your Transformation
-          </button>
+          </a>
         </div>
       </section>
 

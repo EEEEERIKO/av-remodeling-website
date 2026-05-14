@@ -1,7 +1,8 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BeforeAfterSlider } from "../components/before-after-slider";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import { portfolioImages } from "../data/portfolio-images";
@@ -100,6 +101,14 @@ const filters = [
   { id: "living-rooms", label: "Living Rooms" },
 ];
 
+const isFilterType = (value: string): value is FilterType =>
+  ["all", "bathrooms", "bedrooms", "exteriors", "kitchens", "living-rooms"].includes(value);
+
+const filterFromHash = (hash: string): FilterType => {
+  const normalizedHash = hash.replace("#", "");
+  return isFilterType(normalizedHash) ? normalizedHash : "all";
+};
+
 const buildBentoGrid = (images: ImageItem[]) => {
   const gridLayout: Array<{ src: string; category: FilterType; colSpan: string; rowSpan: string; isPortrait: boolean }> = [];
 
@@ -130,6 +139,22 @@ const buildBentoGrid = (images: ImageItem[]) => {
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
 
+  useEffect(() => {
+    const applyHashFilter = () => setActiveFilter(filterFromHash(window.location.hash));
+
+    applyHashFilter();
+    window.addEventListener("hashchange", applyHashFilter);
+
+    return () => window.removeEventListener("hashchange", applyHashFilter);
+  }, []);
+
+  const handleFilterChange = (filter: FilterType) => {
+    setActiveFilter(filter);
+
+    const nextUrl = filter === "all" ? "/gallery" : `/gallery#${filter}`;
+    window.history.replaceState(null, "", nextUrl);
+  };
+
   const filteredImages = activeFilter === "all" 
     ? allImages 
     : allImages.filter((img) => img.category === activeFilter);
@@ -153,13 +178,24 @@ export default function GalleryPage() {
           </p>
         </header>
 
+        <section className="mx-auto mb-20 max-w-screen-2xl px-8">
+          <BeforeAfterSlider
+            beforeSrc="/images/before-after/before.jpg"
+            afterSrc="/images/before-after/after.jpg"
+            beforeLabel="Before"
+            afterLabel="After"
+            title="Slide to Compare the Transformation"
+            description="Move the center line to reveal the renovation process."
+          />
+        </section>
+
         {/* Filter Buttons */}
         <section className="mx-auto mb-16 max-w-screen-2xl px-8">
           <div className="flex flex-wrap gap-3">
             {filters.map((filter) => (
               <button
                 key={filter.id}
-                onClick={() => setActiveFilter(filter.id as FilterType)}
+                onClick={() => handleFilterChange(filter.id as FilterType)}
                 className={`rounded-full px-6 py-2 font-headline text-sm font-semibold uppercase tracking-wide transition-all ${
                   activeFilter === filter.id
                     ? "bg-primary text-surface-container-lowest shadow-lg"
@@ -210,12 +246,22 @@ export default function GalleryPage() {
             We take on a limited number of projects each year to ensure every detail is executed with Atelier-level precision.
           </p>
           <div className="flex flex-col justify-center gap-4 md:flex-row">
-            <button className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl">
+            <a
+              href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl inline-block text-center"
+            >
               START THE CONVERSATION
-            </button>
-            <button className="rounded-lg border border-outline-variant px-10 py-4 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:bg-white">
-              DOWNLOAD BROCHURE
-            </button>
+            </a>
+            <a
+              href="/av-remodeling-brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-outline-variant px-10 py-4 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:bg-white inline-block text-center"
+            >
+              Download Brochure
+            </a>
           </div>
         </section>
       </main>

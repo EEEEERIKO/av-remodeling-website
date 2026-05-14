@@ -29,6 +29,9 @@ export default function MetaPixel() {
 
           fbq('init', '${pixelId}');
           fbq('track', 'PageView');
+          fbq('track', 'Lead');
+          fbq('track', 'Search');
+          fbq('track', 'ViewContent');
         `}
       </Script>
 

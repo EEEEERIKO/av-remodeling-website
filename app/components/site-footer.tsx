@@ -37,7 +37,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="mt-16 border-t border-slate-800 px-12 pt-8 text-center">
-        <p className="text-[10px] uppercase tracking-widest text-slate-500 font-label">© 2024 MODERN ATELIER. ALL RIGHTS RESERVED.</p>
+        <p className="text-[10px] uppercase tracking-widest text-slate-500 font-label">© 2026 MODERN ATELIER. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
   );

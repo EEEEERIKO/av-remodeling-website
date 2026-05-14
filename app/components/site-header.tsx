@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 type SiteHeaderProps = {
-  active: "home" | "gallery";
+  active: "home" | "gallery" | "about" | "contact";
 };
 
 const linkBase = "pb-1 text-sm font-medium tracking-tight transition-colors duration-300 font-label";
@@ -23,12 +23,12 @@ export function SiteHeader({ active }: SiteHeaderProps) {
           <Link className={`${linkBase} ${active === "gallery" ? activeClass : inactiveClass}`} href="/gallery">
             Gallery
           </Link>
-          <a className={`${linkBase} text-slate-500 hover:text-slate-900`} href="#">
+          <Link className={`${linkBase} ${active === "about" ? activeClass : inactiveClass}`} href="/about">
             About
-          </a>
-          <a className={`${linkBase} text-slate-500 hover:text-slate-900`} href="#">
-            Investors
-          </a>
+          </Link>
+          <Link className={`${linkBase} ${active === "contact" ? activeClass : inactiveClass}`} href="/contact">
+            Contact Us
+          </Link>
         </div>
         <button className="rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-surface-container-lowest transition-transform duration-200 ease-in-out hover:scale-95">
           Get a Quote

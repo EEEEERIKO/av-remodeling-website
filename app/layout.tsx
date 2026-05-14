@@ -65,7 +65,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-M91JGBERT1";
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
   return (

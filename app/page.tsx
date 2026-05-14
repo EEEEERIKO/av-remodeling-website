@@ -200,7 +200,7 @@ export default function Home() {
               Transforming Spaces <br />into Sanctuaries.
             </h1>
             <p className="mb-10 max-w-xl font-body text-xl font-light text-surface-container-low md:text-2xl">
-              Excellence in Every Detail, Trusted for Over 20 Years.
+              Excellence in Every Detail, Trusted for Over 10 Years.
             </p>
             <div className="flex flex-wrap gap-4">
               <a

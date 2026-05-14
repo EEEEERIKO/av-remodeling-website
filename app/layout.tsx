@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 import { ScrollAnimations } from "./components/scroll-animations";
 import CookieBanner from "./components/CookieBanner";
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html lang="en-US" className="scroll-smooth h-full">
       <body className="min-h-full flex flex-col bg-surface text-on-surface antialiased" suppressHydrationWarning>
         <ScrollAnimations />
+        <MetaPixel />
         <Script
           id="ld-website"
           type="application/ld+json"

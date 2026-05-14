@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import MetaPixel from "@/components/MetaPixel";
+import MetaPixel from "./components/MetaPixel";
 import "./globals.css";
 import { ScrollAnimations } from "./components/scroll-animations";
 import CookieBanner from "./components/CookieBanner";

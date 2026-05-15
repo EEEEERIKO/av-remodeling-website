@@ -23,11 +23,6 @@ export const metadata: Metadata = {
     alternates: {
     canonical: "/",
   },
-
-  verification: {
-    google: "HNYuSZ6kcPQWLe8ctw_yDLA4zM59cED5fOlXoe8HTRM",
-  },
-
   
   openGraph: {
     title: "AV Remodeling | Atlanta Home Remodeling Experts",

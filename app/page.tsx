@@ -48,26 +48,26 @@ export const metadata: Metadata = {
 const serviceCards = [
   {
     icon: "kitchen",
-    title: "Culinary Masterpieces",
+    title: "Kitchen Remodeling Atlanta",
     description:
-      "Redefining the heart of your home with custom cabinetry and professional-grade appliances.",
-    link: "Explore Kitchens",
+      "Custom kitchens designed for daily life with better layout, cabinetry, countertops, lighting, and storage.",
+    link: "View Kitchen Projects",
     href: "/gallery#kitchens",
   },
   {
     icon: "bathtub",
-    title: "Private Spas",
+    title: "Bathroom Renovation Atlanta",
     description:
-      "Transforming daily routines into restorative experiences with premium stone and intelligent design.",
-    link: "Explore Bathrooms",
+      "Bathroom upgrades built for comfort and durability, including tile, showers, vanities, and waterproof finishes.",
+    link: "View Bathroom Projects",
     href: "/gallery#bathrooms",
   },
   {
     icon: "home_work",
-    title: "Full Estates",
+    title: "Full-Service Home Upgrades",
     description:
-      "Cohesive whole-home renovations that flow seamlessly from room to room, reflecting your personal style.",
-    link: "Explore Renovations",
+      "Complete home remodeling services including flooring installation, painting, drywall, concrete work, drainage systems, and exterior home maintenance.",
+    link: "View All Services",
     href: "/gallery#all",
   },
 ];
@@ -75,27 +75,27 @@ const serviceCards = [
 const steps = [
   {
     number: "01",
-    title: "Consultation",
+    title: "On-Site Consultation",
     description:
-      "A deep dive into your lifestyle, goals, and architectural possibilities for your home.",
+      "We visit your home, understand your priorities, and recommend practical solutions based on your goals and budget.",
   },
   {
     number: "02",
-    title: "Design",
+    title: "Scope & Estimate",
     description:
-      "Translating visions into photorealistic renderings and precise technical blueprints.",
+      "You receive a clear project scope, realistic timeline, and transparent estimate before work begins.",
   },
   {
     number: "03",
-    title: "Build",
+    title: "Build & Project Management",
     description:
-      "Where craftsmanship meets management. We handle every detail with white-glove service.",
+      "Our crew completes the work with consistent quality standards and frequent updates so you always know progress.",
   },
   {
     number: "04",
-    title: "Delivery",
+    title: "Final Walkthrough",
     description:
-      "The final reveal. A space tailored perfectly to your family's future chapters.",
+      "We review every detail with you and make sure the finished result is clean, complete, and ready to enjoy.",
   },
 ];
 
@@ -184,7 +184,7 @@ export default function Home() {
       <section className="relative flex h-screen w-full items-center overflow-hidden" data-gsap-reveal>
         <div className="absolute inset-0 z-0" data-gsap-parallax="12">
           <Image
-            alt="Luxury kitchen remodeling in Atlanta with custom cabinets and modern finishes"
+            alt="Kitchen remodeling project in Atlanta with custom cabinets and modern finishes"
             src="/images/home/hero.jpg"
             fill
             priority
@@ -197,10 +197,10 @@ export default function Home() {
         <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-8">
           <div className="max-w-3xl">
             <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-surface-container-lowest md:text-7xl">
-              Transforming Spaces <br />into Sanctuaries.
+              Trusted Atlanta Remodeling <br />Built for Real Homes.
             </h1>
             <p className="mb-10 max-w-xl font-body text-xl font-light text-surface-container-low md:text-2xl">
-              Excellence in Every Detail, Trusted for Over 10 Years.
+              Kitchen remodeling, bathroom renovation, flooring installation, and home upgrades with reliable communication from start to finish.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -227,14 +227,14 @@ export default function Home() {
           <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
             <div className="max-w-2xl">
               <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
-                Our Specializations
+                Home Remodeling Services
               </span>
               <h2 className="font-headline text-4xl font-bold tracking-tight text-tertiary md:text-5xl">
-                Crafting the foundation of modern living.
+                Remodeling Contractors Atlanta Homeowners Trust
               </h2>
             </div>
             <p className="max-w-sm leading-relaxed text-on-surface-variant font-body">
-              We specialize in high-end residential remodeling that balances architectural integrity with contemporary functionality.
+              AV Remodeling delivers professional residential remodeling across Atlanta with dependable scheduling, quality workmanship, and clear updates.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3" data-gsap-stagger>
@@ -263,50 +263,50 @@ export default function Home() {
 
       <section className="bg-surface-container-low py-32" data-gsap-reveal>
         <div className="mx-auto max-w-screen-2xl px-8">
-          <h2 className="mb-16 font-headline text-4xl font-bold text-tertiary">Selected Works</h2>
+          <h2 className="mb-16 font-headline text-4xl font-bold text-tertiary">Recent Atlanta Remodeling Projects</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
             <div className="md:col-span-8" data-gsap-item>
               <ProjectImage
                 src="/images/portfolio/exteriors/03.jpg"
-                alt="Exterior remodeling project with refined siding and clean architectural lines"
+                alt="Exterior remodeling project in Atlanta with updated finishes and clean curb appeal"
                 className="group luxury-shadow relative h-[600px] overflow-hidden rounded-xl"
                 overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Exterior Refresh</span>
-                <h3 className="font-headline text-3xl font-bold text-white">Facade Renewal</h3>
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Exterior Home Maintenance</span>
+                <h3 className="font-headline text-3xl font-bold text-white">Curb Appeal Upgrade</h3>
               </ProjectImage>
             </div>
             <div className="flex flex-col gap-8 md:col-span-4" data-gsap-item>
               <ProjectImage
                 src="/images/portfolio/bedrooms/01.jpg"
-                alt="Primary bedroom renovation with calm materials and natural light"
+                alt="Bedroom remodeling project with updated finishes and improved lighting"
                 className="group luxury-shadow relative min-h-[280px] overflow-hidden rounded-xl h-full"
                 overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Primary Suite</span>
-                <h3 className="font-headline text-xl font-bold text-white">Quiet Retreat</h3>
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Bedroom Remodel</span>
+                <h3 className="font-headline text-xl font-bold text-white">Comfort-Focused Upgrade</h3>
               </ProjectImage>
             </div>
             <div className="md:col-span-4" data-gsap-item>
               <ProjectImage
                 src="/images/portfolio/kitchens/08.jpg"
-                alt="Kitchen remodeling detail with custom cabinetry and bright finishes"
+                alt="Kitchen remodeling Atlanta project with custom cabinetry and bright finishes"
                 className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
                 overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Kitchen Upgrade</span>
-                <h3 className="font-headline text-xl font-bold text-white">Chef&apos;s Kitchen</h3>
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Kitchen Remodeling Atlanta</span>
+                <h3 className="font-headline text-xl font-bold text-white">Custom Kitchen Upgrade</h3>
               </ProjectImage>
             </div>
             <div className="md:col-span-8" data-gsap-item>
               <ProjectImage
                 src="/images/portfolio/living-rooms/03.jpg"
-                alt="Living room remodel with open flow and warm finishes"
+                alt="Living room remodeling project with improved layout and modern finishes"
                 className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
                 overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               >
-                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Living Space</span>
-                <h3 className="font-headline text-xl font-bold text-white">Open Living Flow</h3>
+                <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Living Room Remodel</span>
+                <h3 className="font-headline text-xl font-bold text-white">Open-Concept Upgrade</h3>
               </ProjectImage>
             </div>
           </div>
@@ -317,9 +317,9 @@ export default function Home() {
         <div className="mx-auto max-w-screen-2xl px-8">
           <div className="mb-24 text-center">
             <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
-              The Journey
+              Our Process
             </span>
-            <h2 className="font-headline text-4xl font-bold text-tertiary md:text-5xl">Our Refined Process</h2>
+            <h2 className="font-headline text-4xl font-bold text-tertiary md:text-5xl">A Remodeling Process You Can Trust</h2>
           </div>
           <div className="relative">
             <div className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
@@ -356,7 +356,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-primary py-40" data-gsap-reveal>
         <div className="absolute inset-0 opacity-20" data-gsap-parallax="10">
           <Image
-            alt="Architectural remodeling detail showing premium exterior finishes"
+            alt="Atlanta home remodeling detail with premium exterior finishes"
             src={featuredImages.homeFooter}
             fill
             className="object-cover grayscale"
@@ -365,10 +365,10 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto max-w-screen-xl px-8 text-center">
           <h2 className="mb-8 font-headline text-4xl font-extrabold tracking-tight text-white md:text-6xl">
-            Your Dream Deserves a Masterpiece.
+            Ready to Start Your Home Remodel?
           </h2>
           <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-surface-container-low font-body">
-            Let&apos;s collaborate to create a space that doesn&apos;t just house your life, but elevates it. Experience the Av Remodeling difference.
+            Talk with AV Remodeling about kitchen remodeling Atlanta, bathroom renovation Atlanta, and complete home remodeling services tailored to your home.
           </p>
           <a
             href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
@@ -376,7 +376,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="inline-block rounded-md bg-secondary px-12 py-5 font-headline text-lg font-bold text-white transition-all duration-300 hover:bg-secondary-container hover:text-on-secondary-container"
           >
-            Begin Your Transformation
+            Request Your Free Estimate
           </a>
         </div>
       </section>

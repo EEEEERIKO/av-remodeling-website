@@ -51,13 +51,13 @@ export default function AboutPage() {
           <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-8 px-8 lg:grid-cols-2">
             <div className="z-10">
               <span className="mb-6 block text-xs font-semibold uppercase inline-block mt-14  tracking-[0.2em] text-secondary font-label ">
-                Legacy of Excellence
+                About AV Remodeling
               </span>
               <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[0.9] tracking-tighter text-tertiary md:text-7xl">
-                10+ Years of<br />Craftsmanship.
+                Atlanta Remodeling <br />Done Right.
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
-                Redefining architectural potential through meticulous detail and an uncompromising commitment to the art of home transformation.
+                We are a residential remodeling company focused on quality craftsmanship, clear communication, and dependable results for homeowners across Atlanta.
               </p>
             </div>
             <div className="relative min-h-[400px] h-full" data-gsap-parallax="10">
@@ -65,7 +65,7 @@ export default function AboutPage() {
               <Image
                 className="absolute inset-0 z-10 rounded-xl object-cover shadow-2xl"
                 src={featuredImages.aboutHero}
-                alt="Modern architectural detail of a renovated luxury home interior with minimalist white walls, natural wood accents, and expansive windows"
+                alt="Remodeling project detail showing clean finishes and modern materials"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
@@ -78,13 +78,13 @@ export default function AboutPage() {
             <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
               <div className="max-w-2xl">
                 <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-tertiary">
-                  Built on Foundation of Values
+                  Built on Trust, Craftsmanship, and Communication
                 </h2>
                 <p className="leading-relaxed text-on-surface-variant font-body">
-                  We believe that a premium renovation is more than just material upgrades. It is a journey of trust, technical precision, and clear vision.
+                  Every project is managed with clear timelines, honest updates, and quality standards that protect your investment.
                 </p>
               </div>
-              <div className="select-none font-headline text-8xl font-black text-primary/5">VALUES</div>
+              <div className="select-none font-headline text-8xl font-black text-primary/5">TRUST</div>
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3" data-gsap-stagger>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="mb-4 font-headline text-2xl font-bold text-tertiary">Trust</h3>
                 <p className="mb-6 text-sm leading-relaxed text-on-surface-variant font-body">
-                  Transparency at every stage. We provide full project visibility and honest consultation, ensuring your peace of mind from demolition to final reveal.
+                  We keep every step clear. You know what is happening, when it is happening, and what to expect next.
                 </p>
                 <div className="h-1 w-0 bg-secondary transition-all duration-500 group-hover:w-full" />
               </div>
@@ -103,9 +103,9 @@ export default function AboutPage() {
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-surface-container-lowest/10">
                   <MdArchitecture className="text-secondary-fixed-dim" />
                 </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold">Quality</h3>
+                <h3 className="mb-4 font-headline text-2xl font-bold">Craftsmanship</h3>
                 <p className="mb-6 text-sm leading-relaxed text-surface-variant font-body">
-                  Our standards exceed building codes. We source artisan-grade materials and employ master craftsmen who treat every home as a masterpiece.
+                  From framing and drywall to tile, paint, and final finishes, we focus on solid work that looks great and lasts.
                 </p>
                 <div className="h-1 w-0 bg-secondary-fixed-dim transition-all duration-500 group-hover:w-full" />
               </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="mb-4 font-headline text-2xl font-bold text-tertiary">Communication</h3>
                 <p className="mb-6 text-sm leading-relaxed text-on-surface-variant font-body">
-                  Architecture is complex, but our updates are not. We provide dedicated project managers and real-time digital tracking for your renovation.
+                  Our team responds quickly, gives regular updates, and keeps your project moving with fewer surprises.
                 </p>
                 <div className="h-1 w-0 bg-secondary transition-all duration-500 group-hover:w-full" />
               </div>
@@ -131,42 +131,42 @@ export default function AboutPage() {
                 <Image
                   className="h-[600px] w-full rounded-xl object-cover shadow-2xl"
                   src={featuredImages.aboutTeam}
-                  alt="Professional diverse team of architects and project managers in a sunlit modern studio, looking confident and collaborative"
+                  alt="AV Remodeling team on a residential remodeling project in Atlanta"
                   width={1200}
                   height={1200}
                 />
                 <div className="absolute -bottom-10 -right-10 hidden rounded-xl bg-secondary p-12 text-surface-container-lowest xl:block">
-                  <p className="mb-2 font-headline text-5xl font-extrabold">12</p>
-                  <p className="text-xs uppercase tracking-widest font-label">Master Craftsmen</p>
+                  <p className="mb-2 font-headline text-5xl font-extrabold">10+</p>
+                  <p className="text-xs uppercase tracking-widest font-label">Years Serving Atlanta</p>
                 </div>
               </div>
             </div>
             <div className="lg:col-span-5">
               <span className="mb-6 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
-                Meet the Atelier
+                Our Team
               </span>
               <h2 className="mb-8 font-headline text-4xl font-bold tracking-tight text-tertiary leading-tight">
-                The Minds Behind Your Future Home.
+                Experienced Remodeling Contractors in Atlanta
               </h2>
               <p className="mb-8 leading-relaxed text-on-surface-variant font-body">
-                Our team is a collective of specialized architects, interior designers, and veteran builders. Together, we blend innovative engineering with timeless aesthetics to deliver results that are as functional as they are beautiful.
+                Our project managers and skilled crews handle kitchen remodeling, bathroom renovation, flooring installation, painting, drywall, and exterior improvements with professional care.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">RIBA Certified Architects</span>
+                  <span className="font-medium text-tertiary">Residential Remodeling Specialists</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">In-House Structural Engineering</span>
+                  <span className="font-medium text-tertiary">Clear Project Scheduling and Updates</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">Sustainable Material Sourcing</span>
+                  <span className="font-medium text-tertiary">Quality Control from Start to Finish</span>
                 </div>
               </div>
               <Link href="/gallery" className="mt-12 inline-flex items-center gap-3 font-headline font-bold text-primary transition-colors duration-300 hover:text-secondary">
-                View our Portfolio
+                See Remodeling Projects
                 <MdArrowForward className="text-sm" />
               </Link>
             </div>
@@ -175,23 +175,23 @@ export default function AboutPage() {
 
         <section className="bg-surface-container-high/30 py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <h2 className="mb-24 text-center font-headline text-3xl font-bold text-tertiary">The Atelier Method</h2>
+            <h2 className="mb-24 text-center font-headline text-3xl font-bold text-tertiary">How We Work</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">01</span>
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Discovery</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    Understanding your lifestyle and defining the spatial constraints and possibilities of your home.
+                    We listen to your goals and inspect the space to define the right remodeling approach.
                   </p>
                 </div>
               </div>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">02</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Curation</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Planning</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    Selecting premium materials and finalizing architectural drawings that marry form and function.
+                    We finalize your scope, materials, and schedule so the project runs smoothly.
                   </p>
                 </div>
               </div>
@@ -200,7 +200,7 @@ export default function AboutPage() {
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Execution</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    Mastercraft construction led by dedicated project managers with daily oversight.
+                    Our crew completes the work with clean execution and consistent project management.
                   </p>
                 </div>
               </div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 <div className="relative z-10 pt-4">
                   <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Handover</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    A meticulous walkthrough ensuring every detail aligns with our 20-year excellence standard.
+                    We finish with a detailed walkthrough to confirm quality, function, and your full satisfaction.
                   </p>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 Social Media Highlights
               </h2>
               <p className="max-w-3xl leading-relaxed text-on-surface-variant font-body">
-                Explore our latest projects, behind-the-scenes progress, and transformation stories on Instagram and YouTube.
+                Follow real project updates, before-and-after transformations, and remodeling tips for Atlanta homeowners.
               </p>
             </div>
 
@@ -236,7 +236,7 @@ export default function AboutPage() {
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-secondary">Instagram</p>
                 <h3 className="mb-4 font-headline text-3xl font-bold text-tertiary">@avremodelingatl</h3>
                 <p className="mx-auto mb-8 max-w-2xl font-body leading-relaxed text-on-surface-variant">
-                  Follow our latest before-and-after transformations, on-site updates, and remodeling inspiration.
+                  See current jobs, finished spaces, and practical ideas for your next kitchen, bathroom, or exterior update.
                 </p>
                 <a
                   href="https://www.instagram.com/avremodelingatl/"

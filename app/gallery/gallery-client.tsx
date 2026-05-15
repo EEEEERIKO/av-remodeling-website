@@ -168,10 +168,10 @@ export default function GalleryClientPage() {
             Portfolio
           </span>
           <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-tertiary md:text-7xl">
-            Curated Spaces,<br />Mastered Craft.
+            Real Atlanta Remodeling Results
           </h1>
           <p className="max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">
-            Explore our original portfolio of architectural transformations where minimalist design meets uncompromising structural precision.
+            Explore before-and-after projects from AV Remodeling, including kitchen remodeling Atlanta, bathroom renovation Atlanta, and complete residential remodeling work.
           </p>
         </header>
 
@@ -181,8 +181,8 @@ export default function GalleryClientPage() {
             afterSrc="/images/before-after/after.jpg"
             beforeLabel="Before"
             afterLabel="After"
-            title="Slide to Compare the Transformation"
-            description="Move the center line to reveal the renovation process."
+            title="Before and After Remodeling"
+            description="Slide to compare the original space and the finished result."
           />
         </section>
 
@@ -237,10 +237,10 @@ export default function GalleryClientPage() {
 
         <section className="mx-auto max-w-screen-2xl rounded-3xl bg-surface-container-low px-8 py-20 text-center" data-gsap-reveal>
           <h2 className="mb-6 font-headline text-3xl font-bold text-tertiary md:text-4xl">
-            Your Project is Our Next Masterpiece
+            Ready for Your Own Before-and-After?
           </h2>
           <p className="mx-auto mb-10 max-w-xl font-body leading-relaxed text-on-surface-variant">
-            We take on a limited number of projects each year to ensure every detail is executed with Atelier-level precision.
+            Talk with AV Remodeling about your kitchen, bathroom, flooring, painting, drywall, concrete, drainage, retaining wall, or exterior home maintenance project.
           </p>
           <div className="flex flex-col justify-center gap-4 md:flex-row">
             <a
@@ -249,7 +249,7 @@ export default function GalleryClientPage() {
               rel="noopener noreferrer"
               className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl inline-block text-center"
             >
-              START THE CONVERSATION
+              GET A FREE QUOTE ON WHATSAPP
             </a>
             <a
               href="/av-remodeling-brochure.pdf"

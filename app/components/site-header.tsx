@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
+import TrackableLink from './TrackableLink';
 
 type SiteHeaderProps = {
   active: "home" | "gallery" | "about" | "contact";
@@ -39,14 +40,15 @@ export function SiteHeader({ active }: SiteHeaderProps) {
           </Link>
         </div>
         <div className="flex items-center gap-3">
-          <a
+          <TrackableLink
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden rounded-md bg-primary px-6 py-2.5 text-sm font-medium text-surface-container-lowest transition-transform duration-200 ease-in-out hover:scale-95 md:inline-flex"
+            action="schedule"
           >
             Get a Quote
-          </a>
+          </TrackableLink>
           <button
             type="button"
             onClick={() => setMenuOpen((value) => !value)}
@@ -64,15 +66,16 @@ export function SiteHeader({ active }: SiteHeaderProps) {
           <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-slate-700 hover:bg-slate-100" href="/gallery" onClick={closeMenu}>Gallery</Link>
           <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-slate-700 hover:bg-slate-100" href="/about" onClick={closeMenu}>About</Link>
           <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-slate-700 hover:bg-slate-100" href="/contact" onClick={closeMenu}>Contact Us</Link>
-          <a
+          <TrackableLink
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-3 font-label text-sm font-medium text-surface-container-lowest"
-            onClick={closeMenu}
+            action="schedule"
+            onClick={() => closeMenu()}
           >
             Get a Quote
-          </a>
+          </TrackableLink>
         </div>
       </div>
     </nav>

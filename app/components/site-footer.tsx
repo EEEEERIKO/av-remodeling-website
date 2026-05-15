@@ -1,5 +1,6 @@
 import { MdMail, MdPhone } from "react-icons/md";
 import { FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import TrackableLink from './TrackableLink';
 
 export function SiteFooter() {
 const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information.";
@@ -34,9 +35,25 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
           <div className="flex justify-center gap-4 md:justify-start">
             <a className="text-slate-400 transition-colors hover:text-pink-500" href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" title="Instagram"><FaInstagram className="text-2xl" /></a>
             <a className="text-slate-400 transition-colors hover:text-red-600" href="https://www.youtube.com/@avremodelingatl8105/featured" target="_blank" rel="noopener noreferrer" title="YouTube"><FaYoutube className="text-2xl" /></a>
-            <a className="text-slate-400 transition-colors hover:text-green-500" href={whatsappLink} target="_blank" rel="noopener noreferrer" title="WhatsApp"><FaWhatsapp className="text-2xl" /></a>
+            <TrackableLink
+              className="text-slate-400 transition-colors hover:text-green-500"
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp"
+              action="whatsapp"
+            >
+              <FaWhatsapp className="text-2xl" />
+            </TrackableLink>
             <a className="text-slate-400 transition-colors hover:text-blue-400" href="mailto:avremodeling37@gmail.com" title="Email"><MdMail className="text-2xl" /></a>
-            <a className="text-slate-400 transition-colors hover:text-blue-500" href="tel:+16788864393" title="Phone"><MdPhone className="text-2xl" /></a>
+            <TrackableLink
+              className="text-slate-400 transition-colors hover:text-blue-500"
+              href="tel:+16788864393"
+              title="Phone"
+              action="phone"
+            >
+              <MdPhone className="text-2xl" />
+            </TrackableLink>
           </div>
         </div>
       </div>

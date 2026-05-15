@@ -20,9 +20,15 @@ export const metadata: Metadata = {
   },
   description:
     "AV Remodeling provides kitchen remodeling, bathroom remodeling, flooring, painting, drywall, concrete, drainage, retaining walls, and exterior home maintenance in Atlanta, GA.",
-  alternates: {
+    alternates: {
     canonical: "/",
   },
+
+  verification: {
+    google: "HNYuSZ6kcPQWLe8ctw_yDLA4zM59cED5fOlXoe8HTRM",
+  },
+
+  
   openGraph: {
     title: "AV Remodeling | Atlanta Home Remodeling Experts",
     description:

@@ -3,6 +3,7 @@ import Script from "next/script";
 import MetaPixel from "./components/MetaPixel";
 import "./globals.css";
 import { ScrollAnimations } from "./components/scroll-animations";
+import RouteScrollReset from "./components/route-scroll-reset";
 import CookieBanner from "./components/CookieBanner";
 import Analytics from "./components/Analytics";
 import {
@@ -75,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en-US" className="scroll-smooth h-full">
       <body className="min-h-full flex flex-col bg-surface text-on-surface antialiased" suppressHydrationWarning>
+        <RouteScrollReset />
         <ScrollAnimations />
         <MetaPixel />
         <Script

@@ -1,4 +1,4 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.avremodelingatl.com";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://av-remodeling.vercel.app";
 export const SITE_NAME = "AV Remodeling";
 export const BUSINESS_PHONE = "+1-678-886-4393";
 export const BUSINESS_EMAIL = "avremodeling37@gmail.com";

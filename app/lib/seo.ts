@@ -157,6 +157,13 @@ export const reviewsSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   name: "AV Remodeling Residential Services",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "2",
+    bestRating: "5",
+    worstRating: "1",
+  },
   review: [
     {
       "@type": "Review",

@@ -102,9 +102,9 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="mb-2 font-headline text-xl font-bold text-tertiary">Office</h3>
                                         <address className="not-italic leading-relaxed text-on-surface-variant">
-                                            482 Architectural Way, Suite 100
+                                            769 Bayliss Dr 
                                             <br />
-                                            Atlanta, GA 30301
+                                            Marietta, GA 30068,
                                         </address>
                                     </div>
                                 </div>

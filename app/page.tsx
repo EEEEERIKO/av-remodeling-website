@@ -16,16 +16,16 @@ import {
 } from "./lib/seo";
 
 export const metadata: Metadata = {
-  title: "AV Remodeling | Atlanta Kitchen & Bathroom Remodeling",
+  title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
   description:
-    "AV Remodeling delivers kitchen remodeling, bathroom renovations, flooring, painting, drywall, concrete, drainage, and exterior home maintenance across Atlanta, GA.",
+    "AV Remodeling creates refined kitchens, bathrooms, and whole-home renovations in Atlanta with a premium, design-led approach.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AV Remodeling | Atlanta Kitchen & Bathroom Remodeling",
+    title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
     description:
-      "Local Atlanta remodeling contractor for kitchens, bathrooms, flooring, painting, and exterior upgrades.",
+      "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
     url: SITE_URL,
     type: "website",
     images: [
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AV Remodeling | Atlanta Kitchen & Bathroom Remodeling",
+    title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
     description:
-      "Kitchen remodeling, bathroom remodeling, and full-home renovation services in Atlanta, Georgia.",
+      "Refined kitchen, bathroom, and whole-home remodeling in Atlanta, Georgia.",
     images: ["/images/portfolio/kitchens/01.jpg"],
   },
 };
@@ -49,26 +49,26 @@ export const metadata: Metadata = {
 const serviceCards = [
   {
     icon: "kitchen",
-    title: "Kitchen Remodeling Atlanta",
+    title: "Kitchens with a Considered Flow",
     description:
-      "Custom kitchens designed for daily life with better layout, cabinetry, countertops, lighting, and storage.",
-    link: "View Kitchen Projects",
+      "Thoughtfully planned kitchens with better layout, elegant materials, and a finish that makes everyday routines feel elevated.",
+    link: "Explore Kitchen Projects",
     href: "/gallery#kitchens",
   },
   {
     icon: "bathtub",
-    title: "Bathroom Renovation Atlanta",
+    title: "Bathrooms with a Spa-Like Calm",
     description:
-      "Bathroom upgrades built for comfort and durability, including tile, showers, vanities, and waterproof finishes.",
-    link: "View Bathroom Projects",
+      "Refined bathrooms shaped around comfort, light, and durability so the space feels restorative and timeless.",
+    link: "Explore Bathroom Projects",
     href: "/gallery#bathrooms",
   },
   {
     icon: "home_work",
-    title: "Full-Service Home Upgrades",
+    title: "Whole-Home Improvements, Seamlessly Managed",
     description:
-      "Complete home remodeling services including flooring installation, painting, drywall, concrete work, drainage systems, and exterior home maintenance.",
-    link: "View All Services",
+      "From flooring and paint to drywall, concrete, drainage, and exterior care, every detail is handled with consistency and precision.",
+    link: "Explore All Services",
     href: "/gallery#all",
   },
 ];
@@ -76,27 +76,27 @@ const serviceCards = [
 const steps = [
   {
     number: "01",
-    title: "On-Site Consultation",
+    title: "Vision",
     description:
-      "We visit your home, understand your priorities, and recommend practical solutions based on your goals and budget.",
+      "We start with your goals, your home, and the feeling you want the finished space to create.",
   },
   {
     number: "02",
-    title: "Scope & Estimate",
+    title: "Refinement",
     description:
-      "You receive a clear project scope, realistic timeline, and transparent estimate before work begins.",
+      "Materials, scope, and timeline come together with a steady, deliberate pace.",
   },
   {
     number: "03",
-    title: "Build & Project Management",
+    title: "Build",
     description:
-      "Our crew completes the work with consistent quality standards and frequent updates so you always know progress.",
+      "Our crew brings the design to life with clean execution and careful coordination.",
   },
   {
     number: "04",
-    title: "Final Walkthrough",
+    title: "Reveal",
     description:
-      "We review every detail with you and make sure the finished result is clean, complete, and ready to enjoy.",
+      "We finish with a final walkthrough to make sure every detail feels complete.",
   },
 ];
 
@@ -187,10 +187,10 @@ export default function Home() {
           <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-8">
             <div className="max-w-3xl">
               <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-white md:text-7xl">
-                Trusted Atlanta Remodeling <br />Built for Real Homes.
+                Designed for the Way You Live.
               </h1>
               <p className="mb-10 max-w-xl font-body text-xl font-light text-on-surface-variant md:text-2xl">
-                Kitchen remodeling, bathroom renovation, flooring installation, and home upgrades with reliable communication from start to finish.
+                Thoughtfully crafted kitchens, bathrooms, and living spaces shaped around comfort, detail, and the way your home should feel.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -199,13 +199,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="cta-loop inline-block rounded-full bg-primary-container px-10 py-4 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300"
                 >
-                  Get a Free Estimate
+                  Request a Consultation
                 </a>
                 <a
                   href="/gallery"
-                  className="cta-loop inline-block rounded-full border border-outline-variant/30 bg-surface/30 px-10 py-4 font-label text-lg font-bold text-white backdrop-blur-md transition-all duration-300"
+                  className="inline-block rounded-full border border-outline-variant/30 bg-surface/30 px-10 py-4 font-label text-lg font-bold text-white backdrop-blur-md transition-all duration-300"
                 >
-                  View Portfolio
+                  Explore the Portfolio
                 </a>
               </div>
             </div>
@@ -220,11 +220,11 @@ export default function Home() {
                   Home Remodeling Services
                 </span>
                 <h2 className="font-headline text-4xl font-bold tracking-tight text-white md:text-5xl">
-                  Remodeling Contractors Atlanta Homeowners Trust
+                  Atlanta’s Choice for Luxury Home Remodeling
                 </h2>
               </div>
               <p className="max-w-sm leading-relaxed text-on-surface-variant font-body">
-                AV Remodeling delivers professional residential remodeling across Atlanta with dependable scheduling, quality workmanship, and clear updates.
+                We shape kitchens, bathrooms, and whole-home updates with a calm process, careful coordination, and a finish that feels tailored to your home.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3" data-gsap-stagger>
@@ -355,10 +355,10 @@ export default function Home() {
           </div>
           <div className="relative z-10 mx-auto max-w-screen-xl px-8 text-center">
             <h2 className="mb-8 font-headline text-4xl font-extrabold tracking-tight text-white md:text-6xl">
-              Ready to Start Your Home Remodel?
+              Your dream home starts with the right team.
             </h2>
             <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-white font-body">
-            Talk with AV Remodeling about kitchen remodeling Atlanta, bathroom renovation Atlanta, and complete home remodeling services tailored to your home.
+              From stunning kitchens to full-home renovations, AV Remodeling creates refined spaces designed around your lifestyle.
             </p>
             <a
               href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
@@ -366,7 +366,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-primary-container px-12 py-5 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300 hover:scale-[0.98] hover:brightness-110 electric-glow"
             >
-              Request Your Free Estimate
+              Start Your Consultation
             </a>
           </div>
         </section>
@@ -377,7 +377,7 @@ export default function Home() {
               href="/gallery"
               className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary transition-colors hover:bg-surface-container-low"
             >
-              Continue browsing
+                Explore the Gallery
               <span aria-hidden="true">→</span>
             </a>
           </div>

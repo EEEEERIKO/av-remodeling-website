@@ -16,19 +16,19 @@ import {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AV Remodeling | Atlanta Home Remodeling Experts",
+    default: "AV Remodeling | Luxury Home Remodeling in Atlanta",
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "AV Remodeling provides kitchen remodeling, bathroom remodeling, flooring, painting, drywall, concrete, drainage, retaining walls, and exterior home maintenance in Atlanta, GA.",
+    "AV Remodeling creates refined kitchens, bathrooms, and whole-home renovations in Atlanta with a premium, design-led approach.",
     alternates: {
     canonical: "/",
   },
   
   openGraph: {
-    title: "AV Remodeling | Atlanta Home Remodeling Experts",
+    title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
     description:
-      "Kitchen, bathroom, flooring, painting, drywall, concrete, and exterior remodeling services in Atlanta and surrounding areas.",
+      "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_US",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AV Remodeling | Atlanta Home Remodeling Experts",
+    title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
     description:
-      "Premium kitchen, bathroom, and full-home remodeling in Atlanta, Georgia.",
+      "Refined kitchen, bathroom, and full-home remodeling in Atlanta, Georgia.",
     images: ["/images/portfolio/kitchens/01.jpg"],
   },
   robots: {

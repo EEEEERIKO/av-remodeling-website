@@ -47,7 +47,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             className="hidden glow-loop cta-loop btn-primary px-6 py-2.5 text-sm font-medium md:inline-flex"
             action="schedule"
           >
-            Get a Quote
+            Request a Consultation
           </TrackableLink>
           <button
             type="button"
@@ -74,7 +74,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             action="schedule"
             onClick={() => closeMenu()}
           >
-            Get a Quote
+            Request a Consultation
           </TrackableLink>
         </div>
       </div>

@@ -8,16 +8,16 @@ import { SiteHeader } from "../components/site-header";
 import { SITE_URL, breadcrumbSchema } from "../lib/seo";
 
 export const metadata: Metadata = {
-  title: "AV Remodeling | About Atlanta Remodeling Experts",
+  title: "AV Remodeling | About Our Design-Led Team",
   description:
-    "Learn about AV Remodeling, our craftsmanship standards, and our remodeling process for Atlanta homeowners.",
+    "Meet the team behind AV Remodeling and learn how we approach kitchens, bathrooms, and whole-home transformations in Atlanta.",
   alternates: {
     canonical: "/about-us",
   },
   openGraph: {
-    title: "AV Remodeling | About Atlanta Remodeling Experts",
+    title: "AV Remodeling | About Our Design-Led Team",
     description:
-      "Meet the AV Remodeling team and discover how we deliver premium remodeling results across Atlanta.",
+      "A closer look at the team, process, and craftsmanship behind AV Remodeling.",
     url: `${SITE_URL}/about-us`,
     type: "article",
   },
@@ -51,13 +51,13 @@ export default function AboutPage() {
           <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-8 px-8 lg:grid-cols-2">
             <div className="z-10">
               <span className="mb-6 mt-14 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
-                About AV Remodeling
+                Our Story
               </span>
               <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[0.9] tracking-tighter text-tertiary md:text-7xl">
-                Atlanta Remodeling <br />Done Right.
+                Remodeling With <br />Intention.
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
-                We are a residential remodeling company focused on quality craftsmanship, clear communication, and dependable results for homeowners across Atlanta.
+                We create residential spaces with quiet precision, thoughtful coordination, and a finish that feels considered from every angle.
               </p>
             </div>
             <div className="relative h-full min-h-[400px]" data-gsap-parallax="10">
@@ -78,10 +78,10 @@ export default function AboutPage() {
             <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
               <div className="max-w-2xl">
                 <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-tertiary">
-                  Built on Trust, Craftsmanship, and Communication
+                  Built on Trust, Detail, and Communication
                 </h2>
                 <p className="leading-relaxed text-on-surface-variant font-body">
-                  Every project is managed with clear timelines, honest updates, and quality standards that protect your investment.
+                  Every project is guided with clarity, measured decisions, and a standard of finish that respects your home.
                 </p>
               </div>
               <div className="select-none font-headline text-8xl font-black text-primary/5">TRUST</div>
@@ -146,19 +146,19 @@ export default function AboutPage() {
                 Our Team
               </span>
               <h2 className="mb-8 font-headline text-4xl font-bold tracking-tight text-tertiary leading-tight">
-                Experienced Remodeling Contractors in Atlanta
+                Experienced Hands. Refined Results.
               </h2>
               <p className="mb-8 leading-relaxed text-on-surface-variant font-body">
-                Our project managers and skilled crews handle kitchen remodeling, bathroom renovation, flooring installation, painting, drywall, and exterior improvements with professional care.
+                Our project managers and skilled crews shape kitchens, bathrooms, flooring, paint, drywall, and exterior improvements with professional care and a sharper eye for detail.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">Residential Remodeling Specialists</span>
+                  <span className="font-medium text-tertiary">Residential Spaces, Thoughtfully Shaped</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">Clear Project Scheduling and Updates</span>
+                  <span className="font-medium text-tertiary">Clear Planning and Measured Progress</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
@@ -166,7 +166,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <Link href="/gallery" className="group mt-12 inline-flex items-center gap-3 font-headline font-bold text-primary transition-all duration-300 hover:translate-x-1 hover:text-secondary">
-                See Remodeling Projects
+                Explore Our Work
                 <MdArrowForward className="text-sm" />
               </Link>
             </div>
@@ -175,41 +175,41 @@ export default function AboutPage() {
 
         <section className="bg-surface-container-high/30 py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <h2 className="mb-24 text-center font-headline text-3xl font-bold text-tertiary">How We Work</h2>
+            <h2 className="mb-24 text-center font-headline text-3xl font-bold text-tertiary">A Clear, Considered Process</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">01</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Discovery</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Vision</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    We listen to your goals and inspect the space to define the right remodeling approach.
+                    We start with your goals, your home, and the feeling you want the finished space to create.
                   </p>
                 </div>
               </div>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">02</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Planning</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Refinement</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    We finalize your scope, materials, and schedule so the project runs smoothly.
+                    Materials, scope, and timeline come together with a steady, deliberate pace.
                   </p>
                 </div>
               </div>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">03</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Execution</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Build</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    Our crew completes the work with clean execution and consistent project management.
+                    Our crew brings the design to life with clean execution and careful coordination.
                   </p>
                 </div>
               </div>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">04</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Handover</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Reveal</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
-                    We finish with a detailed walkthrough to confirm quality, function, and your full satisfaction.
+                    We finish with a final walkthrough to make sure every detail feels complete.
                   </p>
                 </div>
               </div>
@@ -262,7 +262,7 @@ export default function AboutPage() {
         <section className="bg-surface py-20" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8 text-center">
             <Link href="/gallery" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low">
-              See Remodeling Projects
+              Explore the Gallery
               <MdArrowForward className="text-sm" />
             </Link>
           </div>

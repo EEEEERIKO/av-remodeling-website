@@ -10,7 +10,7 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
         <div className="col-span-1 md:col-span-1">
           <div className="mb-6 text-lg font-headline font-bold text-on-surface">Av Remodeling</div>
           <p className="mx-auto max-w-[200px] text-xs leading-relaxed tracking-wider text-on-surface-variant md:mx-0 font-body">
-            Trusted Atlanta remodeling contractors for kitchens, bathrooms, flooring, painting, drywall, concrete, drainage, and exterior home improvements.
+            Refined kitchens, bathrooms, and whole-home renovations crafted with a premium, design-led approach.
           </p>
         </div>
         <div>

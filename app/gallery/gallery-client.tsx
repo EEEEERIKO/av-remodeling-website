@@ -165,13 +165,13 @@ export default function GalleryClientPage() {
       <main className="pt-32 pb-24">
         <header className="mx-auto mb-20 max-w-screen-2xl px-8 text-center md:text-left" data-gsap-reveal>
           <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
-            Portfolio
+            Selected Work
           </span>
           <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-tertiary md:text-7xl">
-            Real Atlanta Remodeling Results
+            A Portfolio of Refined Transformations
           </h1>
           <p className="max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">
-            Explore before-and-after projects from AV Remodeling, including kitchen remodeling Atlanta, bathroom renovation Atlanta, and complete residential remodeling work.
+            Explore kitchens, bathrooms, exteriors, and whole-home spaces shaped with a cleaner process and a more considered finish.
           </p>
         </header>
 
@@ -233,10 +233,10 @@ export default function GalleryClientPage() {
 
         <section className="mx-auto max-w-screen-2xl rounded-3xl bg-surface-container-low px-8 py-20 text-center" data-gsap-reveal>
           <h2 className="mb-6 font-headline text-3xl font-bold text-tertiary md:text-4xl">
-            Ready for Your Own Before-and-After?
+            Luxury remodeling made simple.
           </h2>
           <p className="mx-auto mb-10 max-w-xl font-body leading-relaxed text-on-surface-variant">
-            Talk with AV Remodeling about your kitchen, bathroom, flooring, painting, drywall, concrete, drainage, retaining wall, or exterior home maintenance project.
+            Beautiful designs, quality craftsmanship, and spaces you’ll love for years to come.
           </p>
           <div className="flex flex-col justify-center gap-4 md:flex-row">
             <a
@@ -245,7 +245,7 @@ export default function GalleryClientPage() {
               rel="noopener noreferrer"
               className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl inline-block text-center"
             >
-              GET A FREE QUOTE ON WHATSAPP
+              Request a Consultation on WhatsApp
             </a>
             <a
               href="/av-remodeling-brochure.pdf"
@@ -253,12 +253,12 @@ export default function GalleryClientPage() {
               rel="noopener noreferrer"
               className="rounded-lg border border-outline-variant px-10 py-4 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:bg-white inline-block text-center"
             >
-              Download Brochure
+              Download the Brochure
             </a>
           </div>
           <div className="mt-12 text-center">
             <a href="/about-us" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-low">
-              Continue browsing
+              Explore Our Story
               <span aria-hidden="true">→</span>
             </a>
           </div>

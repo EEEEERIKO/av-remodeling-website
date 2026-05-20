@@ -41,7 +41,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             Gallery
           </Link>
           <Link className={`${linkBase} ${active === "about" ? activeClass : inactiveClass}`} href="/about-us">
-            About
+            About Us
           </Link>
           <Link className={`${linkBase} ${active === "contact" ? activeClass : inactiveClass}`} href="/contact">
             Contact Us

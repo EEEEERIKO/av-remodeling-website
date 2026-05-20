@@ -18,7 +18,7 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
           <ul className="space-y-4 text-xs uppercase tracking-widest font-label">
             <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/">Home</a></li>
             <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/gallery">Gallery</a></li>
-            <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/about-us">About</a></li>
+            <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/about-us">About Us</a></li>
             <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/contact">Contact</a></li>
           </ul>
         </div>

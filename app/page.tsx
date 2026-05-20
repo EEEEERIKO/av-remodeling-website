@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { MdBathtub, MdHomeWork, MdKitchen } from "react-icons/md";
 import { featuredImages } from "./data/portfolio-images";
 import { HeroCarousel } from "./components/hero-carousel";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
+import recentLivingRoomImage from "../hero-images/recent-projects/livingroom.png";
+import recentKitchenImage from "../hero-images/recent-projects/kitchen.png";
+import recentOpenRoomImage from "../hero-images/recent-projects/openroom.png";
+import recentExteriorImage from "../hero-images/recent-projects/exterior.jpg";
 import {
   SITE_URL,
   breadcrumbSchema,
@@ -123,7 +127,7 @@ function ProjectImage({
   overlayClassName,
   children,
 }: {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   className: string;
   overlayClassName: string;
@@ -252,7 +256,7 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
               <div className="md:col-span-8" data-gsap-item>
                 <ProjectImage
-                  src="/images/portfolio/exteriors/03.jpg"
+                  src={recentExteriorImage}
                   alt="Exterior remodeling project in Atlanta with updated finishes and clean curb appeal"
                   className="group luxury-shadow relative h-[600px] overflow-hidden rounded-xl"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -263,7 +267,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-8 md:col-span-4" data-gsap-item>
                 <ProjectImage
-                  src="/images/portfolio/bedrooms/01.jpg"
+                  src={recentLivingRoomImage}
                   alt="Living room remodeling project with warm finishes and an open, bright layout"
                   className="group luxury-shadow relative min-h-[280px] overflow-hidden rounded-xl h-full"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -274,7 +278,7 @@ export default function Home() {
               </div>
               <div className="md:col-span-4" data-gsap-item>
                 <ProjectImage
-                  src="/images/portfolio/kitchens/08.jpg"
+                  src={recentKitchenImage}
                   alt="Kitchen remodeling project with custom cabinetry and elevated natural finishes"
                   className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -285,7 +289,7 @@ export default function Home() {
               </div>
               <div className="md:col-span-8" data-gsap-item>
                 <ProjectImage
-                  src="/images/portfolio/living-rooms/03.jpg"
+                  src={recentOpenRoomImage}
                   alt="Open room remodeling project with clean lines and a spacious modern layout"
                   className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"

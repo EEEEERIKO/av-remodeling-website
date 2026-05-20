@@ -8,6 +8,10 @@ export default function RouteScrollReset() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    if (window.location.hash) {
+      return;
+    }
+
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }

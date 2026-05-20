@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BeforeAfterSlider } from "../components/before-after-slider";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
@@ -135,6 +135,7 @@ const buildBentoGrid = (images: ImageItem[]) => {
 
 export default function GalleryClientPage() {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+  const resultsSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const applyHashFilter = () => setActiveFilter(filterFromHash(window.location.hash));
@@ -144,6 +145,18 @@ export default function GalleryClientPage() {
 
     return () => window.removeEventListener("hashchange", applyHashFilter);
   }, []);
+
+  useEffect(() => {
+    if (!window.location.hash) {
+      return;
+    }
+
+    const raf = window.requestAnimationFrame(() => {
+      resultsSectionRef.current?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(raf);
+  }, [activeFilter]);
 
   const handleFilterChange = (filter: FilterType) => {
     setActiveFilter(filter);
@@ -203,7 +216,7 @@ export default function GalleryClientPage() {
           </p>
         </section>
 
-        <section className="mx-auto mb-32 max-w-screen-2xl px-8" data-gsap-reveal>
+        <section ref={resultsSectionRef} className="mx-auto mb-32 max-w-screen-2xl px-8" data-gsap-reveal>
           <div className="grid auto-rows-[400px] grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
             {gridItems.map((item, index) => (
               <div

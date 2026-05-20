@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Suspense } from "react";
 import MetaPixel from "./components/MetaPixel";
 import "./globals.css";
 import { ScrollAnimations } from "./components/scroll-animations";
@@ -76,7 +77,9 @@ export default function RootLayout({
   return (
     <html lang="en-US" className="scroll-smooth h-full">
       <body className="min-h-full flex flex-col bg-surface text-on-surface antialiased" suppressHydrationWarning>
-        <RouteScrollReset />
+        <Suspense fallback={null}>
+          <RouteScrollReset />
+        </Suspense>
         <ScrollAnimations />
         <MetaPixel />
         <Script

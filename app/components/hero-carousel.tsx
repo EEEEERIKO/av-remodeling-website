@@ -68,8 +68,9 @@ export function HeroCarousel() {
               src={slide.src}
               alt={slide.alt}
               fill
-              priority={slideIndex === 0}
-              quality={92}
+              preload={slideIndex === 0}
+              loading={slideIndex === 0 ? "eager" : "lazy"}
+              quality={75}
               sizes="100vw"
               className="object-cover"
             />

@@ -17,15 +17,11 @@ import {
 
 export const metadata: Metadata = {
   title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
-  description:
-    "AV Remodeling creates refined kitchens, bathrooms, and whole-home renovations in Atlanta with a premium, design-led approach.",
-  alternates: {
-    canonical: "/",
-  },
+  description: "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
-    description:
-      "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
+    description: "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
     url: SITE_URL,
     type: "website",
     images: [
@@ -40,8 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
-    description:
-      "Refined kitchen, bathroom, and whole-home remodeling in Atlanta, Georgia.",
+    description: "Refined kitchen, bathroom, and whole-home remodeling in Atlanta, Georgia.",
     images: ["/images/portfolio/kitchens/01.jpg"],
   },
 };
@@ -199,7 +194,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="cta-loop inline-block rounded-full bg-primary-container px-10 py-4 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300"
                 >
-                  Request a Consultation
+                  GET A FREE ESTIMATE
                 </a>
                 <a
                   href="/gallery"
@@ -269,33 +264,33 @@ export default function Home() {
               <div className="flex flex-col gap-8 md:col-span-4" data-gsap-item>
                 <ProjectImage
                   src="/images/portfolio/bedrooms/01.jpg"
-                  alt="Bedroom remodeling project with updated finishes and improved lighting"
+                  alt="Living room remodeling project with warm finishes and an open, bright layout"
                   className="group luxury-shadow relative min-h-[280px] overflow-hidden rounded-xl h-full"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 >
-                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Bedroom Remodel</span>
-                  <h3 className="font-headline text-xl font-bold text-white">Comfort-Focused Upgrade</h3>
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Living Space Refresh</span>
+                  <h3 className="font-headline text-xl font-bold text-white">Open, Comfortable Living</h3>
                 </ProjectImage>
               </div>
               <div className="md:col-span-4" data-gsap-item>
                 <ProjectImage
                   src="/images/portfolio/kitchens/08.jpg"
-                  alt="Kitchen remodeling Atlanta project with custom cabinetry and bright finishes"
+                  alt="Kitchen remodeling project with custom cabinetry and elevated natural finishes"
                   className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 >
-                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Kitchen Remodeling Atlanta</span>
-                  <h3 className="font-headline text-xl font-bold text-white">Custom Kitchen Upgrade</h3>
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Kitchen Transformation</span>
+                  <h3 className="font-headline text-xl font-bold text-white">Refined Cooking Space</h3>
                 </ProjectImage>
               </div>
               <div className="md:col-span-8" data-gsap-item>
                 <ProjectImage
                   src="/images/portfolio/living-rooms/03.jpg"
-                  alt="Living room remodeling project with improved layout and modern finishes"
+                  alt="Open room remodeling project with clean lines and a spacious modern layout"
                   className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
                   overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 >
-                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Living Room Remodel</span>
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Open Concept Design</span>
                   <h3 className="font-headline text-xl font-bold text-white">Architectural Transformation</h3>
                 </ProjectImage>
               </div>

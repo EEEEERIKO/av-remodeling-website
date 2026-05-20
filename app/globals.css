@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -26,7 +26,7 @@
   --color-primary-fixed-dim: #98cbff;
   --color-on-primary: #003354;
   --color-on-primary-container: #00375a;
-  --color-on-primary-fixed: #001d33;
+  --color-on-primary-fixed: #ffffff;
   --color-on-primary-fixed-variant: #004a77;
   --color-secondary: #a3caf6;
   --color-secondary-container: #1f496f;
@@ -54,9 +54,9 @@
   --color-inverse-on-surface: #2c3137;
   --color-inverse-primary: #00629d;
   --color-surface-tint: #98cbff;
-  --font-headline: "Manrope", sans-serif;
-  --font-body: "Inter", sans-serif;
-  --font-label: "Inter", sans-serif;
+  --font-headline: "Playfair Display", serif;
+  --font-body: "Montserrat", sans-serif;
+  --font-label: "Montserrat", sans-serif;
   --radius-md: 0.25rem;
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
@@ -110,7 +110,7 @@ body {
 
 .btn-primary {
   background: #00a3ff;
-  color: #003354;
+  color: #ffffff;
   border-radius: 9999px;
   transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
 }

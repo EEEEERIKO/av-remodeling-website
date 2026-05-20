@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
@@ -22,9 +23,16 @@ export function SiteHeader({ active }: SiteHeaderProps) {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-outline-variant/10 bg-surface/70 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 sm:px-8">
-        <div className="text-xl font-headline font-bold tracking-tighter uppercase text-on-surface">
-          Av Remodeling
-        </div>
+        <Link href="/" className="flex items-center" aria-label="AV Remodeling home">
+          <Image
+            src="/logo.png"
+            alt="AV Remodeling"
+            width={184}
+            height={48}
+            priority
+            className="h-auto w-[132px] sm:w-[164px]"
+          />
+        </Link>
         <div className="hidden items-center gap-10 text-sm font-medium tracking-tight md:flex">
           <Link className={`${linkBase} ${active === "home" ? activeClass : inactiveClass}`} href="/">
             Home
@@ -47,7 +55,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             className="hidden glow-loop cta-loop btn-primary px-6 py-2.5 text-sm font-medium md:inline-flex"
             action="schedule"
           >
-            Request a Consultation
+            CALL US NOW
           </TrackableLink>
           <button
             type="button"

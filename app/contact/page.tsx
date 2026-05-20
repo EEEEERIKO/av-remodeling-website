@@ -119,7 +119,7 @@ export default function ContactPage() {
                                         <p className="leading-relaxed text-on-surface-variant">
                                             Monday — Friday
                                             <br />
-                                            09:00 AM — 06:00 PM EST
+                                            08:30 AM — 06:00 PM EST
                                         </p>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                                         <p className="leading-relaxed text-on-surface-variant">
                                             avremodeling37@gmail.com
                                             <br />
-                                            +1 (678) 886-4393
+                                            Alejandro Vargas Cell: 678.886.4393
                                         </p>
                                     </div>
                                 </div>

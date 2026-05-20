@@ -179,10 +179,6 @@ export default function GalleryClientPage() {
           <BeforeAfterSlider
             beforeSrc="/images/before-after/before.jpg"
             afterSrc="/images/before-after/after.jpg"
-            beforeLabel="Before"
-            afterLabel="After"
-            title="Before and After Remodeling"
-            description="Slide to compare the original space and the finished result."
           />
         </section>
 
@@ -261,7 +257,7 @@ export default function GalleryClientPage() {
             </a>
           </div>
           <div className="mt-12 text-center">
-            <a href="/about" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low">
+            <a href="/about-us" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-low">
               Continue browsing
               <span aria-hidden="true">→</span>
             </a>

@@ -96,16 +96,6 @@ const featuredServices = [
     alt: "Bathroom and kitchen remodeling",
   },
   {
-    title: "Water Damage",
-    description:
-      "Fast response to water intrusion with clear scope, pricing, and no guesswork before work begins.",
-    badge: "Emergency Services",
-    cta: "Explore Water Damage",
-    href: "/contact",
-    image: serviceExteriorHeroImage,
-    alt: "Exterior home remodeling in Atlanta with upgraded finishes and curb appeal",
-  },
-  {
     title: "Roofing",
     description:
       "Replacement, storm repair, or targeted fixes with real line-item estimates based on inspection and photos.",
@@ -144,6 +134,33 @@ const featuredServices = [
     href: "/contact",
     image: serviceFencingImage,
     alt: "Fencing",
+  },
+];
+
+const serviceCards = [
+  {
+    icon: "kitchen",
+    title: "Kitchens with a Considered Flow",
+    description:
+      "Thoughtfully planned kitchens with better layout, elegant materials, and a finish that makes everyday routines feel elevated.",
+    link: "Explore Kitchen Projects",
+    href: "/gallery#kitchens",
+  },
+  {
+    icon: "bathtub",
+    title: "Bathrooms with a Spa-Like Calm",
+    description:
+      "Refined bathrooms shaped around comfort, light, and durability so the space feels restorative and timeless.",
+    link: "Explore Bathroom Projects",
+    href: "/gallery#bathrooms",
+  },
+  {
+    icon: "home_work",
+    title: "Whole-Home Improvements, Seamlessly Managed",
+    description:
+      "From flooring and paint to drywall, concrete, drainage, and exterior care, every detail is handled with consistency and precision.",
+    link: "Explore All Services",
+    href: "/gallery#all",
   },
 ];
 
@@ -334,6 +351,45 @@ export default function Home() {
                     </div>
                   </div>
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface py-32" data-gsap-reveal>
+          <div className="mx-auto max-w-screen-2xl px-8">
+            <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
+              <div className="max-w-2xl">
+                <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
+                  Home Remodeling Services
+                </span>
+                <h2 className="font-headline text-4xl font-bold tracking-tight text-white md:text-5xl">
+                  Atlanta’s Choice for Luxury Home Remodeling
+                </h2>
+              </div>
+              <p className="max-w-sm leading-relaxed text-on-surface-variant font-body">
+                We shape kitchens, bathrooms, and whole-home updates with a calm process, careful coordination, and a finish that feels tailored to your home.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-3" data-gsap-stagger>
+              {serviceCards.map((card) => (
+                <div key={card.title} className="group" data-gsap-item>
+                  <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-xl bg-surface-container-low shadow-[inset_0_1px_0_rgba(245,247,250,0.05)] transition-colors duration-500 group-hover:bg-primary-container">
+                    {card.icon === "kitchen" ? (
+                      <MdKitchen className="text-3xl text-on-surface transition-colors duration-500 group-hover:text-on-primary-fixed" />
+                    ) : card.icon === "bathtub" ? (
+                      <MdBathtub className="text-3xl text-on-surface transition-colors duration-500 group-hover:text-on-primary-fixed" />
+                    ) : (
+                      <MdHomeWork className="text-3xl text-on-surface transition-colors duration-500 group-hover:text-on-primary-fixed" />
+                    )}
+                  </div>
+                  <h3 className="mb-4 font-headline text-2xl font-bold text-white">{card.title}</h3>
+                  <p className="mb-6 leading-relaxed text-on-surface-variant font-body">{card.description}</p>
+                  <Link className="link-loop inline-flex items-center font-semibold text-primary transition-all" href={card.href}>
+                    {card.link}
+                    <span className="arrow-loop ml-2 text-sm">→</span>
+                  </Link>
+                </div>
               ))}
             </div>
           </div>

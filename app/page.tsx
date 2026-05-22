@@ -310,7 +310,7 @@ export default function Home() {
                 <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.35em] text-secondary font-label">
                   What We Do
                 </span>
-                <h2 className="font-headline text-4xl font-bold tracking-tight text-white md:text-5xl">
+                <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
                   Services for Your Home
                 </h2>
               </div>
@@ -363,7 +363,7 @@ export default function Home() {
                 <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
                   Home Remodeling Services
                 </span>
-                <h2 className="font-headline text-4xl font-bold tracking-tight text-white md:text-5xl">
+                  <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
                   Atlanta’s Choice for Luxury Home Remodeling
                 </h2>
               </div>
@@ -397,7 +397,7 @@ export default function Home() {
 
         <section className="bg-surface-container-low py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <h2 className="mb-16 font-headline text-4xl font-bold text-white">Recent Atlanta Remodeling Projects</h2>
+            <h2 className="mb-16 font-headline text-4xl font-bold text-primary">Recent Atlanta Remodeling Projects</h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
               <div className="md:col-span-8" data-gsap-item>
                 <ProjectImage
@@ -453,7 +453,7 @@ export default function Home() {
               <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
                 Our Process
               </span>
-              <h2 className="font-headline text-4xl font-bold text-white md:text-5xl">A Remodeling Process You Can Trust</h2>
+              <h2 className="font-headline text-4xl font-bold text-primary md:text-5xl">A Remodeling Process You Can Trust</h2>
             </div>
             <div className="relative">
               <div className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
@@ -479,7 +479,7 @@ export default function Home() {
               <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.35em] text-secondary font-label">
                 Client Testimonials
               </span>
-              <h2 className="font-headline text-4xl font-bold tracking-tight text-white md:text-5xl">
+                <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
                 What our customers think
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-on-surface-variant font-body">
@@ -515,7 +515,7 @@ export default function Home() {
             />
           </div>
           <div className="relative z-10 mx-auto max-w-screen-xl px-8 text-center">
-            <h2 className="mb-8 font-headline text-4xl font-extrabold tracking-tight text-white md:text-6xl">
+            <h2 className="mb-8 font-headline text-4xl font-extrabold tracking-tight text-primary md:text-6xl">
               Your dream home starts with the right team.
             </h2>
             <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-white font-body">

@@ -180,7 +180,7 @@ export default function GalleryClientPage() {
           <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
             Selected Work
           </span>
-          <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-tertiary md:text-7xl">
+          <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-primary md:text-7xl">
             A Portfolio of Refined Transformations
           </h1>
           <p className="max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">

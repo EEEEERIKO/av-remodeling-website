@@ -55,7 +55,7 @@ export default function AboutPage() {
               <span className="mb-6 mt-14 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
                 Our Story
               </span>
-              <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[0.9] tracking-tighter text-tertiary md:text-7xl">
+              <h1 className="mb-8 font-headline text-5xl font-extrabold leading-[0.9] tracking-tighter text-primary md:text-7xl">
                 Remodeling With <br />Intention.
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
@@ -79,7 +79,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-screen-2xl px-8">
             <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
               <div className="max-w-2xl">
-                <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-tertiary">
+                <h2 className="mb-6 font-headline text-4xl font-bold tracking-tight text-primary">
                   Built on Trust, Detail, and Communication
                 </h2>
                 <p className="leading-relaxed text-on-surface-variant font-body">
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-primary-container/10">
                   <MdVerifiedUser className="text-primary" />
                 </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold text-tertiary">Trust</h3>
+                <h3 className="mb-4 font-headline text-2xl font-bold text-primary">Trust</h3>
                 <p className="mb-6 text-sm leading-relaxed text-on-surface-variant font-body">
                   We keep every step clear. You know what is happening, when it is happening, and what to expect next.
                 </p>
@@ -105,7 +105,7 @@ export default function AboutPage() {
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-surface-container-lowest/10">
                   <MdArchitecture className="text-secondary-fixed-dim" />
                 </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold">Craftsmanship</h3>
+                <h3 className="mb-4 font-headline text-2xl font-bold text-primary">Craftsmanship</h3>
                 <p className="mb-6 text-sm leading-relaxed text-surface-variant font-body">
                   From framing and drywall to tile, paint, and final finishes, we focus on solid work that looks great and lasts.
                 </p>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-primary-container/10">
                   <MdForum className="text-primary" />
                 </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold text-tertiary">Communication</h3>
+                <h3 className="mb-4 font-headline text-2xl font-bold text-primary">Communication</h3>
                 <p className="mb-6 text-sm leading-relaxed text-on-surface-variant font-body">
                   Our team responds quickly, gives regular updates, and keeps your project moving with fewer surprises.
                 </p>
@@ -147,7 +147,7 @@ export default function AboutPage() {
               <span className="mb-6 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
                 Our Team
               </span>
-              <h2 className="mb-8 font-headline text-4xl font-bold tracking-tight text-tertiary leading-tight">
+              <h2 className="mb-8 font-headline text-4xl font-bold tracking-tight text-primary leading-tight">
                 Experienced Hands. Refined Results.
               </h2>
               <p className="mb-8 leading-relaxed text-on-surface-variant font-body">
@@ -156,15 +156,15 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">Residential Spaces, Thoughtfully Shaped</span>
+                  <span className="font-medium text-primary">Residential Spaces, Thoughtfully Shaped</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">Clear Planning and Measured Progress</span>
+                  <span className="font-medium text-primary">Clear Planning and Measured Progress</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="h-2 w-2 rounded-full bg-secondary" />
-                  <span className="font-medium text-tertiary">Quality Control from Start to Finish</span>
+                  <span className="font-medium text-primary">Quality Control from Start to Finish</span>
                 </div>
               </div>
               <Link href="/gallery" className="group mt-12 inline-flex items-center gap-3 font-headline font-bold text-primary transition-all duration-300 hover:translate-x-1 hover:text-secondary">
@@ -177,12 +177,12 @@ export default function AboutPage() {
 
         <section className="bg-surface-container-high/30 py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <h2 className="mb-24 text-center font-headline text-3xl font-bold text-tertiary">A Clear, Considered Process</h2>
+            <h2 className="mb-24 text-center font-headline text-3xl font-bold text-primary">A Clear, Considered Process</h2>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">01</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Vision</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-primary">Vision</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
                     We start with your goals, your home, and the feeling you want the finished space to create.
                   </p>
@@ -191,7 +191,7 @@ export default function AboutPage() {
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">02</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Refinement</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-primary">Refinement</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
                     Materials, scope, and timeline come together with a steady, deliberate pace.
                   </p>
@@ -200,7 +200,7 @@ export default function AboutPage() {
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">03</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Build</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-primary">Build</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
                     Our crew brings the design to life with clean execution and careful coordination.
                   </p>
@@ -209,7 +209,7 @@ export default function AboutPage() {
               <div className="relative" data-gsap-item>
                 <span className="pointer-events-none absolute -top-16 left-0 select-none font-headline text-9xl font-black text-primary/5">04</span>
                 <div className="relative z-10 pt-4">
-                  <h4 className="mb-3 font-headline text-lg font-bold text-tertiary">Reveal</h4>
+                  <h4 className="mb-3 font-headline text-lg font-bold text-primary">Reveal</h4>
                   <p className="text-sm leading-relaxed text-on-surface-variant font-body">
                     We finish with a final walkthrough to make sure every detail feels complete.
                   </p>
@@ -225,7 +225,7 @@ export default function AboutPage() {
               <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.35em] text-secondary font-label">
                 Social Presence
               </span>
-              <h2 className="font-headline text-4xl font-bold tracking-tight text-tertiary md:text-5xl">
+              <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
                 Follow the work as it happens
               </h2>
               <p className="mt-6 max-w-2xl leading-relaxed text-on-surface-variant font-body">
@@ -253,7 +253,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="max-w-xl">
-                    <h3 className="font-headline text-4xl font-bold tracking-tight text-white">
+                    <h3 className="font-headline text-4xl font-bold tracking-tight text-primary">
                       View Instagram
                     </h3>
                     <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/75 font-body">
@@ -287,7 +287,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="max-w-xl">
-                    <h3 className="font-headline text-4xl font-bold tracking-tight text-white">
+                    <h3 className="font-headline text-4xl font-bold tracking-tight text-primary">
                       View YouTube Channel
                     </h3>
                     <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/75 font-body">

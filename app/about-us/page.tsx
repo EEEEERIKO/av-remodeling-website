@@ -5,6 +5,7 @@ import { MdArchitecture, MdArrowForward, MdForum, MdVerifiedUser } from "react-i
 import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import aboutHeroImage from "../../services/about us hero image.png";
 import { SITE_URL, breadcrumbSchema } from "../lib/seo";
 
 export const metadata: Metadata = {
@@ -64,7 +65,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 translate-x-8 translate-y-8 rounded-xl bg-surface-container-high" />
               <Image
                 className="absolute inset-0 z-10 rounded-xl object-cover shadow-2xl"
-                src={featuredImages.aboutHero}
+                src={aboutHeroImage}
                 alt="Remodeling project detail showing clean finishes and modern materials"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -261,6 +262,23 @@ export default function AboutPage() {
 
         <section className="bg-surface py-20" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8 text-center">
+            <div className="inline-flex items-center gap-4 rounded-full border border-white/10 bg-surface-container-low px-4 py-3 shadow-[0_18px_45px_rgba(0,0,0,0.2)]">
+              <span className="hidden h-px w-10 bg-secondary/70 sm:block" />
+              <Link
+                href="https://www.instagram.com/avremodelingatl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 px-6 py-3 font-headline text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:shadow-2xl"
+              >
+                View Instagram
+              </Link>
+              <span className="hidden h-px w-10 bg-secondary/70 sm:block" />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-surface py-20" data-gsap-reveal>
+          <div className="mx-auto max-w-screen-2xl px-8 text-center">
             <Link href="/gallery" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low">
               Explore the Gallery
               <MdArrowForward className="text-sm" />
@@ -268,13 +286,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-surface py-20" data-gsap-reveal>
-          <div className="mx-auto max-w-screen-2xl px-8 text-center">
-            <Link href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" className="inline-block rounded-lg bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 px-8 py-3 font-headline text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:shadow-2xl">
-              View Instagram
-            </Link>
-          </div>
-        </section>
       </main>
 
       <SiteFooter />

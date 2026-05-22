@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
       },
+        {
+          protocol: "https",
+          hostname: "pub-9b7e1c4af54747248096d0d7c2e05b23.r2.dev",
+        },
     ],
   },
   async headers() {

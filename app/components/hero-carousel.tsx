@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import heroExteriorImage from "../../services/exterior hero image.jpg";
 
 const heroSlides = [
   {
@@ -13,7 +14,7 @@ const heroSlides = [
     alt: "Bathroom renovation in Atlanta with premium tile and contemporary fixtures",
   },
   {
-    src: "/hero-images/exterior.png",
+    src: heroExteriorImage,
     alt: "Exterior home remodeling in Atlanta with upgraded finishes and curb appeal",
   },
 ];

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { MdArchitecture, MdArrowForward, MdForum, MdVerifiedUser } from "react-icons/md";
 import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
@@ -218,6 +219,91 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="bg-surface py-28" data-gsap-reveal>
+          <div className="mx-auto max-w-screen-2xl px-8">
+            <div className="mb-12 max-w-3xl">
+              <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.35em] text-secondary font-label">
+                Social Presence
+              </span>
+              <h2 className="font-headline text-4xl font-bold tracking-tight text-tertiary md:text-5xl">
+                Follow the work as it happens
+              </h2>
+              <p className="mt-6 max-w-2xl leading-relaxed text-on-surface-variant font-body">
+                We share project progress, finished details, and behind-the-scenes updates so you can see how our work comes together.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+              <Link
+                href="https://www.instagram.com/avremodelingatl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-surface-container-low shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:-translate-y-1"
+                aria-label="View Instagram"
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(225,29,72,0.3),transparent_35%),linear-gradient(135deg,rgba(8,15,25,0.96),rgba(16,23,35,0.86))]" />
+                <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+                <div className="relative flex h-full min-h-[360px] flex-col justify-between p-10 md:p-12">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md">
+                      <FaInstagram className="text-xl" />
+                    </span>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-secondary">Instagram</p>
+                      <p className="mt-1 text-sm text-white/70">@avremodelingatl</p>
+                    </div>
+                  </div>
+                  <div className="max-w-xl">
+                    <h3 className="font-headline text-4xl font-bold tracking-tight text-white">
+                      View Instagram
+                    </h3>
+                    <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/75 font-body">
+                      See recent remodels, material details, and the kind of finish we aim for in every project.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
+                    <span>Open profile</span>
+                    <MdArrowForward className="text-base transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                href="https://www.youtube.com/@avremodelingatl8105"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-surface-container-low shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:-translate-y-1"
+                aria-label="View YouTube Channel"
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.28),transparent_35%),linear-gradient(135deg,rgba(8,15,25,0.96),rgba(16,23,35,0.9))]" />
+                <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+                <div className="relative flex h-full min-h-[360px] flex-col justify-between p-10 md:p-12">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md">
+                      <FaYoutube className="text-xl" />
+                    </span>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-secondary">YouTube</p>
+                      <p className="mt-1 text-sm text-white/70">@avremodelingatl8105</p>
+                    </div>
+                  </div>
+                  <div className="max-w-xl">
+                    <h3 className="font-headline text-4xl font-bold tracking-tight text-white">
+                      View YouTube Channel
+                    </h3>
+                    <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/75 font-body">
+                      Longer walkthroughs and before-and-after stories live here so you can get a better sense of the process.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
+                    <span>Open channel</span>
+                    <MdArrowForward className="text-base transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
@@ -257,32 +343,6 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="bg-surface py-20" data-gsap-reveal>
-          <div className="mx-auto max-w-screen-2xl px-8 text-center">
-            <div className="inline-flex items-center gap-4 rounded-full border border-white/10 bg-surface-container-low px-4 py-3 shadow-[0_18px_45px_rgba(0,0,0,0.2)]">
-              <span className="hidden h-px w-10 bg-secondary/70 sm:block" />
-              <Link
-                href="https://www.instagram.com/avremodelingatl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 px-6 py-3 font-headline text-sm font-bold tracking-wide text-white transition-all hover:-translate-y-1 hover:shadow-2xl"
-              >
-                View Instagram
-              </Link>
-              <span className="hidden h-px w-10 bg-secondary/70 sm:block" />
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-surface py-20" data-gsap-reveal>
-          <div className="mx-auto max-w-screen-2xl px-8 text-center">
-            <Link href="/gallery" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-colors hover:bg-surface-container-low">
-              Explore the Gallery
-              <MdArrowForward className="text-sm" />
-            </Link>
           </div>
         </section>
 

@@ -7,7 +7,7 @@ import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import { portfolioImages } from "../data/portfolio-images";
 
-type FilterType = "all" | "bathrooms" | "bedrooms" | "exteriors" | "kitchens" | "living-rooms";
+type FilterType = "all" | "bathrooms" | "exteriors" | "kitchens" | "living-rooms";
 
 interface ImageItem {
   src: string;
@@ -16,33 +16,20 @@ interface ImageItem {
 }
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
-  "/images/portfolio/bathrooms/01.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/bathrooms/02.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/03.jpg": { width: 960, height: 684 },
   "/images/portfolio/bathrooms/04.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/bathrooms/05.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/bathrooms/06.jpg": { width: 1080, height: 1350 },
   "/images/portfolio/bathrooms/07.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/bathrooms/08.jpg": { width: 720, height: 1600 },
-  "/images/portfolio/bathrooms/09.jpg": { width: 1080, height: 1440 },
   "/images/portfolio/bathrooms/10.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/bathrooms/11.jpg": { width: 1203, height: 1600 },
   "/images/portfolio/bathrooms/12.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/bathrooms/13.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/bathrooms/14.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/bathrooms/15.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/16.jpg": { width: 900, height: 1599 },
-  "/images/portfolio/bedrooms/01.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/bedrooms/02.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/exteriors/01.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/02.jpg": { width: 1320, height: 1590 },
-  "/images/portfolio/exteriors/03.jpg": { width: 1080, height: 1350 },
   "/images/portfolio/exteriors/04.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/05.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/06.jpg": { width: 720, height: 960 },
   "/images/portfolio/exteriors/07.jpg": { width: 344, height: 256 },
-  "/images/portfolio/exteriors/08.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/exteriors/09.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/10.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/11.jpg": { width: 1080, height: 1440 },
   "/images/portfolio/exteriors/12.jpg": { width: 1080, height: 1440 },
@@ -55,10 +42,8 @@ const imageDimensions: Record<string, { width: number; height: number }> = {
   "/images/portfolio/kitchens/05.jpg": { width: 1600, height: 840 },
   "/images/portfolio/kitchens/06.jpg": { width: 1280, height: 1600 },
   "/images/portfolio/kitchens/07.jpg": { width: 1280, height: 1600 },
-  "/images/portfolio/kitchens/08.jpg": { width: 1280, height: 1600 },
   "/images/portfolio/living-rooms/01.jpg": { width: 1080, height: 1350 },
   "/images/portfolio/living-rooms/02.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/living-rooms/03.jpg": { width: 1080, height: 1350 },
 };
 
 const isPortraitImage = (src: string): boolean => {
@@ -82,7 +67,6 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 
 const allImagesUnshuffled: ImageItem[] = [
   ...portfolioImages.bathrooms.map((src) => ({ src, category: "bathrooms" as FilterType, isPortrait: isPortraitImage(src) })),
-  ...portfolioImages.bedrooms.map((src) => ({ src, category: "bedrooms" as FilterType, isPortrait: isPortraitImage(src) })),
   ...portfolioImages.exteriors.map((src) => ({ src, category: "exteriors" as FilterType, isPortrait: isPortraitImage(src) })),
   ...portfolioImages.kitchens.map((src) => ({ src, category: "kitchens" as FilterType, isPortrait: isPortraitImage(src) })),
   ...portfolioImages.livingRooms.map((src) => ({ src, category: "living-rooms" as FilterType, isPortrait: isPortraitImage(src) })),
@@ -93,7 +77,6 @@ const allImages = shuffleArray(allImagesUnshuffled);
 const filters = [
   { id: "all", label: "All Projects" },
   { id: "bathrooms", label: "Bathrooms" },
-  { id: "bedrooms", label: "Bedrooms" },
   { id: "exteriors", label: "Exteriors" },
   { id: "kitchens", label: "Kitchens" },
   { id: "living-rooms", label: "Living Rooms" },
@@ -237,6 +220,7 @@ export default function GalleryClientPage() {
                     <p className="font-body text-sm text-white/70 capitalize">
                       {item.category.replace("-", " ")} Project
                     </p>
+                    
                   </div>
                 </div>
               </div>

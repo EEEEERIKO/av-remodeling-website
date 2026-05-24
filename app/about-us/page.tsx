@@ -12,7 +12,7 @@ import { SITE_URL, breadcrumbSchema } from "../lib/seo";
 export const metadata: Metadata = {
   title: "AV Remodeling | About Our Design-Led Team",
   description:
-    "Meet the team behind AV Remodeling and learn how we approach kitchens, bathrooms, and whole-home transformations in Atlanta.",
+    "AV Remodeling is a trusted remodeling company proudly serving Atlanta and surrounding areas.",
   alternates: {
     canonical: "/about-us",
   },
@@ -59,7 +59,13 @@ export default function AboutPage() {
                 Remodeling With <br />Intention.
               </h1>
               <p className="max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
-                We create residential spaces with quiet precision, thoughtful coordination, and a finish that feels considered from every angle.
+                AV Remodeling is a trusted remodeling company proudly serving Atlanta and surrounding areas. We specialize in transforming residential, commercial, investment, and multifamily properties through high-quality craftsmanship, reliable service, and a seamless remodeling experience from start to finish.
+              </p>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
+                Our services cover everything from small projects, full renovations, and damage restoration to concrete work, landscaping, decks, and more. No matter the size or scope, our experienced team delivers customized solutions tailored to your vision, lifestyle, and budget.
+              </p>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-on-surface-variant font-body">
+                At AV Remodeling, we combine expert guidance, attention to detail, and professional execution to bring every project to life and create spaces our clients are proud to call their own.
               </p>
             </div>
             <div className="relative h-full min-h-[400px]" data-gsap-parallax="10">

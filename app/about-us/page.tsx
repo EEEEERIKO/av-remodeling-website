@@ -42,7 +42,7 @@ export default function AboutPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", path: "/" },
-              { name: "About", path: "/about-us" },
+              { name: "About Us", path: "/about-us" },
             ]),
           ),
         }}

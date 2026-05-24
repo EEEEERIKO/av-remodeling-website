@@ -229,7 +229,7 @@ export default function GalleryClientPage() {
         </section>
 
         <section className="mx-auto max-w-screen-2xl rounded-3xl bg-surface-container-low px-8 py-20 text-center" data-gsap-reveal>
-          <h2 className="mb-6 font-headline text-3xl font-bold text-tertiary md:text-4xl">
+          <h2 className="mb-6 font-headline text-3xl font-bold text-brand-blue md:text-4xl">
             Luxury remodeling made simple.
           </h2>
           <p className="mx-auto mb-10 max-w-xl font-body leading-relaxed text-on-surface-variant">

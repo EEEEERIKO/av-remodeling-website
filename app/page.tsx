@@ -137,6 +137,17 @@ const featuredServices = [
   },
 ];
 
+const blueTitles = new Set([
+  "Interior & Exterior Painting",
+  "Pressure Washing",
+  "Flooring",
+  "Bathroom & Kitchen Remodeling",
+  "Roofing",
+  "Siding",
+  "Gutters",
+  "Fencing",
+]);
+
 const serviceCards = [
   {
     icon: "kitchen",
@@ -340,7 +351,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex h-full flex-col p-7">
-                    <h3 className="font-headline text-2xl font-bold text-white">{service.title}</h3>
+                    <h3 className={`font-headline text-2xl font-bold ${blueTitles.has(service.title) ? 'text-brand-blue' : 'text-white'}`}>{service.title}</h3>
                     <p className="mt-4 flex-1 leading-relaxed text-on-surface-variant font-body">{service.description}</p>
                     <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
                       <span className="link-loop inline-flex items-center font-semibold text-primary transition-all">

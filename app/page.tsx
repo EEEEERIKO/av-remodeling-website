@@ -538,7 +538,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-primary-container px-12 py-5 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300 hover:scale-[0.98] hover:brightness-110 electric-glow"
             >
-              Start Your Consultation
+              GET YOUR ESTIMATE
             </a>
           </div>
         </section>

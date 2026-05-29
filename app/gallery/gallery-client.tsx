@@ -164,10 +164,13 @@ export default function GalleryClientPage() {
             Selected Work
           </span>
           <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-primary md:text-7xl">
-            A Portfolio of Refined Transformations
+            Our Work Speaks for Itself
           </h1>
           <p className="max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">
-            Explore kitchens, bathrooms, exteriors, and whole-home spaces shaped with a cleaner process and a more considered finish.
+            Explore our portfolio of beautifully crafted renovations and custom projects designed with quality, functionality, and attention to detail in mind. From kitchens and bathrooms to stunning exteriors and full home transformations, every project reflects our commitment to exceptional craftsmanship and lasting results.
+          </p>
+          <p className="mt-6 max-w-2xl font-body text-sm leading-relaxed text-on-surface-variant/80">
+            Browse Our Services: Kitchens • Bathrooms • Exteriors • Basements • Additions • Full Home Remodels • Custom Projects
           </p>
         </header>
 
@@ -229,11 +232,11 @@ export default function GalleryClientPage() {
         </section>
 
         <section className="mx-auto max-w-screen-2xl rounded-3xl bg-surface-container-low px-8 py-20 text-center" data-gsap-reveal>
-          <h2 className="mb-6 font-headline text-3xl font-bold text-brand-blue md:text-4xl">
-            Luxury remodeling made simple.
+          <h2 className="mb-6 font-headline text-3xl font-bold text-primary md:text-4xl">
+            Remodeling made clear, polished, and straightforward.
           </h2>
           <p className="mx-auto mb-10 max-w-xl font-body leading-relaxed text-on-surface-variant">
-            Beautiful designs, quality craftsmanship, and spaces you’ll love for years to come.
+            Beautiful designs, quality craftsmanship, and spaces that feel right for the way you live.
           </p>
           <div className="flex flex-col justify-center gap-4 md:flex-row">
             <a
@@ -242,7 +245,7 @@ export default function GalleryClientPage() {
               rel="noopener noreferrer"
               className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl inline-block text-center"
             >
-              Request a Consultation on WhatsApp
+              Request a Consultation
             </a>
             <a
               href="/av-remodeling-brochure.pdf"
@@ -250,7 +253,7 @@ export default function GalleryClientPage() {
               rel="noopener noreferrer"
               className="rounded-lg border border-outline-variant px-10 py-4 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:bg-white inline-block text-center"
             >
-              Download the Brochure
+              View the Brochure
             </a>
           </div>
           <div className="mt-12 text-center">

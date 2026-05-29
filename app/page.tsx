@@ -11,7 +11,6 @@ import servicePressureWashingImage from "../services/pressure washing.jpg";
 import serviceFlooringImage from "../services/Flooring.png";
 import serviceRemodelingImage from "../services/bathroom y kitchen remodeling.png";
 import serviceExteriorHeroImage from "../hero-images/exterior.png";
-import serviceRoofingImage from "../services/roofting.png";
 import serviceSidingImage from "../services/siding.png";
 import serviceGuttersImage from "../services/gutters.png";
 import serviceFencingImage from "../services/fencing.png";
@@ -30,11 +29,11 @@ import {
 
 export const metadata: Metadata = {
   title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
-  description: "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
+  description: "AV Remodeling brings thoughtful craftsmanship to home and commercial renovations across Atlanta and surrounding areas.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
-    description: "Design-led remodeling for kitchens, bathrooms, and whole-home transformations across Atlanta.",
+    description: "AV Remodeling brings thoughtful craftsmanship to home and commercial renovations across Atlanta and surrounding areas.",
     url: SITE_URL,
     type: "website",
     images: [
@@ -49,26 +48,26 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AV Remodeling | Luxury Home Remodeling in Atlanta",
-    description: "Refined kitchen, bathroom, and whole-home remodeling in Atlanta, Georgia.",
+    description: "AV Remodeling brings thoughtful craftsmanship to home and commercial renovations across Atlanta and surrounding areas.",
     images: ["/images/portfolio/kitchens/01.jpg"],
   },
 };
 
 const featuredServices = [
   {
-    title: "Interior & Exterior Painting",
+    title: "Interior, Exterior, Walls, Frames, Trim, Doors, Windows, Kitchens, Bathrooms, Bedrooms — you name it.",
     description:
-      "From a single room refresh to a full exterior transformation, we prep, prime, and paint with precision.",
+      "Transform your interior spaces with professional painting services focused on clean finishes, careful preparation, custom colors, and attention to detail.",
     badge: "Residential & Commercial",
     cta: "Explore Painting",
     href: "/contact",
     image: servicePaintingImage,
-    alt: "Interior and exterior painting",
+    alt: "Professional painting services",
   },
   {
     title: "Pressure Washing",
     description:
-      "Every project starts clean. We remove dirt, mildew, and old buildup so finishes last longer and look sharper.",
+      "We remove dirt, grime, mold, and buildup from driveways, siding, patios, decks, and exterior surfaces.",
     badge: "Always Included",
     cta: "Explore Pressure Washing",
     href: "/contact",
@@ -78,7 +77,7 @@ const featuredServices = [
   {
     title: "Flooring",
     description:
-      "Durable, polished flooring solutions for everyday living spaces, basements, and commercial interiors.",
+      "Professional installation and replacement services for a wide range of flooring options, delivering clean finishes, precise workmanship, and lasting durability.",
     badge: "Residential & Commercial",
     cta: "Explore Flooring",
     href: "/gallery#all",
@@ -96,19 +95,9 @@ const featuredServices = [
     alt: "Bathroom and kitchen remodeling",
   },
   {
-    title: "Roofing",
-    description:
-      "Replacement, storm repair, or targeted fixes with real line-item estimates based on inspection and photos.",
-    badge: "Residential & Commercial",
-    cta: "Explore Roofing",
-    href: "/contact",
-    image: serviceRoofingImage,
-    alt: "Roofing",
-  },
-  {
     title: "Siding",
     description:
-      "Full replacement, repair, or refinishing to protect the exterior and keep the home looking sharp.",
+      "Quality siding installation services that improve protection, insulation, durability, and curb appeal while complementing your property's style.",
     badge: "Residential & Commercial",
     cta: "Explore Siding",
     href: "/gallery#all",
@@ -118,7 +107,7 @@ const featuredServices = [
   {
     title: "Gutters",
     description:
-      "Install, repair, or replace gutters sized for actual Georgia rainfall and long-term performance.",
+      "Professional gutter installation, cleaning, and maintenance services designed to help protect your property from water damage.",
     badge: "Residential",
     cta: "Explore Gutters",
     href: "/contact",
@@ -128,7 +117,7 @@ const featuredServices = [
   {
     title: "Fencing",
     description:
-      "Wood, vinyl, chain link, privacy, and ornamental fencing with installation, repair, and replacement.",
+      "Professional deck and fence installation services designed to create functional outdoor spaces with quality materials, lasting durability, and craftsmanship that enhances your property.",
     badge: "Residential & Commercial",
     cta: "Explore Fencing",
     href: "/contact",
@@ -137,39 +126,38 @@ const featuredServices = [
   },
 ];
 
-const blueTitles = new Set([
-  "Interior & Exterior Painting",
+const blueTitles = [
+  "Interior, Exterior, Walls, Frames, Trim, Doors, Windows, Kitchens, Bathrooms, Bedrooms — you name it.",
   "Pressure Washing",
   "Flooring",
   "Bathroom & Kitchen Remodeling",
-  "Roofing",
   "Siding",
   "Gutters",
   "Fencing",
-]);
+];
 
 const serviceCards = [
   {
     icon: "kitchen",
-    title: "Kitchens with a Considered Flow",
+    title: "Kitchens Designed for Everyday Living",
     description:
-      "Thoughtfully planned kitchens with better layout, elegant materials, and a finish that makes everyday routines feel elevated.",
+      "Beautifully crafted kitchens with functional layouts, quality materials, and finishes that elevate the way you cook, gather, and live.",
     link: "Explore Kitchen Projects",
     href: "/gallery#kitchens",
   },
   {
     icon: "bathtub",
-    title: "Bathrooms with a Spa-Like Calm",
+    title: "Bathroom Renovation",
     description:
-      "Refined bathrooms shaped around comfort, light, and durability so the space feels restorative and timeless.",
+      "Transform your bathroom into a relaxing, elegant space with custom designs, quality finishes, and thoughtful details that blend comfort, functionality, and timeless style.",
     link: "Explore Bathroom Projects",
     href: "/gallery#bathrooms",
   },
   {
     icon: "home_work",
-    title: "Whole-Home Improvements, Seamlessly Managed",
+    title: "Complete Remodeling, Managed from Start to Finish",
     description:
-      "From flooring and paint to drywall, concrete, drainage, and exterior care, every detail is handled with consistency and precision.",
+      "From flooring and painting to drywall, concrete, exterior upgrades, and full property renovations, we handle every detail with expert craftsmanship, clear communication, and precision throughout the entire project.",
     link: "Explore All Services",
     href: "/gallery#all",
   },
@@ -177,28 +165,24 @@ const serviceCards = [
 
 const steps = [
   {
-    number: "01",
-    title: "Vision",
-    description:
-      "We start with your goals, your home, and the feeling you want the finished space to create.",
+    number: "1",
+    title: "Consultation",
+    description: "Tell us about your vision, goals, and project ideas with our team.",
   },
   {
-    number: "02",
-    title: "Refinement",
-    description:
-      "Materials, scope, and timeline come together with a steady, deliberate pace.",
+    number: "2",
+    title: "Planning",
+    description: "We define the design, materials, budget, and timeline.",
   },
   {
-    number: "03",
-    title: "Build",
-    description:
-      "Our crew brings the design to life with clean execution and careful coordination.",
+    number: "3",
+    title: "Build & Transform",
+    description: "Our team brings your project to life with expert craftsmanship.",
   },
   {
-    number: "04",
-    title: "Reveal",
-    description:
-      "We finish with a final walkthrough to make sure every detail feels complete.",
+    number: "4",
+    title: "Final Walkthrough",
+    description: "We review every detail to ensure your complete satisfaction.",
   },
 ];
 
@@ -289,10 +273,10 @@ export default function Home() {
           <div className="relative z-10 mx-auto w-full max-w-screen-2xl px-8">
             <div className="max-w-3xl">
               <h1 className="mb-6 font-headline text-5xl font-extrabold leading-[1.1] tracking-tight text-white md:text-7xl">
-                Designed for the Way You Live.
+                Craft Exceptional Spaces with AV Remodeling
               </h1>
               <p className="mb-10 max-w-xl font-body text-xl font-light text-on-surface-variant md:text-2xl">
-                Thoughtfully crafted kitchens, bathrooms, and living spaces shaped around comfort, detail, and the way your home should feel.
+                From complete home and commercial renovations to single-area transformations, AV Remodeling brings your vision to life through exceptional craftsmanship, innovative design, and a commitment to quality in every detail.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -301,13 +285,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="cta-loop inline-block rounded-full bg-primary-container px-10 py-4 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300"
                 >
-                  GET A FREE ESTIMATE
+                  Request Your Estimate
                 </a>
                 <a
                   href="/gallery"
                   className="inline-block rounded-full border border-outline-variant/30 bg-surface/30 px-10 py-4 font-label text-lg font-bold text-white backdrop-blur-md transition-all duration-300"
                 >
-                  Explore the Portfolio
+                  Explore Our Work
                 </a>
               </div>
             </div>
@@ -326,7 +310,7 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-xl leading-relaxed text-on-surface-variant font-body">
-                From remodeling and maintenance to exterior upgrades and repairs, we handle the kind of work that makes a home feel finished, protected, and easier to live in.
+                We believe every project has the potential to be extraordinary — whether it’s a modern kitchen, bathroom renovation, office update, retail space, or a full-scale remodel. Our team creates beautiful, functional spaces designed around your lifestyle, goals, and long-term needs.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3" data-gsap-stagger>
@@ -351,7 +335,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex h-full flex-col p-7">
-                    <h3 className={`font-headline text-2xl font-bold ${blueTitles.has(service.title) ? 'text-brand-blue' : 'text-white'}`}>{service.title}</h3>
+                    <h3 className={`font-headline text-2xl font-bold ${blueTitles.includes(service.title) ? 'text-primary' : 'text-white'}`}>{service.title}</h3>
                     <p className="mt-4 flex-1 leading-relaxed text-on-surface-variant font-body">{service.description}</p>
                     <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
                       <span className="link-loop inline-flex items-center font-semibold text-primary transition-all">
@@ -374,12 +358,12 @@ export default function Home() {
                 <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
                   Home Remodeling Services
                 </span>
-                  <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
-                  Atlanta’s Choice for Luxury Home Remodeling
+                <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
+                  Remodeling Services with a Clear Process
                 </h2>
               </div>
               <p className="max-w-sm leading-relaxed text-on-surface-variant font-body">
-                We shape kitchens, bathrooms, and whole-home updates with a calm process, careful coordination, and a finish that feels tailored to your home.
+                We guide each project with clarity, reliable communication, and a steady process from the first conversation to the final walkthrough.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3" data-gsap-stagger>
@@ -408,7 +392,13 @@ export default function Home() {
 
         <section className="bg-surface-container-low py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <h2 className="mb-16 font-headline text-4xl font-bold text-primary">Recent Atlanta Remodeling Projects</h2>
+            <h2 className="mb-16 font-headline text-4xl font-bold text-primary">Our Work Speaks for Itself</h2>
+            <p className="mb-10 max-w-4xl font-body text-lg leading-relaxed text-on-surface-variant">
+              Explore our portfolio of beautifully crafted renovations and custom projects designed with quality, functionality, and attention to detail in mind. From kitchens and bathrooms to stunning exteriors and full home transformations, every project reflects our commitment to exceptional craftsmanship and lasting results.
+            </p>
+            <p className="mb-16 max-w-4xl font-body text-sm leading-relaxed text-on-surface-variant/80">
+              Browse Our Services: Kitchens • Bathrooms • Exteriors • Basements • Additions • Full Home Remodels • Custom Projects
+            </p>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
               <div className="md:col-span-8" data-gsap-item>
                 <ProjectImage
@@ -464,15 +454,20 @@ export default function Home() {
               <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
                 Our Process
               </span>
-              <h2 className="font-headline text-4xl font-bold text-primary md:text-5xl">A Remodeling Process You Can Trust</h2>
+              <h2 className="font-headline text-4xl font-bold text-primary md:text-5xl">Simple Steps to Start Your Remodeling Project</h2>
             </div>
             <div className="relative">
               <div className="relative z-10 grid grid-cols-1 gap-12 md:grid-cols-4" data-gsap-stagger>
                 {steps.map((step) => (
-                  <div key={step.number} className="flex flex-col" data-gsap-item>
-                    <span className="mb-[-2rem] font-headline text-8xl font-extrabold leading-none text-white">{step.number}</span>
-                    <div className="pt-8">
-                      <h4 className="mb-4 font-headline text-2xl font-bold text-white">{step.title}</h4>
+                  <div key={step.number} className="flex gap-6" data-gsap-item>
+                    <div className="flex flex-col items-center">
+                      <span className="mb-2 text-xs uppercase tracking-widest text-secondary font-label">Step</span>
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/80 text-on-primary-fixed text-2xl font-extrabold shadow-lg">
+                        {step.number}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className={`mb-3 text-2xl font-headline font-bold ${(step.title === 'Consultation' || step.number !== '1') ? 'text-primary' : 'text-white'}`}>{step.title}</h4>
                       <p className="leading-relaxed text-on-surface-variant font-body">{step.description}</p>
                     </div>
                   </div>

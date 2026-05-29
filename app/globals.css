@@ -20,18 +20,18 @@
   --color-surface-bright: #353a40;
   --color-surface-dim: #0f1419;
   --color-surface-variant: #30353b;
-  --color-primary: #02C7FF;
-  --color-primary-container: #02C7FF;
-  --color-primary-fixed: #02C7FF;
-  --color-primary-fixed-dim: #02C7FF;
+  --color-primary: #98cbff;
+  --color-primary-container: #00a3ff;
+  --color-primary-fixed: #cfe5ff;
+  --color-primary-fixed-dim: #98cbff;
   --color-on-primary: #003354;
   --color-on-primary-container: #00375a;
   --color-on-primary-fixed: #ffffff;
   --color-on-primary-fixed-variant: #004a77;
-  --color-secondary: #02C7FF;
-  --color-secondary-container: #02C7FF;
-  --color-secondary-fixed: #02C7FF;
-  --color-secondary-fixed-dim: #02C7FF;
+  --color-secondary: #a3caf6;
+  --color-secondary-container: #1f496f;
+  --color-secondary-fixed: #d0e4ff;
+  --color-secondary-fixed-dim: #a3caf6;
   --color-on-secondary: #003256;
   --color-on-secondary-container: #92b8e4;
   --color-on-secondary-fixed: #001d35;
@@ -201,9 +201,4 @@ body {
 
 .drag-handle {
   animation: drag-sway 1.8s ease-in-out infinite;
-}
-
-/* Brand blue used for specific headings */
-.text-brand-blue {
-  color: #02C7FF !important;
 }

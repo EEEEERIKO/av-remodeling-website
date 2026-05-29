@@ -7,6 +7,7 @@ import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import aboutHeroImage from "../../services/about us hero image.png";
+import beforeAfterImage from "../../beforeafter.jpg";
 import { SITE_URL, breadcrumbSchema } from "../lib/seo";
 
 export const metadata: Metadata = {
@@ -42,14 +43,14 @@ export default function AboutPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", path: "/" },
-              { name: "About Us", path: "/about-us" },
+              { name: "About", path: "/about-us" },
             ]),
           ),
         }}
       />
 
       <main className="pt-20">
-        <section className="relative flex h-[716px] items-center overflow-hidden bg-surface" data-gsap-reveal>
+        <section className="relative flex min-h-[720px] md:min-h-[820px] lg:min-h-[716px] items-center overflow-visible bg-surface" data-gsap-reveal>
           <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-1 items-center gap-8 px-8 lg:grid-cols-2">
             <div className="z-10">
               <span className="mb-6 mt-14 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-secondary font-label">
@@ -68,10 +69,10 @@ export default function AboutPage() {
                 At AV Remodeling, we combine expert guidance, attention to detail, and professional execution to bring every project to life and create spaces our clients are proud to call their own.
               </p>
             </div>
-            <div className="relative h-full min-h-[400px]" data-gsap-parallax="10">
+            <div className="relative h-full min-h-[720px] md:min-h-[820px] lg:min-h-[400px]" data-gsap-parallax="10">
               <div className="absolute inset-0 translate-x-8 translate-y-8 rounded-xl bg-surface-container-high" />
               <Image
-                className="absolute inset-0 z-10 rounded-xl object-cover shadow-2xl"
+                className="absolute inset-0 z-10 rounded-xl object-cover object-center shadow-2xl"
                 src={aboutHeroImage}
                 alt="Remodeling project detail showing clean finishes and modern materials"
                 fill
@@ -109,9 +110,9 @@ export default function AboutPage() {
 
               <div className="group rounded-xl bg-primary p-10 text-surface-container-lowest transition-all duration-500 hover:shadow-2xl" data-gsap-item>
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-surface-container-lowest/10">
-                  <MdArchitecture className="text-secondary-fixed-dim" />
-                </div>
-                <h3 className="mb-4 font-headline text-2xl font-bold text-primary">Craftsmanship</h3>
+                    <MdArchitecture className="text-black" />
+                  </div>
+                  <h3 className="mb-4 font-headline text-2xl font-bold text-black">Craftsmanship</h3>
                 <p className="mb-6 text-sm leading-relaxed text-surface-variant font-body">
                   From framing and drywall to tile, paint, and final finishes, we focus on solid work that looks great and lasts.
                 </p>
@@ -138,10 +139,12 @@ export default function AboutPage() {
               <div className="relative">
                 <Image
                   className="h-[600px] w-full rounded-xl object-cover shadow-2xl"
-                  src={featuredImages.aboutTeam}
+                  src={beforeAfterImage}
                   alt="AV Remodeling team on a residential remodeling project in Atlanta"
                   width={1200}
                   height={1200}
+                  quality={80}
+                  priority={false}
                 />
                 <div className="absolute -bottom-10 -right-10 hidden rounded-xl bg-secondary p-12 text-surface-container-lowest xl:block">
                   <p className="mb-2 font-headline text-5xl font-extrabold">10+</p>

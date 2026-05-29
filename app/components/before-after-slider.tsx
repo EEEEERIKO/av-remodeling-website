@@ -74,7 +74,6 @@ export function BeforeAfterSlider({
             fill
             className="object-cover"
             sizes="(min-width: 1024px) 70vw, 100vw"
-            loading="eager"
           />
 
           <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>

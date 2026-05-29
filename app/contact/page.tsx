@@ -78,7 +78,7 @@ export default function ContactPage() {
                                         href="sms:16788864393?&body=Hello%20AV%20Remodeling,%20I%20would%20like%20to%20talk%20about%20my%20project."
                                         aria-label="Send a text message"
                                         className="inline-flex items-center justify-center gap-3 rounded-lg border border-outline-variant bg-surface px-8 py-4 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:-translate-y-1 hover:shadow-2xl"
-                                        action="text"
+                                            action="phone"
                                     >
                                         <MdSms className="h-6 w-6 shrink-0" />
                                         Text Us

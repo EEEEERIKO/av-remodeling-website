@@ -31,7 +31,9 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
           </ul>
         </div>
         <div>
-          <h5 className="mb-6 text-xs uppercase tracking-widest text-on-surface font-label">Connect</h5>
+          <h5 className="mb-6 text-xs uppercase tracking-widest text-on-surface font-label">Let's Connect
+
+          </h5>
           <div className="flex justify-center gap-4 md:justify-start">
             <a className="text-on-surface-variant transition-colors hover:text-primary" href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" title="Instagram"><FaInstagram className="text-2xl" /></a>
             <a className="text-on-surface-variant transition-colors hover:text-primary" href="https://www.youtube.com/@avremodelingatl8105/featured" target="_blank" rel="noopener noreferrer" title="YouTube"><FaYoutube className="text-2xl" /></a>

@@ -72,7 +72,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
         <div className="mx-auto flex max-w-screen-2xl flex-col gap-3">
           <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/" onClick={closeMenu}>Home</Link>
           <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/gallery" onClick={closeMenu}>Gallery</Link>
-          <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/about-us" onClick={closeMenu}>About</Link>
+          <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/about-us" onClick={closeMenu}>About Us</Link>
           <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/contact" onClick={closeMenu}>Contact Us</Link>
           <TrackableLink
             href={whatsappHref}

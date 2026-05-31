@@ -249,7 +249,7 @@ export default function AboutPage() {
                 className="group relative overflow-hidden rounded-3xl border border-white/10 bg-surface-container-low shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:-translate-y-1"
                 aria-label="View Instagram"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(225,29,72,0.3),transparent_35%),linear-gradient(135deg,rgba(8,15,25,0.96),rgba(16,23,35,0.86))]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(2,199,255,0.3),transparent_35%),linear-gradient(135deg,rgba(8,15,25,0.96),rgba(16,23,35,0.86))]" />
                 <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
                 <div className="relative flex h-full min-h-[360px] flex-col justify-between p-10 md:p-12">
                   <div className="flex items-center gap-3">
@@ -283,7 +283,7 @@ export default function AboutPage() {
                 className="group relative overflow-hidden rounded-3xl border border-white/10 bg-surface-container-low shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:-translate-y-1"
                 aria-label="View YouTube Channel"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.28),transparent_35%),linear-gradient(135deg,rgba(8,15,25,0.96),rgba(16,23,35,0.9))]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(2,199,255,0.28),transparent_35%),linear-gradient(135deg,rgba(8,15,25,0.96),rgba(16,23,35,0.9))]" />
                 <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
                 <div className="relative flex h-full min-h-[360px] flex-col justify-between p-10 md:p-12">
                   <div className="flex items-center gap-3">

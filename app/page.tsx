@@ -300,12 +300,12 @@ export default function Home() {
 
         <section className="bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <div className="mb-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-2xl">
+            <div className="mb-20 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+                <div className="max-w-2xl">
                 <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.35em] text-secondary font-label">
                   What We Do
                 </span>
-                <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">
+                <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl md:-mt-4">
                   Services for Your Home
                 </h2>
               </div>
@@ -315,10 +315,9 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3" data-gsap-stagger>
               {featuredServices.map((service) => (
-                <Link
+                <div
                   key={service.title}
-                  href={service.href}
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-surface-container-low shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-transform duration-500 hover:-translate-y-1"
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-surface-container-low shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-transform duration-500"
                   data-gsap-item
                 >
                   <div className="relative h-[240px] overflow-hidden">
@@ -338,14 +337,14 @@ export default function Home() {
                     <h3 className={`font-headline text-2xl font-bold ${blueTitles.includes(service.title) ? 'text-primary' : 'text-white'}`}>{service.title}</h3>
                     <p className="mt-4 flex-1 leading-relaxed text-on-surface-variant font-body">{service.description}</p>
                     <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
-                      <span className="link-loop inline-flex items-center font-semibold text-primary transition-all">
-                        {service.cta}
-                        <span className="arrow-loop ml-2 text-sm">→</span>
-                      </span>
-                      <span className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">Estimate</span>
-                    </div>
+                        <span className="link-loop inline-flex items-center font-semibold text-primary transition-all">
+                          {service.cta}
+                          <span className="arrow-loop ml-2 text-sm">→</span>
+                        </span>
+                        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">Estimate</span>
+                      </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -353,7 +352,7 @@ export default function Home() {
 
         <section className="bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
-            <div className="mb-20 flex flex-col items-end justify-between gap-8 md:flex-row">
+            <div className="mb-20 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
               <div className="max-w-2xl">
                 <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-secondary font-label">
                   Home Remodeling Services

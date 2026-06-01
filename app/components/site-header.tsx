@@ -10,7 +10,7 @@ type SiteHeaderProps = {
   active: "home" | "gallery" | "about" | "contact";
 };
 
-const linkBase = "pb-1 text-sm font-medium tracking-tight transition-colors duration-300 font-label";
+const linkBase = "pb-1 text-base font-medium tracking-tight transition-colors duration-300 font-label";
 
 export function SiteHeader({ active }: SiteHeaderProps) {
   const activeClass = "border-b-2 border-primary text-primary";
@@ -33,7 +33,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             className="h-auto w-[132px] sm:w-[164px]"
           />
         </Link>
-        <div className="hidden items-center gap-10 text-sm font-medium tracking-tight md:flex">
+        <div className="hidden items-center gap-10 text-base font-medium tracking-tight md:flex">
           <Link className={`${linkBase} ${active === "home" ? activeClass : inactiveClass}`} href="/">
             Home
           </Link>
@@ -70,10 +70,10 @@ export function SiteHeader({ active }: SiteHeaderProps) {
       </div>
       <div className={`border-t border-outline-variant/10 bg-surface px-4 pb-5 pt-3 shadow-sm md:hidden ${menuOpen ? "block" : "hidden"}`}>
         <div className="mx-auto flex max-w-screen-2xl flex-col gap-3">
-          <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/" onClick={closeMenu}>Home</Link>
-          <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/gallery" onClick={closeMenu}>Gallery</Link>
-          <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/about-us" onClick={closeMenu}>About Us</Link>
-          <Link className="rounded-lg px-3 py-3 font-label text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/contact" onClick={closeMenu}>Contact Us</Link>
+          <Link className="rounded-lg px-3 py-3 font-label text-base font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/" onClick={closeMenu}>Home</Link>
+          <Link className="rounded-lg px-3 py-3 font-label text-base font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/gallery" onClick={closeMenu}>Gallery</Link>
+          <Link className="rounded-lg px-3 py-3 font-label text-base font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/about-us" onClick={closeMenu}>About Us</Link>
+          <Link className="rounded-lg px-3 py-3 font-label text-base font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-primary" href="/contact" onClick={closeMenu}>Contact Us</Link>
           <TrackableLink
             href={whatsappHref}
             target="_blank"

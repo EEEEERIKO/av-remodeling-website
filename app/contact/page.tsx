@@ -116,7 +116,7 @@ export default function ContactPage() {
                                         <p className="leading-relaxed text-on-surface-variant">
                                             Monday — Friday
                                             <br />
-                                            08:30 AM — 06:00 PM EST
+                                            8:30 AM — 6:00 PM EST
                                         </p>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                                             </div>
                                             <div className="flex items-start gap-3">
                                                 <MdPhone className="mt-1 text-xl text-primary" />
-                                                <a href="tel:16788864393" className="transition-colors hover:text-primary">Alejandro Vargas: 678.886.4393</a>
+                                                <a href="tel:16788864393" className="transition-colors hover:text-primary">Alejandro Vargas: 678-886-4393</a>
                                             </div>
                                         </div>
                                     </div>

@@ -306,7 +306,7 @@ export default function Home() {
                   What We Do
                 </span>
                 <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl md:-mt-4">
-                  Services for Your Home
+                  Our Remodeling Services
                 </h2>
               </div>
               <p className="max-w-xl leading-relaxed text-on-surface-variant font-body">
@@ -521,11 +521,10 @@ export default function Home() {
           </div>
           <div className="relative z-10 mx-auto max-w-screen-xl px-8 text-center">
             <h2 className="mb-8 font-headline text-4xl font-extrabold tracking-tight text-primary md:text-6xl">
-              Your dream home starts with the right team.
+              Transform your space with the right team.
             </h2>
             <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-white font-body">
-              From stunning kitchens to full-home renovations, AV Remodeling creates refined spaces designed around your lifestyle.
-            </p>
+              From custom kitchens to complete residential and commercial renovations, AV Remodeling creates exceptional spaces built to last.            </p>
             <a
               href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
               target="_blank"

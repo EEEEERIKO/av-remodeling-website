@@ -6,9 +6,9 @@ import { featuredImages } from "./data/portfolio-images";
 import { HeroCarousel } from "./components/hero-carousel";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
-import servicePaintingImage from "../services/Interior and Exteriro Pinting.png";
-import servicePressureWashingImage from "../services/pressure washing.jpg";
-import serviceFlooringImage from "../services/Flooring.png";
+import servicePaintingImage from "../services/Interior and Exterior Painting Miniature.png";
+import servicePressureWashingImage from "../services/Pressure Washing Miniature.png";
+import serviceFlooringImage from "../services/Flooring Miniature.png";
 import serviceRemodelingImage from "../bathroom.png";
 import serviceExteriorHeroImage from "../hero-images/exterior.png";
 import serviceSidingImage from "../sidings.png";
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
 
 const featuredServices = [
   {
-    title: "Interior & Exterior Painting",
+    title: "Interior, Exterior, Walls, Frames, Trim, Doors, Windows, Kitchens, Bathrooms, Bedrooms — you name it.",
     description:
-      "Whether you're refreshing a home, office, retail space, or commercial property, our professional painting services deliver exceptional results. From walls, doors, trim, and windows to kitchens, common areas, and exterior surfaces.",
+      "Transform your interior spaces with professional painting services focused on clean finishes, careful preparation, custom colors, and attention to detail.",
     badge: "Residential & Commercial",
     cta: "Explore Painting",
     href: "/contact",
@@ -68,7 +68,7 @@ const featuredServices = [
     title: "Pressure Washing",
     description:
       "We remove dirt, grime, mold, and buildup from driveways, siding, patios, decks, and exterior surfaces.",
-    badge: "Residential & Commercial",
+    badge: "Always Included",
     cta: "Explore Pressure Washing",
     href: "/contact",
     image: servicePressureWashingImage,
@@ -97,7 +97,7 @@ const featuredServices = [
   {
     title: "Siding",
     description:
-      "Protect and beautify your home with our quality siding installation services. We offer fiber cement, and wood siding options that provide excellent protection and insulation while enhancing your home's curb appeal and energy efficiency for years to come.",
+      "Quality siding installation services that improve protection, insulation, durability, and curb appeal while complementing your property's style.",
     badge: "Residential & Commercial",
     cta: "Explore Siding",
     href: "/gallery#all",
@@ -115,9 +115,9 @@ const featuredServices = [
     alt: "Gutters",
   },
   {
-    title: "Fence & Decks",
+    title: "Fencing",
     description:
-      "Create beautiful, functional outdoor spaces with our professional deck and fence installation services. We use premium materials and expert craftsmanship to create decks and fences that stand the test of time while enhancing your property's value and providing the privacy and outdoor living space you desire.",
+      "Professional deck and fence installation services designed to create functional outdoor spaces with quality materials, lasting durability, and craftsmanship that enhances your property.",
     badge: "Residential & Commercial",
     cta: "Explore Fencing",
     href: "/contact",
@@ -306,7 +306,7 @@ export default function Home() {
                   What We Do
                 </span>
                 <h2 className="font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl md:-mt-4">
-                  Services for You
+                  Services for Your Home
                 </h2>
               </div>
               <p className="max-w-xl leading-relaxed text-on-surface-variant font-body">
@@ -350,7 +350,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-surface py-32" data-gsap-reveal>
+        {/* <section className="bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
             <div className="mb-20 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
               <div className="max-w-2xl">
@@ -387,9 +387,65 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
-        
+        <section className="bg-surface-container-low py-32" data-gsap-reveal>
+          <div className="mx-auto max-w-screen-2xl px-8">
+            <h2 className="mb-16 font-headline text-4xl font-bold text-primary">Our Work Speaks for Itself</h2>
+            <p className="mb-10 max-w-4xl font-body text-lg leading-relaxed text-on-surface-variant">
+              Explore our portfolio of beautifully crafted renovations and custom projects designed with quality, functionality, and attention to detail in mind. From kitchens and bathrooms to stunning exteriors and full home transformations, every project reflects our commitment to exceptional craftsmanship and lasting results.
+            </p>
+            <p className="mb-16 max-w-4xl font-body text-sm leading-relaxed text-on-surface-variant/80">
+              Browse Our Services: Kitchens • Bathrooms • Exteriors • Basements • Additions • Full Home Remodels • Custom Projects
+            </p>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-12" data-gsap-stagger>
+              <div className="md:col-span-8" data-gsap-item>
+                <ProjectImage
+                  src={recentExteriorImage}
+                  alt="Exterior remodeling project in Atlanta with updated finishes and clean curb appeal"
+                  className="group luxury-shadow relative h-[600px] overflow-hidden rounded-xl"
+                  overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                >
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Exterior Home Maintenance</span>
+                  <h3 className="font-headline text-3xl font-bold text-white">Curb Appeal Upgrade</h3>
+                </ProjectImage>
+              </div>
+              <div className="flex flex-col gap-8 md:col-span-4" data-gsap-item>
+                <ProjectImage
+                  src={recentLivingRoomImage}
+                  alt="Living room remodeling project with warm finishes and an open, bright layout"
+                  className="group luxury-shadow relative min-h-[280px] overflow-hidden rounded-xl h-full"
+                  overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                >
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Living Space Refresh</span>
+                  <h3 className="font-headline text-xl font-bold text-white">Open, Comfortable Living</h3>
+                </ProjectImage>
+              </div>
+              <div className="md:col-span-4" data-gsap-item>
+                <ProjectImage
+                  src={recentKitchenImage}
+                  alt="Kitchen remodeling project with custom cabinetry and elevated natural finishes"
+                  className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
+                  overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                >
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Kitchen Transformation</span>
+                  <h3 className="font-headline text-xl font-bold text-white">Refined Cooking Space</h3>
+                </ProjectImage>
+              </div>
+              <div className="md:col-span-8" data-gsap-item>
+                <ProjectImage
+                  src={recentOpenRoomImage}
+                  alt="Open room remodeling project with clean lines and a spacious modern layout"
+                  className="group luxury-shadow relative h-[400px] overflow-hidden rounded-xl"
+                  overlayClassName="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                >
+                  <span className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">Open Concept Design</span>
+                  <h3 className="font-headline text-xl font-bold text-white">Architectural Transformation</h3>
+                </ProjectImage>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="bg-surface py-32" data-gsap-reveal>
           <div className="mx-auto max-w-screen-2xl px-8">
@@ -465,10 +521,10 @@ export default function Home() {
           </div>
           <div className="relative z-10 mx-auto max-w-screen-xl px-8 text-center">
             <h2 className="mb-8 font-headline text-4xl font-extrabold tracking-tight text-primary md:text-6xl">
-              Your dream project starts with the right team.
+              Your dream home starts with the right team.
             </h2>
             <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-white font-body">
-              Whether you're transforming a home, office, retail space, or commercial property, AV Remodeling is your one-stop shop for remodeling, renovation, and improvement services. We bring quality, efficiency, and attention to detail to every project, turning your vision into reality.
+              From stunning kitchens to full-home renovations, AV Remodeling creates refined spaces designed around your lifestyle.
             </p>
             <a
               href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."

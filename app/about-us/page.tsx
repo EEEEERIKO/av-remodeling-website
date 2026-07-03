@@ -30,7 +30,6 @@ const youtubeVideos = [
   { id: "RnqaTVko-qA", title: "AV Remodeling Project Showcase" },
   { id: "QHfpcplcY9k", title: "Kitchen Transformation" },
   { id: "Xjdad_1nD0s", title: "Bathroom Remodeling" },
-  { id: "tUnrYl6XR", title: "BNB Investing on Lake Lanier 1080" },
 ];
 
 export default function AboutPage() {
@@ -346,17 +345,6 @@ export default function AboutPage() {
                       className="h-full w-full"
                       src="https://www.youtube.com/embed/Xjdad_1nD0s"
                       title="Bathroom Remodeling"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                </div>
-                <div className="overflow-hidden rounded-2xl bg-surface-container-lowest shadow-2xl">
-                  <div className="aspect-video">
-                    <iframe
-                      className="h-full w-full"
-                      src="https://www.youtube.com/embed/tUnrYl6XR_w"
-                      title="BNB Investing on Lake Lanier 1080"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     />

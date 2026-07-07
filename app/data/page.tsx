@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const PAGE_SIZE = 10;
 
@@ -20,11 +21,32 @@ type ContactRecord = {
   created_at?: string;
 };
 
+function Info({
+  label,
+  value,
+}: {
+  label: string;
+  value?: string;
+}) {
+  return (
+    <div>
+      <p className="text-xs uppercase text-gray-500">
+        {label}
+      </p>
+
+      <p className="font-medium">
+        {value || "—"}
+      </p>
+    </div>
+  );
+}
+
 export default function DataPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [contacts, setContacts] = useState<ContactRecord[]>([]);
+  const [selectedContact, setSelectedContact] = useState<ContactRecord | null>(null);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -224,14 +246,14 @@ const summary = useMemo(() => {
             <table className="min-w-full text-sm">
               <thead className="bg-surface-container-high text-left text-xs uppercase tracking-[0.24em] text-secondary">
                 <tr>
-                  <th className="px-4 py-3">Name</th>
-                  <th className="px-4 py-3">Phone</th>
-                  <th className="px-4 py-3">Email</th>
-                  <th className="px-4 py-3">Areas</th>
-                  <th className="px-4 py-3">Timeline</th>
-                  <th className="px-4 py-3">Created</th>
+                <th className="px-4 py-3">Client</th>
+                <th className="px-4 py-3">Contact</th>
+                <th className="px-4 py-3">Project</th>
+                <th className="px-4 py-3">Budget</th>
+                <th className="px-4 py-3">Timeline</th>
+                <th className="px-4 py-3">Action</th>
                 </tr>
-              </thead>
+                </thead>
               <tbody>
                 {contacts.length === 0 && !loading ? (
                   <tr>
@@ -241,18 +263,74 @@ const summary = useMemo(() => {
                   </tr>
                 ) : (
                   contacts.map((contact, index) => (
-                    <tr key={contact.id ?? `${contact.email}-${index}`} className="border-t border-outline-variant/20">
-                      <td className="px-4 py-3">
-                        <div className="font-semibold text-on-surface">{contact.full_name || "—"}</div>
-                        <div className="mt-1 text-xs text-on-surface-variant">{contact.address || "No address provided"}</div>
-                      </td>
-                      <td className="px-4 py-3">{contact.phone || "—"}</td>
-                      <td className="px-4 py-3">{contact.email || "—"}</td>
-                      <td className="px-4 py-3">{Array.isArray(contact.areas) ? contact.areas.join(", ") : contact.areas || "—"}</td>
-                      <td className="px-4 py-3">{contact.timeline || "—"}</td>
-                      <td className="px-4 py-3">{contact.created_at ? new Date(contact.created_at).toLocaleString() : "—"}</td>
-                    </tr>
-                  ))
+                        <tr
+                        key={contact.id ?? `${contact.email}-${index}`}
+                        className="border-t border-outline-variant/20"
+                        >
+
+                        <td className="px-4 py-3">
+                        <div className="font-semibold text-on-surface">
+                            {contact.full_name || "—"}
+                        </div>
+
+                        <div className="text-xs text-on-surface-variant">
+                            {contact.address || "No address"}
+                        </div>
+                        </td>
+
+
+                        <td className="px-4 py-3">
+                        <div>
+                            {contact.phone || "—"}
+                        </div>
+
+                        <div className="text-xs text-on-surface-variant">
+                            {contact.email || "—"}
+                        </div>
+                        </td>
+
+
+                        <td className="px-4 py-3">
+
+                        <div>
+                        {contact.property_type || "—"}
+                        </div>
+
+                        <div className="text-xs text-on-surface-variant">
+                        {
+                        Array.isArray(contact.areas)
+                        ? contact.areas.join(", ")
+                        : contact.areas || "—"
+                        }
+                        </div>
+
+                        </td>
+
+
+                        <td className="px-4 py-3">
+                        {contact.budget || "—"}
+                        </td>
+
+
+                        <td className="px-4 py-3">
+                        {contact.timeline || "—"}
+                        </td>
+
+
+                        <td className="px-4 py-3">
+
+                        <button
+                        onClick={() => setSelectedContact(contact)}
+                        className="rounded-xl bg-primary px-3 py-2 text-xs font-semibold text-white"
+                        >
+                        View
+                        </button>
+
+                        </td>
+
+
+                        </tr>
+                    ))
                 )}
               </tbody>
             </table>
@@ -270,6 +348,107 @@ const summary = useMemo(() => {
           </button>
         </div>
       </div>
+            {selectedContact && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+
+          <div className="w-full max-w-xl rounded-3xl bg-surface-container-low p-8 shadow-xl px-4">
+
+            <div className="mb-6 flex justify-between">
+
+              <h2 className="font-headline text-2xl font-bold text-primary">
+  Contact details
+</h2>
+
+              <button
+  onClick={() => setSelectedContact(null)}
+  className="rounded-xl px-3 py-2 text-on-surface-variant transition hover:bg-surface-container-high"
+>
+  ✕
+</button>
+
+            </div>
+
+
+            <div className="space-y-4">
+
+              <Info
+                label="Name"
+                value={selectedContact.full_name}
+              />
+
+              <Info
+                label="Phone"
+                value={selectedContact.phone}
+              />
+
+              <Info
+                label="Email"
+                value={selectedContact.email}
+              />
+
+              <Info
+                label="Address"
+                value={selectedContact.address}
+              />
+
+              <Info
+                label="Areas"
+                value={
+                  Array.isArray(selectedContact.areas)
+                    ? selectedContact.areas.join(", ")
+                    : selectedContact.areas
+                }
+              />
+
+              <Info
+                label="Property type"
+                value={selectedContact.property_type}
+              />
+
+              <Info
+                label="Budget"
+                value={selectedContact.budget}
+              />
+
+              <Info
+                label="Timeline"
+                value={selectedContact.timeline}
+              />
+
+              <Info
+                label="Referral"
+                value={selectedContact.referral}
+              />
+
+
+              <div>
+                <p className="text-xs uppercase text-gray-500">
+                  Description
+                </p>
+
+                <p>
+                  {selectedContact.description || "—"}
+                </p>
+              </div>
+
+
+              <Info
+                label="Created"
+                value={
+                  selectedContact.created_at
+                    ? new Date(
+                        selectedContact.created_at
+                      ).toLocaleString()
+                    : undefined
+                }
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+      )}
     </main>
   );
 }

@@ -4,11 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function MultiStepForm() {
     const TOTAL_STEPS = 4;
-    const [step, setStep] = useState(0);
-    const [submitting, setSubmitting] = useState(false);
-    const [success, setSuccess] = useState(false);
-
-    const [form, setForm] = useState({
+    const contactApiUrl = "/api/contact";
+    const createEmptyForm = () => ({
         fullName: "",
         phone: "",
         email: "",
@@ -21,6 +18,12 @@ export default function MultiStepForm() {
         referral: "",
         consent: false,
     });
+
+    const [step, setStep] = useState(0);
+    const [submitting, setSubmitting] = useState(false);
+    const [success, setSuccess] = useState(false);
+
+    const [form, setForm] = useState(createEmptyForm);
 
     const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -58,6 +61,23 @@ export default function MultiStepForm() {
     };
     const handleBack = () => setStep((p) => Math.max(p - 1, 0));
 
+    const isFormComplete = () => {
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+        return Boolean(
+            form.fullName.trim() &&
+            form.phone.trim() &&
+            form.email.trim() &&
+            emailValid &&
+            form.areas.length &&
+            form.timeline &&
+            form.property_type &&
+            form.budget &&
+            form.description.trim() &&
+            form.referral &&
+            form.consent
+        );
+    };
+
     const toggleArea = (label: string) => {
         setForm((f) => {
             const has = f.areas.includes(label);
@@ -87,22 +107,37 @@ export default function MultiStepForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!validateStep(3)) return;
+        if (!validateStep(3) || !isFormComplete()) return;
         setSubmitting(true);
+        setSuccess(false);
+        setErrors((prev) => ({ ...prev, submit: "" }));
+
         try {
             const payload = new FormData();
             Object.entries(form).forEach(([k, v]) => {
-                if (Array.isArray(v)) payload.append(k, JSON.stringify(v));
+                if (Array.isArray(v)) payload.append(k, v.join(", "));
                 else payload.append(k, String(v));
             });
-            photos.forEach((file, i) => payload.append('photos', file, file.name));
+            photos.forEach((file) => payload.append('photos', file, file.name));
 
-            // try to POST to existing API if available; does not change backend contracts
-            const res = await fetch('/api/contact', { method: 'POST', body: payload });
+            const res = await fetch(contactApiUrl, {
+                method: 'POST',
+                body: payload,
+                headers: { Accept: 'application/json' },
+                mode: 'cors',
+            });
+
             if (!res.ok) {
-                // if endpoint not present, still consider submission done for UX
-                console.warn('Contact submit returned', res.status);
+                const errorText = await res.text();
+                throw new Error(errorText || `Submission failed with status ${res.status}`);
             }
+
+            previews.current.forEach((url) => URL.revokeObjectURL(url));
+            previews.current = [];
+            setPhotos([]);
+            setForm(createEmptyForm());
+            setErrors({});
+            setStep(0);
             setSuccess(true);
         } catch (err) {
             console.error(err);
@@ -245,17 +280,20 @@ export default function MultiStepForm() {
                         </div>
 
                         <div className="pt-6 border-t border-outline-variant/20">
-                            
-                            {errors.consent && <div className="text-sm text-destructive mb-4">{errors.consent}</div>}
-                            <div className="flex justify-between">
+                            <label className="flex items-start gap-3 rounded-xl border border-outline-variant/20 bg-surface-container-low p-4 text-sm">
+                                <input checked={form.consent} onChange={(e) => setForm({ ...form, consent: e.target.checked })} className="mt-1 rounded border-outline text-primary focus:ring-primary" type="checkbox" />
+                                <span>I agree to be contacted by AV Remodeling about my project.</span>
+                            </label>
+                            {errors.consent && <div className="text-sm text-destructive mt-3">{errors.consent}</div>}
+                            <div className="flex justify-between mt-6">
                                 <button type="button" onClick={handleBack} className="py-3 px-6 rounded-xl border border-outline-variant">← Back</button>
-                                <button disabled={!form.consent || submitting} type="submit" className={`py-3 px-6 rounded-xl font-headline font-bold transition-all ${form.consent ? 'bg-primary text-surface-container-lowest shadow' : 'bg-outline-variant/20 text-on-surface-variant'}`}>
+                                <button disabled={!isFormComplete() || submitting} type="submit" className={`py-3 px-6 rounded-xl font-headline font-bold transition-all ${!isFormComplete() || submitting ? 'bg-outline-variant/20 text-on-surface-variant' : 'bg-primary text-surface-container-lowest shadow'}`}>
                                     {submitting ? 'Sending…' : 'Get My Free Estimate'}
                                 </button>
                             </div>
                         </div>
                         {errors.submit && <div className="text-sm text-destructive mt-4">{errors.submit}</div>}
-                        {success && <div className="text-sm text-success mt-4">Thanks — your request was sent.</div>}
+                        {success && <div className="text-sm text-success mt-4">Thanks — your request was submitted successfully.</div>}
                     </section>
                 </div>
             </div>

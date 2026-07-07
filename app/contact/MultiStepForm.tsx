@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export default function MultiStepForm() {
-    const TOTAL_STEPS = 4;
+    const TOTAL_STEPS = 5;
     const contactApiUrl = "/api/contact";
     const createEmptyForm = () => ({
         fullName: "",
@@ -46,12 +46,38 @@ export default function MultiStepForm() {
             else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Enter a valid email.";
         }
         if (s === 1) {
-            if (!form.areas.length) e.areas = "Select at least one area.";
-            if (!form.timeline) e.timeline = "Select a timeline.";
+    if (!form.areas.length) {
+        e.areas = "Select at least one area.";
+    }
+}
+
+    if (s === 2) {
+        if (!form.timeline) {
+            e.timeline = "Select a timeline.";
         }
-        if (s === 3) {
-            if (!form.consent) e.consent = "You must agree to be contacted to submit.";
+
+        if (!form.property_type) {
+            e.property_type = "Select a property type.";
         }
+
+        if (!form.budget) {
+            e.budget = "Select a budget.";
+        }
+    }
+    if (s === 3) {
+        if (!form.description.trim()) {
+            e.description = "Please describe your project.";
+        }
+    }
+    if (s === 4) {
+        if (!form.referral) {
+            e.referral = "Please select how you heard about us.";
+        }
+
+        if (!form.consent) {
+            e.consent = "You must agree to be contacted.";
+        }
+    }
         setErrors(e);
         return Object.keys(e).length === 0;
     };
@@ -89,7 +115,7 @@ export default function MultiStepForm() {
         if (!files) return;
         const items = Array.from(files);
         const allowed = items.filter((file) => /image\/(jpeg|png|webp)/.test(file.type));
-        const combined = [...photos, ...allowed].slice(0, 5);
+        const combined = [...photos, ...allowed].slice(0, 6);
         setPhotos(combined);
         // generate previews
         previews.current.forEach((url) => URL.revokeObjectURL(url));
@@ -210,7 +236,22 @@ export default function MultiStepForm() {
                                 </div>
                                 {errors.areas && <div className="text-sm text-destructive mt-2">{errors.areas}</div>}
                             </div>
-                            <div>
+                            
+                        </div>
+                        <div className="mt-6 flex justify-between">
+                            <button type="button" onClick={handleBack} className="py-3 px-6 rounded-xl border border-outline-variant">← Back</button>
+                            <button type="button" onClick={handleNext} className="bg-primary text-surface-container-lowest py-3 px-6 rounded-xl font-headline font-bold shadow transition-transform hover:-translate-y-1">Continue →</button>
+                        </div>
+                    </section>
+
+                    {/* Step 3 */}
+                <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
+
+                    <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">
+                        Project Information
+                    </h3>
+
+                    <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-secondary">When are you looking to start? *</label>
                                 <div className="flex flex-wrap gap-3 mt-3">
                                     {['ASAP','1 Week','2 Weeks','1 Month','1–3 Months'].map((t) => (
@@ -245,14 +286,30 @@ export default function MultiStepForm() {
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div className="mt-6 flex justify-between">
-                            <button type="button" onClick={handleBack} className="py-3 px-6 rounded-xl border border-outline-variant">← Back</button>
-                            <button type="button" onClick={handleNext} className="bg-primary text-surface-container-lowest py-3 px-6 rounded-xl font-headline font-bold shadow transition-transform hover:-translate-y-1">Continue →</button>
-                        </div>
-                    </section>
 
-                    {/* Step 3 */}
+                    <div className="mt-6 flex justify-between">
+
+                        <button
+                            type="button"
+                            onClick={handleBack}
+                            className="py-3 px-6 rounded-xl border border-outline-variant"
+                        >
+                            ← Back
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={handleNext}
+                            className="bg-primary text-surface-container-lowest py-3 px-6 rounded-xl font-headline font-bold"
+                        >
+                            Continue →
+                        </button>
+
+                    </div>
+
+                </section>
+
+                    {/* Step 4 */}
                     <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
                         <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">Project Details</h3>
                         <div>
@@ -264,11 +321,16 @@ export default function MultiStepForm() {
 
                         <div className="mt-6 flex justify-between">
                             <button type="button" onClick={handleBack} className="py-3 px-6 rounded-xl border border-outline-variant">← Back</button>
-                            <button type="button" onClick={() => setStep(3)} className="bg-primary text-surface-container-lowest py-3 px-6 rounded-xl font-headline font-bold shadow transition-transform hover:-translate-y-1">Continue →</button>
-                        </div>
+                            <button
+                                type="button"
+                                onClick={handleNext}
+                                className="bg-primary text-surface-container-lowest py-3 px-6 rounded-xl font-headline font-bold shadow transition-transform hover:-translate-y-1"
+                            >
+                                Continue →
+                            </button>                        </div>
                     </section>
 
-                    {/* Step 4 */}
+                    {/* Step 5 */}
                     <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
                         <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">Referral</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

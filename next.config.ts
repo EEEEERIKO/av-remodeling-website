@@ -41,6 +41,12 @@ const nextConfig: NextConfig = {
       // Connections: required for GA measurement protocol, regional collectors, GTM and Meta APIs
       "connect-src": [
         "'self'",
+
+        // Backend local
+        "http://127.0.0.1:3000",
+        "http://localhost:3000",
+
+        // Analytics
         "https://www.google-analytics.com",
         "https://*.google-analytics.com",
         "https://*.analytics.google.com",
@@ -48,11 +54,16 @@ const nextConfig: NextConfig = {
         "https://region2.google-analytics.com",
         "https://stats.g.doubleclick.net",
         "https://www.googletagmanager.com",
+
+        // Google
         "https://www.google.com",
+
+        // Facebook Pixel
         "https://connect.facebook.net",
         "https://graph.facebook.com",
         "https://www.facebook.com",
       ].filter(Boolean),
+      
       // Frames: YouTube, Google tag manager if using iframe-based preview, and Facebook social plugins
       "frame-src": ["https://www.youtube.com", "https://www.youtube-nocookie.com", "https://www.facebook.com"],
       // Restrict object/src

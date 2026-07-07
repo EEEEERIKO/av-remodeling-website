@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -42,9 +45,9 @@ const nextConfig: NextConfig = {
       "connect-src": [
         "'self'",
 
-        // Backend local
-        "http://127.0.0.1:3000",
-        "http://localhost:3000",
+        // Backend 
+        "API_URL",
+        
 
         // Analytics
         "https://www.google-analytics.com",
@@ -63,7 +66,7 @@ const nextConfig: NextConfig = {
         "https://graph.facebook.com",
         "https://www.facebook.com",
       ].filter(Boolean),
-      
+
       // Frames: YouTube, Google tag manager if using iframe-based preview, and Facebook social plugins
       "frame-src": ["https://www.youtube.com", "https://www.youtube-nocookie.com", "https://www.facebook.com"],
       // Restrict object/src

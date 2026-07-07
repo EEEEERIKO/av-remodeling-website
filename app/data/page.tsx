@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const PAGE_SIZE = 10;
 
@@ -43,6 +42,8 @@ function Info({
 
 export default function DataPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [contacts, setContacts] = useState<ContactRecord[]>([]);
@@ -126,11 +127,11 @@ useEffect(() => {
   }
 }, [isAuthenticated]);
 
-
 const handleLogin = async (event: React.FormEvent) => {
   event.preventDefault();
 
   setError("");
+  setIsLoggingIn(true);
 
   try {
     const res = await fetch(`${API_URL}/api/login`, {
@@ -156,6 +157,8 @@ const handleLogin = async (event: React.FormEvent) => {
 
   } catch {
     setError("Unable to login.");
+  } finally {
+    setIsLoggingIn(false);
   }
 };
 
@@ -206,9 +209,41 @@ const summary = useMemo(() => {
               />
             </div>
             {error ? <p className="text-sm text-destructive">{error}</p> : null}
-            <button className="w-full rounded-2xl bg-primary px-4 py-3 font-semibold text-surface-container-lowest transition hover:opacity-90">
-              Sign in
-            </button>
+            <button
+  type="submit"
+  disabled={isLoggingIn}
+  className="flex w-full items-center justify-center gap-3 rounded-2xl bg-primary px-4 py-3 font-semibold text-surface-container-lowest transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+>
+  {isLoggingIn ? (
+    <>
+      <svg
+        className="h-5 w-5 animate-spin"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        />
+
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4z"
+        />
+      </svg>
+
+      Signing in...
+    </>
+  ) : (
+    "Sign in"
+  )}
+</button>
           </form>
         </div>
       </main>

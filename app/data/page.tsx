@@ -66,10 +66,43 @@ export default function DataPage() {
   };
 
   useEffect(() => {
-    if (isAuthenticated) {
-      void loadContacts(1);
+
+  const checkSession = async () => {
+
+    try {
+
+      const res = await fetch(
+        `${API_URL}/api/auth/me`,
+        {
+          credentials:"include",
+        }
+      );
+
+
+      if(res.ok){
+
+        setIsAuthenticated(true);
+
+      }
+
+    } catch(error){
+
+      console.error(error);
+
     }
-  }, [isAuthenticated]);
+
+  };
+
+
+  checkSession();
+
+}, []);
+
+useEffect(() => {
+  if (isAuthenticated) {
+    void loadContacts(1);
+  }
+}, [isAuthenticated]);
 
 
 const handleLogin = async (event: React.FormEvent) => {

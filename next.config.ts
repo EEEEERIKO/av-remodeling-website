@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
         "'self'",
 
         // Backend 
-        "API_URL",
+        API_URL || "",
         
 
         // Analytics

@@ -26,10 +26,16 @@ export async function GET(request: NextRequest) {
       url.searchParams.set("limit", String(limit));
     }
 
-    const response = await fetch(url.toString(), {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
+    const response = await fetch(url.toString(),{
+
+        method:"GET",
+
+        headers:{
+            Accept:"application/json",
+            Cookie: request.headers.get("cookie") ?? "",
+        }
+
+    })
 
     const payload = await response.json().catch(() => null);
     const contacts = Array.isArray(payload?.data) ? payload.data : [];

@@ -70,7 +70,7 @@ export default function ContactPage() {
                             <section className="lg:col-span-7">
                                 <div className="bg-surface-container-lowest p-8 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_20px_40px_rgba(0,12,30,0.04)]">
                                     <header className="mb-12">
-                                        <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-tertiary tracking-tight mb-4">Request a Free Estimate</h2>
+                                        <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-4">Request a Free Estimate</h2>
                                         <p className="text-on-surface-variant text-lg leading-relaxed">Tell us about your project and we'll get back to you as soon as possible.</p>
                                     </header>
 

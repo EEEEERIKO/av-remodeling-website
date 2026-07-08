@@ -49,9 +49,8 @@ export function SiteHeader({ active }: SiteHeaderProps) {
         </div>
         <div className="flex items-center gap-3">
           <TrackableLink
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="tel:+16788864393"
+            aria-label="Call AV Remodeling"
             className="hidden glow-loop cta-loop btn-primary px-6 py-2.5 text-sm font-medium md:inline-flex"
             action="schedule"
           >

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export default function MultiStepForm() {
-    const TOTAL_STEPS = 5;
+    const TOTAL_STEPS = 6;
     const contactApiUrl = "/api/contact";
     const createEmptyForm = () => ({
         fullName: "",
@@ -31,8 +31,11 @@ export default function MultiStepForm() {
     const previews = useRef<string[]>([]);
 
     useEffect(() => {
+        validateStep(step);
+    }, [form]);
+
+    useEffect(() => {
         return () => {
-            // revoke object URLs
             previews.current.forEach((url) => URL.revokeObjectURL(url));
         };
     }, []);
@@ -40,10 +43,44 @@ export default function MultiStepForm() {
     const validateStep = (s: number) => {
         const e: Record<string, string> = {};
         if (s === 0) {
-            if (!form.fullName.trim()) e.fullName = "Please enter your full name.";
-            if (!form.phone.trim()) e.phone = "Please enter a phone number.";
-            if (!form.email.trim()) e.email = "Please enter an email address.";
-            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Enter a valid email.";
+            const fullName = form.fullName.trim();
+            const phone = form.phone.trim();
+            const email = form.email.trim().toLowerCase();
+
+            if (!fullName) {
+                e.fullName = "Please enter your full name.";
+            }
+            else if (fullName.length < 3) {
+                e.fullName = "Your name is too short.";
+            }
+            else if (fullName.length > 60) {
+                e.fullName = "Name is too long.";
+            }
+            else if (!/^[A-Za-zÀ-ÿ' -]+$/.test(fullName)) {
+                e.fullName = "Only letters are allowed.";
+            }
+            else if (fullName.split(/\s+/).length < 2) {
+                e.fullName = "Please enter your first and last name.";
+            }
+
+            if (!phone) {
+                e.phone = "Please enter a phone number.";
+            } else if (!/^[0-9+\-()\s]+$/.test(phone)) {
+                e.phone = "Phone number can only contain numbers.";
+            } else if (phone.replace(/\D/g, "").length < 7) {
+                e.phone = "Phone number is too short.";
+            } else if (phone.replace(/\D/g, "").length > 15) {
+                e.phone = "Phone number is too long.";
+            }     
+            if (!email) {
+                e.email = "Please enter an email address.";
+            }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                e.email = "Enter a valid email address.";
+            }
+            if (form.address.trim() && form.address.trim().length < 5) {
+                e.address = "Address is too short.";
+            }
         }
         if (s === 1) {
     if (!form.areas.length) {
@@ -65,8 +102,15 @@ export default function MultiStepForm() {
         }
     }
     if (s === 3) {
-        if (!form.description.trim()) {
+        const description = form.description.trim();
+        if (!description) {
             e.description = "Please describe your project.";
+        }
+        else if (description.length < 30) {
+            e.description = "Please provide more details about your project.";
+        }
+        else if (description.length > 1000) {
+            e.description = "Description is too long.";
         }
     }
     if (s === 4) {
@@ -161,10 +205,9 @@ export default function MultiStepForm() {
             previews.current.forEach((url) => URL.revokeObjectURL(url));
             previews.current = [];
             setPhotos([]);
-            setForm(createEmptyForm());
             setErrors({});
-            setStep(0);
             setSuccess(true);
+            setStep(5);
         } catch (err) {
             console.error(err);
             setErrors({ submit: 'Submission failed. Please try again later.' });
@@ -173,7 +216,10 @@ export default function MultiStepForm() {
         }
     };
 
-    const stepPercent = Math.round(((step + 1) / TOTAL_STEPS) * 100);
+const stepPercent =
+    step === TOTAL_STEPS - 1
+        ? 100
+        : Math.round((step / (TOTAL_STEPS - 1)) * 100);
 
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -191,7 +237,7 @@ export default function MultiStepForm() {
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${step * 100}%)` }}>
                     {/* Step 1 */}
                     <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
-                        <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">Contact Information</h3>
+                        <h3 className="font-headline font-bold text-xl text-primary border-b border-outline-variant/20 pb-2 mb-4">Contact Information</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-secondary">Full Name *</label>
@@ -211,16 +257,29 @@ export default function MultiStepForm() {
                         </div>
                         <div className="mt-6">
                             <label className="block text-xs font-bold uppercase tracking-widest text-secondary">Property Address</label>
-                            <input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} className="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 apple-input font-body text-on-surface" placeholder="123 Street Name, City, State" />
+                            <input
+                                value={form.address}
+                                onChange={(e) => setForm({ ...form, address: e.target.value })}
+                                className="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 apple-input font-body text-on-surface"
+                                placeholder="123 Street Name, City, State"
+                                aria-invalid={!!errors.address}
+                            />    
+                            {errors.address && (
+                                <div className="text-sm text-destructive mt-1">
+                                    {errors.address}
+                                </div>
+                            )}                    
                         </div>
                         <div className="mt-6 flex justify-end">
                             <button type="button" onClick={handleNext} className="bg-primary text-surface-container-lowest py-3 px-6 rounded-xl font-headline font-bold shadow transition-transform hover:-translate-y-1">Continue →</button>
                         </div>
                     </section>
 
+                    
+
                     {/* Step 2 */}
                     <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
-                        <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">Project Information</h3>
+                        <h3 className="font-headline font-bold text-xl text-primary border-b border-outline-variant/20 pb-2 mb-4">Project Information</h3>
                         <div className="space-y-4">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-secondary">What area would you like to renovate? *</label>
@@ -245,13 +304,13 @@ export default function MultiStepForm() {
                     </section>
 
                     {/* Step 3 */}
-                <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
+                    <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
 
-                    <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">
+                        <h3 className="font-headline font-bold text-xl text-primary border-b border-outline-variant/20 pb-2 mb-4">
                         Project Information
-                    </h3>
+                        </h3>
 
-                    <div>
+                        <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-secondary">When are you looking to start? *</label>
                                 <div className="flex flex-wrap gap-3 mt-3">
                                     {['ASAP','1 Week','2 Weeks','1 Month','1–3 Months'].map((t) => (
@@ -287,7 +346,7 @@ export default function MultiStepForm() {
                                 </div>
                             </div>
 
-                    <div className="mt-6 flex justify-between">
+                        <div className="mt-6 flex justify-between">
 
                         <button
                             type="button"
@@ -305,16 +364,21 @@ export default function MultiStepForm() {
                             Continue →
                         </button>
 
-                    </div>
+                        </div>
 
-                </section>
+                    </section>
 
                     {/* Step 4 */}
                     <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
-                        <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">Project Details</h3>
+                        <h3 className="font-headline font-bold text-xl text-primary border-b border-outline-variant/20 pb-2 mb-4">Project Details</h3>
                         <div>
                             <label className="block text-xs font-bold uppercase tracking-widest text-secondary">Please describe your project</label>
                             <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} className="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 apple-input font-body text-on-surface mt-3" placeholder="Tell us what you'd like to renovate..." rows={5} />
+                            {errors.description && (
+                                <div className="text-sm text-destructive mt-2">
+                                    {errors.description}
+                                </div>
+                            )}
                         </div>
 
                         
@@ -332,7 +396,7 @@ export default function MultiStepForm() {
 
                     {/* Step 5 */}
                     <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
-                        <h3 className="font-headline font-bold text-xl text-tertiary border-b border-outline-variant/20 pb-2 mb-4">Referral</h3>
+                        <h3 className="font-headline font-bold text-xl text-primary border-b border-outline-variant/20 pb-2 mb-4">Referral</h3>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                             {['Google Search','Instagram','Word of Mouth','Yard Sign','Trucks','Other'].map((r) => (
                                 <label key={r} className={`flex items-center gap-2 cursor-pointer ${form.referral === r ? 'font-bold' : ''}`}>
@@ -355,7 +419,49 @@ export default function MultiStepForm() {
                             </div>
                         </div>
                         {errors.submit && <div className="text-sm text-destructive mt-4">{errors.submit}</div>}
-                        {success && <div className="text-sm text-success mt-4">Thanks — your request was submitted successfully.</div>}
+                    </section>
+
+                    {/* Step 6 */}
+                    <section className="w-full min-w-full flex-shrink-0 px-1 md:px-0">
+
+                        <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
+
+                            <div className="mb-6 text-7xl">
+                                ✅
+                            </div>
+
+                            <h2 className="font-headline text-4xl font-bold text-primary">
+                                Request Submitted!
+                            </h2>
+
+                            <p className="mt-6 max-w-xl text-on-surface-variant">
+                                Thank you for contacting AV Remodeling.
+                                Your request has been received successfully.
+                                One of our specialists will contact you as soon as possible.
+                            </p>
+
+                            <button
+                                type="button"
+                                className="mt-10 rounded-xl bg-primary px-8 py-4 font-headline font-bold text-surface-container-lowest"
+                                onClick={() => {
+
+                                    setForm(createEmptyForm());
+
+                                    setPhotos([]);
+
+                                    setErrors({});
+
+                                    setSuccess(false);
+
+                                    setStep(0);
+
+                                }}
+                            >
+                                Submit another request
+                            </button>
+
+                        </div>
+
                     </section>
                 </div>
             </div>

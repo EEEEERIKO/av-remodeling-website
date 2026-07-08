@@ -61,16 +61,9 @@ export default function DataPage() {
     setError("");
 
     try {
-      const res = await fetch(
-        `${API_URL}/api/contact?page=${nextPage}&limit=${PAGE_SIZE}`,
-        {
-            method: "GET",
-            credentials: "include",
-            headers: {
-            Accept: "application/json",
-            },
-        }
-        );
+      const res = await fetch("/api/contact?page=1&limit=10", {
+                        credentials: "include",
+                        });
       const payload = await res.json();
 
       if (!res.ok || !payload?.success) {
@@ -94,12 +87,9 @@ export default function DataPage() {
 
     try {
 
-      const res = await fetch(
-        `${API_URL}/api/auth/me`,
-        {
-          credentials:"include",
-        }
-      );
+      const res = await fetch("/api/auth/me", {
+            credentials: "include",
+        });
 
 
       if(res.ok){
@@ -134,9 +124,9 @@ const handleLogin = async (event: React.FormEvent) => {
   setIsLoggingIn(true);
 
   try {
-    const res = await fetch(`${API_URL}/api/login`, {
-      method: "POST",
-      credentials: "include",
+    const res = await fetch("/api/login", {
+        method: "POST",
+        credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -164,10 +154,10 @@ const handleLogin = async (event: React.FormEvent) => {
 
 
 const handleLogout = async () => {
-  await fetch(`${API_URL}/api/logout`, {
-    method: "POST",
-    credentials: "include",
-  });
+  await fetch("/api/logout", {
+  method: "POST",
+  credentials: "include",
+});
 
   setIsAuthenticated(false);
   setContacts([]);

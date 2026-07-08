@@ -69,7 +69,10 @@ export async function POST(request: NextRequest) {
     const response = await fetch(backendUrl, {
       method: "POST",
       body: formData,
-      headers: { Accept: "application/json" },
+      headers: {
+        Accept: "application/json",
+        Cookie: request.headers.get("cookie") ?? "",
+    },
     });
 
     const responseText = await response.text();

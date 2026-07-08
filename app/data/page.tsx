@@ -61,9 +61,12 @@ export default function DataPage() {
     setError("");
 
     try {
-      const res = await fetch("/api/contact?page=1&limit=10", {
-                        credentials: "include",
-                        });
+      const res = await fetch(
+        `/api/contact?page=${nextPage}&limit=${PAGE_SIZE}`,
+        {
+            credentials: "include",
+        }
+    );
       const payload = await res.json();
 
       if (!res.ok || !payload?.success) {

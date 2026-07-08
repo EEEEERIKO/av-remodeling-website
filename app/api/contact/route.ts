@@ -27,14 +27,11 @@ export async function GET(request: NextRequest) {
     }
 
     const response = await fetch(url.toString(),{
-
         method:"GET",
-
         headers:{
             Accept:"application/json",
             Cookie: request.headers.get("cookie") ?? "",
         }
-
     })
 
     const payload = await response.json().catch(() => null);

@@ -7,7 +7,7 @@ import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
 import { portfolioImages } from "../data/portfolio-images";
 
-type FilterType = "all" | "bathrooms" | "exteriors" | "kitchens" | "living-rooms";
+type FilterType = "all" | "bathrooms"| "exteriors" | "kitchens"
 
 interface ImageItem {
   src: string;
@@ -16,35 +16,25 @@ interface ImageItem {
 }
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/images/portfolio/bathrooms/01.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/bathrooms/02.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/04.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/05.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/06.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/bathrooms/07.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/bathrooms/10.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/11.jpg": { width: 1203, height: 1600 },
-  "/images/portfolio/bathrooms/12.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/bathrooms/13.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/03.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/bathrooms/04.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/05.jpg": { width: 1080, height: 1350 },
+  "/images/portfolio/bathrooms/06.jpg": { width: 1200, height: 1600 },
+  "/images/portfolio/exteriors/01.jpg": { width: 1320, height: 1590 },
   "/images/portfolio/exteriors/02.jpg": { width: 1320, height: 1590 },
+  "/images/portfolio/exteriors/03.jpg": { width: 1320, height: 1590 },
   "/images/portfolio/exteriors/04.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/05.jpg": { width: 1200, height: 1600 },
   "/images/portfolio/exteriors/06.jpg": { width: 720, height: 960 },
-  "/images/portfolio/exteriors/07.jpg": { width: 344, height: 256 },
-  "/images/portfolio/exteriors/10.jpg": { width: 1200, height: 1600 },
-  "/images/portfolio/exteriors/11.jpg": { width: 1080, height: 1440 },
-  "/images/portfolio/exteriors/12.jpg": { width: 1080, height: 1440 },
-  "/images/portfolio/exteriors/13.jpg": { width: 1080, height: 1440 },
-  "/images/portfolio/exteriors/14.jpg": { width: 1080, height: 1350 },
   "/images/portfolio/kitchens/01.jpg": { width: 1280, height: 1600 },
   "/images/portfolio/kitchens/02.jpg": { width: 1280, height: 1600 },
   "/images/portfolio/kitchens/03.jpg": { width: 1280, height: 1600 },
   "/images/portfolio/kitchens/04.jpg": { width: 1600, height: 837 },
   "/images/portfolio/kitchens/05.jpg": { width: 1600, height: 840 },
   "/images/portfolio/kitchens/06.jpg": { width: 1280, height: 1600 },
-  "/images/portfolio/kitchens/07.jpg": { width: 1280, height: 1600 },
-  "/images/portfolio/living-rooms/01.jpg": { width: 1080, height: 1350 },
-  "/images/portfolio/living-rooms/02.jpg": { width: 1080, height: 1350 },
-};
+  };
 
 const isPortraitImage = (src: string): boolean => {
   const dims = imageDimensions[src];
@@ -69,7 +59,6 @@ const allImagesUnshuffled: ImageItem[] = [
   ...portfolioImages.bathrooms.map((src) => ({ src, category: "bathrooms" as FilterType, isPortrait: isPortraitImage(src) })),
   ...portfolioImages.exteriors.map((src) => ({ src, category: "exteriors" as FilterType, isPortrait: isPortraitImage(src) })),
   ...portfolioImages.kitchens.map((src) => ({ src, category: "kitchens" as FilterType, isPortrait: isPortraitImage(src) })),
-  ...portfolioImages.livingRooms.map((src) => ({ src, category: "living-rooms" as FilterType, isPortrait: isPortraitImage(src) })),
 ];
 
 const allImages = shuffleArray(allImagesUnshuffled);
@@ -79,7 +68,6 @@ const filters = [
   { id: "bathrooms", label: "Bathrooms" },
   { id: "exteriors", label: "Exteriors" },
   { id: "kitchens", label: "Kitchens" },
-  { id: "living-rooms", label: "Living Rooms" },
 ];
 
 const isFilterType = (value: string): value is FilterType =>
@@ -240,21 +228,14 @@ export default function GalleryClientPage() {
           </p>
           <div className="flex flex-col justify-center gap-4 md:flex-row">
             <a
-              href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
-              target="_blank"
+              href="/contact"
+              //target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl inline-block text-center"
             >
               Request a Consultation
             </a>
-            <a
-              href="/av-remodeling-brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-outline-variant px-10 py-4 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:bg-white inline-block text-center"
-            >
-              View the Brochure
-            </a>
+            
           </div>
           <div className="mt-12 text-center">
             <a href="/about-us" className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface-container-low">

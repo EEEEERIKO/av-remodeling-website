@@ -280,8 +280,8 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
-                  target="_blank"
+                  href="/contact"
+                  //target="_blank"
                   rel="noopener noreferrer"
                   className="cta-loop inline-block rounded-full bg-primary-container px-10 py-4 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300"
                 >
@@ -526,8 +526,8 @@ export default function Home() {
             <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-white font-body">
               From custom kitchens to complete residential and commercial renovations, AV Remodeling creates exceptional spaces built to last.            </p>
             <a
-              href="https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20I’m%20interested%20in%20your%20remodeling%20services.%20I’d%20love%20to%20discuss%20my%20project%20and%20get%20more%20information."
-              target="_blank"
+              href="/contact"
+              //target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-primary-container px-12 py-5 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300 hover:scale-[0.98] hover:brightness-110 electric-glow"
             >

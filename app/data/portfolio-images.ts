@@ -2,11 +2,11 @@ const buildPaths = (category: string, count: number) =>
   Array.from({ length: count }, (_, index) => `/images/portfolio/${category}/${String(index + 1).padStart(2, "0")}.jpg`);
 
 export const portfolioImages = {
-  bathrooms: buildPaths("bathrooms", 7),
+  bathrooms: buildPaths("bathrooms", 6),
   bedrooms: buildPaths("bedrooms", 1),
-  exteriors: buildPaths("exteriors", 4),
-  kitchens: buildPaths("kitchens", 5),
-  livingRooms: buildPaths("living-rooms", 1),
+  exteriors: buildPaths("exteriors", 6),
+  kitchens: buildPaths("kitchens", 6),
+  livingRooms: buildPaths("living-rooms", 0),
 } as const;
 
 export const featuredImages = {

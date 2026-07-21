@@ -6,7 +6,7 @@ import { MdArchitecture, MdArrowForward, MdForum, MdVerifiedUser } from "react-i
 import { featuredImages } from "../data/portfolio-images";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
-import aboutHeroImage from "../../services/about us hero image.png";
+import aboutHeroImage from "../../public/images/alejandro/alejandro-image.svg";
 import beforeAfterImage from "../../beforeafter.jpg";
 import { SITE_URL, breadcrumbSchema } from "../lib/seo";
 
@@ -76,7 +76,7 @@ export default function AboutPage() {
                 src={aboutHeroImage}
                 alt="Remodeling project detail showing clean finishes and modern materials"
                 fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 70vw, 100vw"
               />
             </div>
           </div>

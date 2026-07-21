@@ -68,7 +68,7 @@ const featuredServices = [
     title: "Pressure Washing",
     description:
       "We remove dirt, grime, mold, and buildup from driveways, siding, patios, decks, and exterior surfaces.",
-    badge: "Always Included",
+    badge: "Services",
     cta: "Explore Pressure Washing",
     href: "/contact",
     image: servicePressureWashingImage,

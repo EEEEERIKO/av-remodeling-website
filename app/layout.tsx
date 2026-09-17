@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import { Suspense } from "react";
 import MetaPixel from "./components/MetaPixel";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 import { ScrollAnimations } from "./components/scroll-animations";
 import RouteScrollReset from "./components/route-scroll-reset";
 import CookieBanner from "./components/CookieBanner";
@@ -71,11 +84,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-M91JGBERT1";
-  const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
-
   return (
-    <html lang="en-US" className="scroll-smooth h-full">
+    <html lang="en-US" className={`scroll-smooth h-full ${playfair.variable} ${montserrat.variable}`}>
       <body className="min-h-full flex flex-col bg-surface text-on-surface antialiased" suppressHydrationWarning>
         <Suspense fallback={null}>
           <RouteScrollReset />

@@ -1,13 +1,12 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { GA_ID, updateConsent, gtagConfigSendPageview, ensureDataLayer } from '../lib/gtag';
 import { useCookieConsent } from '../hooks/useCookieConsent';
 
 export function Analytics() {
   const { consent } = useCookieConsent();
-  const [loadedGtag, setLoadedGtag] = useState(false);
 
   useEffect(() => {
     ensureDataLayer();
@@ -42,16 +41,17 @@ export function Analytics() {
   return (
     <>
       {/* Load gtag.js once the page is interactive - the inline default consent is set before this in layout */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-        onLoad={() => setLoadedGtag(true)}
-      />
+      {consent?.analytics_storage === 'granted' ? (
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="lazyOnload"
+        />
+      ) : null}
 
       {/* Meta Pixel - load only when ad_storage is granted */}
       {consent?.ad_storage === 'granted' ? (
         <>
-          <Script id="meta-pixel-loader" strategy="afterInteractive">
+          <Script id="meta-pixel-loader" strategy="lazyOnload">
             {`!function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};

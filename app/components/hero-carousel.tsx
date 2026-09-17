@@ -70,6 +70,7 @@ export function HeroCarousel() {
               alt={slide.alt}
               fill
               preload={slideIndex === 0}
+              fetchPriority={slideIndex === 0 ? "high" : "auto"}
               loading={slideIndex === 0 ? "eager" : "lazy"}
               quality={75}
               sizes="100vw"

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -54,9 +53,9 @@
   --color-inverse-on-surface: #2c3137;
   --color-inverse-primary: #02C7FF;
   --color-surface-tint: #02C7FF;
-  --font-headline: "Playfair Display", serif;
-  --font-body: "Montserrat", sans-serif;
-  --font-label: "Montserrat", sans-serif;
+  --font-headline: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  --font-label: var(--font-montserrat), Arial, Helvetica, sans-serif;
   --radius-md: 0.25rem;
   --radius-xl: 0.75rem;
   --radius-full: 9999px;

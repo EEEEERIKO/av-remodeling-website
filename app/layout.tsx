@@ -91,7 +91,7 @@ export default function RootLayout({
 
         {/* Initialize dataLayer and default consent BEFORE loading gtag.js. This ensures Consent Mode v2 defaults are applied. */}
         <Script id="gtag-consent-default" strategy="beforeInteractive">
-          {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('consent','default', {analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});`}
+          {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('consent','default', {analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'});`}
         </Script>
 
         {/* Analytics component will load gtag.js and Meta Pixel conditionally based on consent */}

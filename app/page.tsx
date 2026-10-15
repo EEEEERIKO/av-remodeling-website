@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
 import { MdBathtub, MdHomeWork, MdKitchen } from "react-icons/md";
 import { featuredImages } from "./data/portfolio-images";
 import { HeroCarousel } from "./components/hero-carousel";
 import { SiteFooter } from "./components/site-footer";
 import { SiteHeader } from "./components/site-header";
+import TrackableLink from "./components/TrackableLink";
 import servicePaintingImage from "../services/Interior and Exterior Painting Miniature.png";
 import servicePressureWashingImage from "../services/Pressure Washing Miniature.png";
 import serviceFlooringImage from "../services/Flooring Miniature.png";
@@ -279,20 +279,24 @@ export default function Home() {
                 From complete home and commercial renovations to single-area transformations, AV Remodeling brings your vision to life through exceptional craftsmanship, innovative design, and a commitment to quality in every detail.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
+                <TrackableLink
                   href="/contact"
                   //target="_blank"
                   rel="noopener noreferrer"
                   className="cta-loop inline-block rounded-full bg-primary-container px-10 py-4 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300"
+                  action="lead"
+                  params={{ placement: "home_hero", content_name: "estimate_request" }}
                 >
                   Request Your Estimate
-                </a>
-                <a
+                </TrackableLink>
+                <TrackableLink
                   href="/gallery"
                   className="inline-block rounded-full border border-outline-variant/30 bg-surface/30 px-10 py-4 font-label text-lg font-bold text-white backdrop-blur-md transition-all duration-300"
+                  action="outbound"
+                  params={{ placement: "home_hero", content_name: "gallery" }}
                 >
                   Explore Our Work
-                </a>
+                </TrackableLink>
               </div>
             </div>
           </div>
@@ -525,14 +529,16 @@ export default function Home() {
             </h2>
             <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-white font-body">
               From custom kitchens to complete residential and commercial renovations, AV Remodeling creates exceptional spaces built to last.            </p>
-            <a
+            <TrackableLink
               href="/contact"
               //target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded-full bg-primary-container px-12 py-5 font-label text-lg font-bold text-on-primary-fixed transition-all duration-300 hover:scale-[0.98] hover:brightness-110 electric-glow"
+              action="lead"
+              params={{ placement: "home_footer_cta", content_name: "consultation" }}
             >
               Start Your Consultation
-            </a>
+            </TrackableLink>
           </div>
         </section>
 

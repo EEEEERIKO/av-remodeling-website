@@ -1,5 +1,6 @@
 import { MdMail, MdPhone } from "react-icons/md";
 import { FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import Link from "next/link";
 import TrackableLink from './TrackableLink';
 
 export function SiteFooter() {
@@ -16,7 +17,7 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
         <div>
           <h5 className="mb-6 text-xs uppercase tracking-widest text-on-surface font-label">Navigation</h5>
           <ul className="space-y-4 text-xs uppercase tracking-widest font-label">
-            <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/">Home</a></li>
+            <li><Link className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/">Home</Link></li>
             <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/gallery">Gallery</a></li>
             <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/about-us">About Us</a></li>
             <li><a className="text-on-surface-variant transition-colors duration-300 hover:text-primary" href="/contact">Contact</a></li>
@@ -31,12 +32,12 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
           </ul>
         </div>
         <div>
-          <h5 className="mb-6 text-xs uppercase tracking-widest text-on-surface font-label">Let's Connect
+          <h5 className="mb-6 text-xs uppercase tracking-widest text-on-surface font-label">Let&apos;s Connect
 
           </h5>
           <div className="flex justify-center gap-4 md:justify-start">
-            <a className="text-on-surface-variant transition-colors hover:text-primary" href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" title="Instagram"><FaInstagram className="text-2xl" /></a>
-            <a className="text-on-surface-variant transition-colors hover:text-primary" href="https://www.youtube.com/@avremodelingatl8105/featured" target="_blank" rel="noopener noreferrer" title="YouTube"><FaYoutube className="text-2xl" /></a>
+            <TrackableLink className="text-on-surface-variant transition-colors hover:text-primary" href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" title="Instagram" action="outbound" params={{ placement: "footer", content_name: "instagram" }}><FaInstagram className="text-2xl" /></TrackableLink>
+            <TrackableLink className="text-on-surface-variant transition-colors hover:text-primary" href="https://www.youtube.com/@avremodelingatl8105/featured" target="_blank" rel="noopener noreferrer" title="YouTube" action="outbound" params={{ placement: "footer", content_name: "youtube" }}><FaYoutube className="text-2xl" /></TrackableLink>
             <TrackableLink
               className="text-on-surface-variant transition-colors hover:text-primary"
               href={whatsappLink}
@@ -44,15 +45,17 @@ const whatsappLink = "https://wa.me/16788864393?text=Hello%20AV%20Remodeling,%20
               rel="noopener noreferrer"
               title="WhatsApp"
               action="whatsapp"
+              params={{ placement: "footer", content_name: "whatsapp" }}
             >
               <FaWhatsapp className="text-2xl" />
             </TrackableLink>
-            <a className="text-on-surface-variant transition-colors hover:text-primary" href="mailto:avremodeling37@gmail.com" title="Email"><MdMail className="text-2xl" /></a>
+            <TrackableLink className="text-on-surface-variant transition-colors hover:text-primary" href="mailto:avremodeling37@gmail.com" title="Email" action="email" params={{ placement: "footer", content_name: "email" }}><MdMail className="text-2xl" /></TrackableLink>
             <TrackableLink
               className="text-on-surface-variant transition-colors hover:text-primary"
               href="tel:+16788864393"
               title="Phone"
               action="phone"
+              params={{ placement: "footer", content_name: "phone" }}
             >
               <MdPhone className="text-2xl" />
             </TrackableLink>

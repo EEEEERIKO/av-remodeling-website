@@ -12,8 +12,10 @@ export function CookieBanner() {
   useEffect(() => {
     // Only show the banner if consent is not set
     if (consent === null) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setOpen(true);
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setOpen(false);
     }
   }, [consent]);

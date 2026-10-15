@@ -62,7 +62,7 @@ export default function ContactPage() {
                                      Start a Conversation About Your Home
                                 </h1>
                                 <p className="max-w-xl text-lg leading-relaxed text-on-surface-variant">
-                                     Share a few details about your project and we’ll help shape the next step with clarity, care, and a more refined process.
+                                     Share a few details about your project and we&apos;ll help shape the next step with clarity, care, and a more refined process.
                                 </p>
                             </header>
 
@@ -71,7 +71,7 @@ export default function ContactPage() {
                                 <div className="bg-surface-container-lowest p-8 md:p-12 rounded-xl border border-outline-variant/10 shadow-[0_20px_40px_rgba(0,12,30,0.04)]">
                                     <header className="mb-12">
                                         <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary tracking-tight mb-4">Request a Free Estimate</h2>
-                                        <p className="text-on-surface-variant text-lg leading-relaxed">Tell us about your project and we'll get back to you as soon as possible.</p>
+                                        <p className="text-on-surface-variant text-lg leading-relaxed">Tell us about your project and we&apos;ll get back to you as soon as possible.</p>
                                     </header>
 
                                     <MultiStepForm />
@@ -99,6 +99,7 @@ export default function ContactPage() {
                                                     aria-label="Send a text message"
                                                     className="inline-flex items-center justify-center gap-3 rounded-lg border border-outline-variant bg-surface px-6 py-3 font-headline text-sm font-bold tracking-wide text-primary transition-all hover:-translate-y-1 hover:shadow-2xl"
                                                     action="phone"
+                                                    params={{ placement: "contact_page", content_name: "sms" }}
                                                 >
                                                     <MdSms className="h-5 w-5 shrink-0" />
                                                     Text Us
@@ -132,15 +133,15 @@ export default function ContactPage() {
                                         <div className="space-y-4 leading-relaxed text-on-surface-variant">
                                             <div className="flex items-start gap-3">
                                                 <MdEmail className="mt-1 text-xl text-primary" />
-                                                <a href="mailto:avremodeling37@gmail.com" className="transition-colors hover:text-primary">avremodeling37@gmail.com</a>
+                                                <TrackableLink href="mailto:avremodeling37@gmail.com" className="transition-colors hover:text-primary" action="email" params={{ placement: "contact_page", content_name: "email" }}>avremodeling37@gmail.com</TrackableLink>
                                             </div>
                                             <div className="flex items-start gap-3">
                                                 <FaInstagram className="mt-1 text-xl text-primary" />
-                                                <a href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-primary">@avremodelingatl</a>
+                                                <TrackableLink href="https://www.instagram.com/avremodelingatl/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-primary" action="outbound" params={{ placement: "contact_page", content_name: "instagram" }}>@avremodelingatl</TrackableLink>
                                             </div>
                                             <div className="flex items-start gap-3">
                                                 <MdPhone className="mt-1 text-xl text-primary" />
-                                                <a href="tel:16788864393" className="transition-colors hover:text-primary">Alejandro Vargas: 678-886-4393</a>
+                                                <TrackableLink href="tel:16788864393" className="transition-colors hover:text-primary" action="phone" params={{ placement: "contact_page", content_name: "phone" }}>Alejandro Vargas: 678-886-4393</TrackableLink>
                                             </div>
                                         </div>
                                     </div>

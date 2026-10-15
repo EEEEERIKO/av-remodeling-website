@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { trackLead } from "../lib/metaPixel";
 
 export default function MultiStepForm() {
     const TOTAL_STEPS = 6;
@@ -29,10 +30,6 @@ export default function MultiStepForm() {
 
     const [photos, setPhotos] = useState<File[]>([]);
     const previews = useRef<string[]>([]);
-
-    useEffect(() => {
-        validateStep(step);
-    }, [form]);
 
     useEffect(() => {
         return () => {
@@ -126,6 +123,13 @@ export default function MultiStepForm() {
         return Object.keys(e).length === 0;
     };
 
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        validateStep(step);
+        // Validation is intentionally synchronized with form edits.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [form, step]);
+
     const handleNext = () => {
         if (validateStep(step)) setStep((p) => Math.min(p + 1, TOTAL_STEPS - 1));
     };
@@ -208,6 +212,12 @@ export default function MultiStepForm() {
             setErrors({});
             setSuccess(true);
             setStep(5);
+            void trackLead({
+                content_name: "estimate_request",
+                content_category: "remodeling_lead",
+                method: "website_form",
+                placement: "contact_page",
+            });
         } catch (err) {
             console.error(err);
             setErrors({ submit: 'Submission failed. Please try again later.' });

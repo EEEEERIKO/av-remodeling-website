@@ -43,6 +43,7 @@ export function useCookieConsent() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const stored = readConsentFromStorage();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsent(stored ?? null);
   }, []);
 

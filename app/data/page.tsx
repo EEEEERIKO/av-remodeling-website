@@ -116,6 +116,7 @@ export default function DataPage() {
 
 useEffect(() => {
   if (isAuthenticated) {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     void loadContacts(1);
   }
 }, [isAuthenticated]);

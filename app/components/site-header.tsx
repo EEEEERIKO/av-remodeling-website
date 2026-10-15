@@ -53,6 +53,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             aria-label="Call AV Remodeling"
             className="hidden glow-loop cta-loop btn-primary px-6 py-2.5 text-sm font-medium md:inline-flex"
             action="schedule"
+            params={{ placement: "header", content_name: "phone" }}
           >
             CALL US NOW
           </TrackableLink>
@@ -79,6 +80,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
             rel="noopener noreferrer"
             className="glow-loop cta-loop mt-2 inline-flex items-center justify-center rounded-full bg-primary-container px-4 py-3 font-label text-sm font-medium text-on-primary-fixed"
             action="schedule"
+            params={{ placement: "mobile_header", content_name: "whatsapp" }}
             onClick={() => closeMenu()}
           >
             Request a Consultation

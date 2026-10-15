@@ -6,21 +6,21 @@ import {
   trackContact,
   trackSchedule,
   trackLead,
-  trackFormSubmit,
-  trackWhatsAppClick,
-  trackPhoneCallClick,
+  trackCustom,
+  type MetaEventParams,
 } from '../lib/metaPixel';
 
-type TrackAction = 'contact' | 'schedule' | 'lead' | 'form' | 'whatsapp' | 'phone';
+type TrackAction = 'contact' | 'schedule' | 'lead' | 'form' | 'whatsapp' | 'phone' | 'email' | 'download' | 'outbound';
 
 type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   action?: TrackAction;
-  params?: Record<string, any>;
+  params?: MetaEventParams;
 };
 
-export default function TrackableLink({ action, params, children, ...rest }: Props) {
-  const handleClick = () => {
+export default function TrackableLink({ action, params, children, href, onClick, ...rest }: Props) {
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(event);
     try {
       if (!action) return;
       switch (action) {
@@ -34,7 +34,7 @@ export default function TrackableLink({ action, params, children, ...rest }: Pro
           trackLead(params);
           break;
         case 'form':
-          trackFormSubmit(params);
+          trackCustom('FormStart', params);
           break;
         case 'whatsapp':
           trackContact({ ...(params || {}), method: 'whatsapp' });
@@ -42,25 +42,34 @@ export default function TrackableLink({ action, params, children, ...rest }: Pro
         case 'phone':
           trackContact({ ...(params || {}), method: 'phone' });
           break;
+        case 'email':
+          trackContact({ ...(params || {}), method: 'email' });
+          break;
+        case 'download':
+          trackCustom('BrochureDownload', params);
+          break;
+        case 'outbound':
+          trackCustom('OutboundClick', params);
+          break;
         default:
           break;
       }
-    } catch (e) {}
+    } catch {}
   };
 
   // If it's an internal link, let Next Link handle it
-  const isInternal = rest.href && rest.href.startsWith('/') && !rest.target;
+  const isInternal = href.startsWith('/') && !rest.target;
 
   if (isInternal) {
     return (
-      <Link {...(rest as any)} href={rest.href} onClick={handleClick}>
+      <Link href={href} {...rest} onClick={handleClick}>
         {children}
       </Link>
     );
   }
 
   return (
-    <a {...rest} onClick={handleClick}>
+    <a href={href} {...rest} onClick={handleClick}>
       {children}
     </a>
   );

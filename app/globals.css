@@ -53,9 +53,9 @@
   --color-inverse-on-surface: #2c3137;
   --color-inverse-primary: #02C7FF;
   --color-surface-tint: #02C7FF;
-  --font-headline: var(--font-playfair), Georgia, serif;
-  --font-body: var(--font-montserrat), Arial, Helvetica, sans-serif;
-  --font-label: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  --font-headline: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-label: Arial, Helvetica, sans-serif;
   --radius-md: 0.25rem;
   --radius-xl: 0.75rem;
   --radius-full: 9999px;

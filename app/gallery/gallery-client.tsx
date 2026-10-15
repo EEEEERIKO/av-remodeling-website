@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { BeforeAfterSlider } from "../components/before-after-slider";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import TrackableLink from "../components/TrackableLink";
 import { portfolioImages } from "../data/portfolio-images";
 
 type FilterType = "all" | "bathrooms"| "exteriors" | "kitchens"
@@ -227,14 +228,16 @@ export default function GalleryClientPage() {
             Beautiful designs, quality craftsmanship, and spaces that feel right for the way you live.
           </p>
           <div className="flex flex-col justify-center gap-4 md:flex-row">
-            <a
+            <TrackableLink
               href="/contact"
               //target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg bg-primary px-10 py-4 font-headline text-sm font-bold tracking-wide text-surface-container-lowest transition-all hover:-translate-y-1 hover:shadow-2xl inline-block text-center"
+              action="lead"
+              params={{ placement: "gallery_cta", content_name: "consultation" }}
             >
               Request a Consultation
-            </a>
+            </TrackableLink>
             
           </div>
           <div className="mt-12 text-center">

@@ -8,32 +8,22 @@ type ConsentPayload = {
   ad_user_data?: 'granted' | 'denied';
   ad_personalization?: 'granted' | 'denied';
 };
+type Gtag = (...args: unknown[]) => void;
 
 declare global {
-  interface Window {
-    dataLayer: any[];
-    gtag?: (...args: any[]) => void;
-  }
+  interface Window { dataLayer: unknown[]; gtag?: Gtag; }
 }
 
 export function ensureDataLayer() {
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(){
-    // @ts-ignore
-    window.dataLayer.push(arguments);
-  } as any;
+  window.gtag = (...args: unknown[]) => { window.dataLayer.push(args); };
 }
 
 export function setDefaultConsent() {
   if (typeof window === 'undefined') return;
   ensureDataLayer();
-  window.gtag?.('consent', 'default', {
-    analytics_storage: 'denied',
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-  });
+  window.gtag?.('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 }
 
 export function updateConsent(payload: ConsentPayload) {

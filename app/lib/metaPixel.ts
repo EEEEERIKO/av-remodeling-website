@@ -1,87 +1,100 @@
-// Client-side helpers for Meta Pixel (fbq) tracking
-type MetaEventName = 'Lead' | 'Contact' | 'Schedule' | 'Form Submit' | 'WhatsApp Click' | 'Phone Call Click';
+'use client';
 
-const STORAGE_KEY = 'av_consent_v1';
-const DEDUPE_WINDOW_MS = 5000; // ignore duplicate identical events within 5s
+export type MetaStandardEvent =
+  | 'PageView'
+  | 'ViewContent'
+  | 'Lead'
+  | 'Contact'
+  | 'Schedule'
+  | 'Search'
+  | 'CompleteRegistration';
 
-function readConsent(): { ad_storage?: string } | null {
-  if (typeof window === 'undefined') return null;
+export type MetaEventName = MetaStandardEvent | (string & {});
+export type MetaEventParams = Record<string, string | number | boolean | undefined>;
+type Fbq = (...args: unknown[]) => void;
+
+const CONSENT_STORAGE_KEY = 'av_consent_v1';
+const ATTRIBUTION_STORAGE_KEY = 'av_meta_attribution_v1';
+const DEDUPE_WINDOW_MS = 5_000;
+const lastFired = new Map<string, number>();
+
+function hasAdConsent() {
+  if (typeof window === 'undefined') return false;
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch (e) {
-    return null;
-  }
-}
-
-function getFbq(): ((...args: any[]) => void) | undefined {
-  if (typeof window === 'undefined') return undefined;
-  return (window as any).fbq as any | undefined;
-}
-
-let lastFired = new Map<string, number>();
-
-function makeKey(eventName: MetaEventName, params?: Record<string, any>) {
-  try {
-    return `${eventName}:${JSON.stringify(params ?? {})}`;
+    return JSON.parse(window.localStorage.getItem(CONSENT_STORAGE_KEY) || 'null')?.ad_storage === 'granted';
   } catch {
-    return eventName;
+    return false;
   }
 }
 
-async function waitForFbq(timeout = 5000) {
+function getFbq(): Fbq | undefined {
+  if (typeof window === 'undefined') return undefined;
+  return (window as Window & { fbq?: Fbq }).fbq;
+}
+
+function getAttributionParams(): MetaEventParams {
+  if (typeof window === 'undefined') return {};
+  try {
+    const saved = JSON.parse(window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) || 'null');
+    if (saved) return saved as MetaEventParams;
+
+    const params = new URLSearchParams(window.location.search);
+    const attribution: MetaEventParams = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
+      const value = params.get(key);
+      if (value) attribution[key] = value.slice(0, 100);
+    });
+    if (Object.keys(attribution).length) {
+      window.sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
+    }
+    return attribution;
+  } catch {
+    return {};
+  }
+}
+
+async function waitForFbq(timeout = 5_000) {
   const start = Date.now();
   while (Date.now() - start < timeout) {
-    if (getFbq()) return getFbq();
-    // small delay
-    // eslint-disable-next-line no-await-in-loop
-    await new Promise((r) => setTimeout(r, 50));
+    const fbq = getFbq();
+    if (fbq) return fbq;
+    await new Promise((resolve) => window.setTimeout(resolve, 50));
   }
   return undefined;
 }
 
-export async function trackEvent(eventName: MetaEventName, params?: Record<string, any>) {
-  if (typeof window === 'undefined') return;
+export async function trackEvent(eventName: MetaEventName, params?: MetaEventParams) {
+  if (!hasAdConsent()) return;
 
-  const consent = readConsent();
-  if (!consent || consent.ad_storage !== 'granted') return; // respect consent
-
-  const key = makeKey(eventName, params);
+  const payload = { ...getAttributionParams(), ...(params || {}) };
+  const key = `${eventName}:${JSON.stringify(payload)}`;
   const now = Date.now();
-  const last = lastFired.get(key) ?? 0;
-  if (now - last < DEDUPE_WINDOW_MS) return; // dedupe quick repeats
-  lastFired.set(key, now);
+  if (now - (lastFired.get(key) ?? 0) < DEDUPE_WINDOW_MS) return;
 
   const fbq = await waitForFbq();
-  if (!fbq) return;
+  if (!fbq || !hasAdConsent()) return;
 
+  lastFired.set(key, now);
   try {
-    fbq('track', eventName, params ?? {});
-  } catch (e) {
-    // swallow errors to avoid breaking UI
-    // optional: console.debug('fbq track error', e);
+    const standardEvents: MetaStandardEvent[] = [
+      'PageView', 'ViewContent', 'Lead', 'Contact', 'Schedule', 'Search', 'CompleteRegistration',
+    ];
+    fbq(standardEvents.includes(eventName as MetaStandardEvent) ? 'track' : 'trackCustom', eventName, payload);
+  } catch {
+    // Analytics must never interrupt navigation or form submission.
   }
 }
 
-export const trackLead = (params?: Record<string, any>) => trackEvent('Lead', params);
-export const trackContact = (params?: Record<string, any>) => trackEvent('Contact', params);
-export const trackSchedule = (params?: Record<string, any>) => trackEvent('Schedule', params);
-export const trackFormSubmit = (params?: Record<string, any>) => trackEvent('Form Submit', params);
-export const trackWhatsAppClick = (params?: Record<string, any>) => trackEvent('WhatsApp Click', params);
-export const trackPhoneCallClick = (params?: Record<string, any>) => trackEvent('Phone Call Click', params);
+export const trackPageView = (params?: MetaEventParams) => trackEvent('PageView', params);
+export const trackViewContent = (params?: MetaEventParams) => trackEvent('ViewContent', params);
+export const trackLead = (params?: MetaEventParams) => trackEvent('Lead', params);
+export const trackContact = (params?: MetaEventParams) => trackEvent('Contact', params);
+export const trackSchedule = (params?: MetaEventParams) => trackEvent('Schedule', params);
+export const trackCustom = (eventName: string, params?: MetaEventParams) => trackEvent(eventName, params);
 
 export function isPixelLoaded() {
-  return !!getFbq();
+  return Boolean(getFbq());
 }
 
-export default {
-  trackEvent,
-  trackLead,
-  trackContact,
-  trackSchedule,
-  trackFormSubmit,
-  trackWhatsAppClick,
-  trackPhoneCallClick,
-  isPixelLoaded,
-};
+const metaPixel = { trackEvent, trackPageView, trackViewContent, trackLead, trackContact, trackSchedule, trackCustom, isPixelLoaded };
+export default metaPixel;
